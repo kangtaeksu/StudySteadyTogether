@@ -5,6 +5,7 @@ import java.io.Serializable;
 public class StudyNote implements Serializable {
 
 	private String sn_num; //노트번호
+	private String sn_title; //노트제목
 	private String sn_contents; //노트 내용
 	private String sn_date; //노트 작성날짜
 	private String g_num; //어떤 그룹의 노트인지 알기위한 그룹고유번호 
@@ -12,9 +13,10 @@ public class StudyNote implements Serializable {
 	
 	public StudyNote() {}
 
-	public StudyNote(String sn_num, String sn_contents, String sn_date, String g_num, String gm_num) {
+	public StudyNote(String sn_num, String sn_title, String sn_contents, String sn_date, String g_num, String gm_num) {
 		super();
 		this.sn_num = sn_num;
+		this.sn_title = sn_title;
 		this.sn_contents = sn_contents;
 		this.sn_date = sn_date;
 		this.g_num = g_num;
@@ -27,6 +29,14 @@ public class StudyNote implements Serializable {
 
 	public void setSn_num(String sn_num) {
 		this.sn_num = sn_num;
+	}
+
+	public String getSn_title() {
+		return sn_title;
+	}
+
+	public void setSn_title(String sn_title) {
+		this.sn_title = sn_title;
 	}
 
 	public String getSn_contents() {
@@ -60,6 +70,7 @@ public class StudyNote implements Serializable {
 	public void setGm_num(String gm_num) {
 		this.gm_num = gm_num;
 	}
-	
+
+
 	
 }
