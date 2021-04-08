@@ -1,7 +1,10 @@
 package org.sst.mapper;
 
-import org.sst.domain.StudyNote;
+import java.util.List;
+
+import org.sst.domain.StudyNoteVO;
 
 public interface StudyNoteMapper {
-	int insertStudyNote(StudyNote stdNote);
+	int insertStudyNote(StudyNoteVO stdNote);
+	List<StudyNoteVO> listStudyNote();
 }

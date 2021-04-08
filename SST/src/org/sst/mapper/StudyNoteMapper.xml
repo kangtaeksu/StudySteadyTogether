@@ -7,7 +7,7 @@
 	<cache />
 	
 	<!-- 컨트롤 스페이스 해도 resultType 안나옴 -->
-	<insert id="insertStudyNote" parameterType="StudyNote"><!-- id와 동일한 메서드를 만들어야한다 -->
+	<insert id="insertStudyNote" parameterType="StudyNoteVO"><!-- id와 동일한 메서드를 만들어야한다 -->
 
 		INSERT INTO studynote(
 			sn_num, sn_title, sn_contents, sn_date, g_num, gm_num
@@ -17,6 +17,10 @@
 		)
 		
 	</insert>
+	
+	<select id="listStudyNote" resultType="StudyNoteVO">
+		SELECT * FROM studynote
+	</select>
 	
 </mapper>
 
