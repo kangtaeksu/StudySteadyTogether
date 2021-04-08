@@ -25,12 +25,9 @@ public class StudyNoteServiceImpl implements StudyNoteService{
 	public int studyNoteInsertService(HttpServletRequest request) throws Exception {
 		request.setCharacterEncoding("utf-8");
 	
-		StudyNote stdNote = new StudyNote();
-		stdNote.setSn_contents(request.getParameter("sn_contents"));
-		stdNote.setGm_num(request.getParameter("gm_num"));
 		
 		
 		
-		return dao.insertStudyNote(stdNote);
+		return 0;
 	}
 }
