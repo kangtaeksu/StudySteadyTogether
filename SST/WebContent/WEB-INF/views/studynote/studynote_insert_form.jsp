@@ -7,11 +7,10 @@
 <title>Insert title here</title>
 </head>
 <body>
-<h3>글쓰기</h3>
+<h3>노트필기</h3>
 <hr>
 <form action="StudyNote_InsertAction.do" method="post">
 		
-	노트번호 : <input type="text" name="sn_num"><br>
 	작성자 : <input type="text" name="gm_num"><br>
 	제목 : <input type="text" name="sn_title"><br>	
 	내용 <br>
