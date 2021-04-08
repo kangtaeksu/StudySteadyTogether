@@ -4,11 +4,13 @@ import java.io.File;
 
 import javax.servlet.http.HttpServletRequest;
 
-import org.sst.domain.StudyNote;
+import org.sst.domain.StudyNoteVO;
 import org.sst.repository.StudyNoteDAO;
 
 import com.oreilly.servlet.MultipartRequest;
 import com.oreilly.servlet.multipart.DefaultFileRenamePolicy;
+
+
 
 public class StudyNoteServiceImpl implements StudyNoteService{
 	
@@ -24,10 +26,16 @@ public class StudyNoteServiceImpl implements StudyNoteService{
 	
 	public int studyNoteInsertService(HttpServletRequest request) throws Exception {
 		request.setCharacterEncoding("utf-8");
-	
 		
 		
+		StudyNoteVO snv = new StudyNoteVO();
+		snv.setSn_num(request.getParameter("sn_num"));
+		snv.setSn_title(request.getParameter("sn_title"));
+		snv.setSn_contents(request.getParameter("sn_contents"));
+		snv.setSn_date(request.getParameter("sn_date"));
+		snv.setG_num(request.getParameter("g_num"));
+		snv.setGm_num(request.getParameter("gm_num"));
 		
-		return 0;
+		return dao.insertStudyNote(snv);
 	}
 }

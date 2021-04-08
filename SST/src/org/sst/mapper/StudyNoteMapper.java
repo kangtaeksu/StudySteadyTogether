@@ -1,7 +1,7 @@
 package org.sst.mapper;
 
-import org.sst.domain.StudyNote;
+import org.sst.domain.StudyNoteVO;
 
 public interface StudyNoteMapper {
-	int insertStudyNote(StudyNote stdNote);
+	int insertStudyNote(StudyNoteVO stdNote);
 }

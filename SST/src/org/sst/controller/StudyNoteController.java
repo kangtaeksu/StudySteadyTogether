@@ -13,6 +13,7 @@ import org.sst.action.StudyNote_InsertFormAction;
 
 import org.sst.action.Action;
 import org.sst.action.ActionForward;
+import org.sst.action.StudyNote_InsertAction;
 
 
 
@@ -54,7 +55,16 @@ public class StudyNoteController extends HttpServlet {
 			} catch (Exception e) {
 				e.printStackTrace();
 			}
+    	}else if(command.equals("StudyNote_InsertAction.do")) {
+    		action = new StudyNote_InsertAction();
+    		try {
+				forward = action.execute(request, response);
+			} catch (Exception e) {
+				e.printStackTrace();
+		    }
+    		
     	}
+    	
     	
     	if(forward != null) {
     		if(forward.isRedirect()) {
