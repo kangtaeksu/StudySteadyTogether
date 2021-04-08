@@ -1,6 +1,6 @@
 package org.sst.domain;
 
-public class StudyGroup {
+public class StudyGroupVO {
 	
 	private String g_num;
 	private String g_name;
@@ -9,9 +9,9 @@ public class StudyGroup {
 	private String g_passwd; // 비밀번호
 	
 	
-	public StudyGroup() {}
+	public StudyGroupVO() {}
 
-	public StudyGroup(String g_num, String g_name, String g_contents, String g_secreat, String g_passwd) {
+	public StudyGroupVO(String g_num, String g_name, String g_contents, String g_secreat, String g_passwd) {
 		super();
 		this.g_num = g_num;
 		this.g_name = g_name;

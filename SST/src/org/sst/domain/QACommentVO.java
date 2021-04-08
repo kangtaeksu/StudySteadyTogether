@@ -1,6 +1,6 @@
 package org.sst.domain;
 
-public class QAComment {
+public class QACommentVO {
 
 	private String c_num;
 	private String c_contents;
@@ -9,9 +9,9 @@ public class QAComment {
 	private String gm_num;
 	private String g_num;
 	
-	public QAComment() {}
+	public QACommentVO() {}
 
-	public QAComment(String c_num, String c_contents, String c_date, String q_num, String gm_num, String g_num) {
+	public QACommentVO(String c_num, String c_contents, String c_date, String q_num, String gm_num, String g_num) {
 		super();
 		this.c_num = c_num;
 		this.c_contents = c_contents;

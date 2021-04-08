@@ -2,7 +2,7 @@ package org.sst.domain;
 
 import java.io.Serializable;
 
-public class GroupMember implements Serializable {
+public class GroupMemberVO implements Serializable {
 
 	private String gm_num;
 	private String g_num;
@@ -10,9 +10,9 @@ public class GroupMember implements Serializable {
 	private String p_grant;
 	private String m_id;
 	
-	public GroupMember() {}
+	public GroupMemberVO() {}
 	
-	public GroupMember(String gm_num, String g_num, String gm_index, String p_grant, String m_id) {
+	public GroupMemberVO(String gm_num, String g_num, String gm_index, String p_grant, String m_id) {
 		super();
 		this.gm_num = gm_num;
 		this.g_num = g_num;

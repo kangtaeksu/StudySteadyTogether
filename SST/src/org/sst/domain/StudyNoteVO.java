@@ -2,7 +2,7 @@ package org.sst.domain;
 
 import java.io.Serializable;
 
-public class StudyNote implements Serializable {
+public class StudyNoteVO implements Serializable {
 
 	private String sn_num; //노트번호
 	private String sn_title; //노트제목
@@ -11,9 +11,9 @@ public class StudyNote implements Serializable {
 	private String g_num; //어떤 그룹의 노트인지 알기위한 그룹고유번호 
 	private String gm_num; //어떤 그룹원이 작성했는지 그룹원고유번호dfsdd
 	
-	public StudyNote() {}
+	public StudyNoteVO() {}
 
-	public StudyNote(String sn_num, String sn_title, String sn_contents, String sn_date, String g_num, String gm_num) {
+	public StudyNoteVO(String sn_num, String sn_title, String sn_contents, String sn_date, String g_num, String gm_num) {
 		super();
 		this.sn_num = sn_num;
 		this.sn_title = sn_title;

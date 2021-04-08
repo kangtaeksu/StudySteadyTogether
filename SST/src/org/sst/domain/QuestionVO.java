@@ -1,15 +1,15 @@
 package org.sst.domain;
 
-public class Question {
+public class QuestionVO {
 	private String q_num; //문제번호
 	private String q_contents; //문제 내용
 	private String q_writer; //문제 작성자
 	private String gm_num; // 그룹원의 고유 번호
 	private String g_num; // 그룹고유번호  (어떤그룹인지)
 	
-	public Question() {}
+	public QuestionVO() {}
 
-	public Question(String q_num, String q_contents, String q_writer, String gm_num, String g_num) {
+	public QuestionVO(String q_num, String q_contents, String q_writer, String gm_num, String g_num) {
 		super();
 		this.q_num = q_num;
 		this.q_contents = q_contents;

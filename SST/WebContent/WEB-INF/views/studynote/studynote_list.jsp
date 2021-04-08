@@ -14,41 +14,20 @@
 	<table border="1">
 		<tr>
 			<td>글번호</td>
-			<td>이미지</td>
 			<td>글제목</td>
 			<td>작성자</td>
 			<td>작성일자</td>
 			<td>조회수</td>
 		</tr>
-		<c:forEach var="studynote" items="${ListModel.list}">
+		<c:forEach var="studynote" items="${StudyNoteListVO.list}">
 		<tr>	
-			<td>${StudyNote.sn_num }</td>
-			<td>
-					<!--
-					<c:if test="${board.fname != null }">
-						<c:set var="head" value="${fn:substring(board.fname, 
-												0, fn:length(board.fname)-4) }"></c:set>
-						<c:set var="pattern" value="${fn:substring(board.fname, 
-						fn:length(head) +1, fn:length(board.fname)) }"></c:set>
-					
-						<c:choose>
-							<c:when test="${pattern == 'jpg' || pattern == 'gif' }">
-								<img src="/MVC/upload/${head }_small.${pattern}">
-							</c:when>
-							<c:otherwise>
-								<c:out value="NO IMAGE"></c:out>
-							</c:otherwise>
-						</c:choose>
-					</c:if> 
-					-->
-			</td>			
-			<td><a href="detailAction.do?seq=${StudyNote.sn_num }">${StudyNote.sn_title }</a></td>
+			<td>${StudyNote.sn_num }</td>		
+			<td><a href="StudyNote_DetailAction.do?seq=${StudyNote.sn_num }">${StudyNote.sn_title }</a></td>
 			<td>${StudyNote.gm_num }</td>
 			<td>
 				<fmt:parseDate var="dt" value="${StudyNote.sn_date }" pattern="yyyy-MM-dd HH:mm:ss"/>
 				<fmt:formatDate value="${dt }" pattern="yyyy/MM/dd"/>
 			</td>
-			<td></td>
 		</tr>
 		</c:forEach>
 	</table>
@@ -56,20 +35,20 @@
 	
 	<!-- 페이징 영역 -->
 	<!-- 이전 영역 -->
-	<c:if test="${ListModel.startPage > 5 }">
-		<a href="ListAction.do?pageNum=${ListModel.startPage -1 }">[이전]</a>
+	<c:if test="${StudyNoteListVO.startPage > 5 }">
+		<a href="ListAction.do?pageNum=${StudyNoteListVO.startPage -1 }">[이전]</a>
 	</c:if>
 	
 	<!-- 페이지목록 -->
-	<c:forEach var="pageNo" begin="${ListModel.startPage }" end="${ListModel.endPage }">
-		<c:if test="${listModel.requestPage == pageNo }"><b></c:if>
+	<c:forEach var="pageNo" begin="${StudyNoteListVO.startPage }" end="${StudyNoteListVO.endPage }">
+		<c:if test="${StudyNoteListVO.requestPage == pageNo }"><b></c:if>
 			<a href="StudyNote_ListAction.do?pageNum=${pageNo }">[${pageNo }]</a>
-		<c:if test="${ListModel.requestPage == pageNo }"></b></c:if>
+		<c:if test="${StudyNoteListVO.requestPage == pageNo }"></b></c:if>
 	</c:forEach>
 	
 	<!-- 이후 영역 -->
-	<c:if test="${ListModel.endPage < ListModel.totalPageCount}">
-		<a href="StudyNote_ListAction.do?pageNum=${ListModel.endPage +1 }">[이후]</a>
+	<c:if test="${StudyNoteListVO.endPage < StudyNoteListVO.totalPageCount}">
+		<a href="StudyNote_ListAction.do?pageNum=${StudyNoteListVO.endPage +1 }">[이후]</a>
 	</c:if>
 	
 	<form action="StudyNote_ListAction.do" method="post">

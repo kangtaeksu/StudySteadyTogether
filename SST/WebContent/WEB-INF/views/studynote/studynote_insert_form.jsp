@@ -14,7 +14,7 @@
 	작성자 : <input type="text" name="gm_num"><br>
 	제목 : <input type="text" name="sn_title"><br>	
 	내용 <br>
-	<textarea rows="10" cols="300" name="sn_contents"></textarea>
+	<textarea rows="100" cols="100" name="sn_contents"></textarea>
 
 	<br>
 	<input type="submit" value="제출">
