@@ -10,7 +10,7 @@
 <title>Insert title here</title>
 </head>
 <body>
-	<a href="StudyNote_InsertForm.do">글쓰기</a>
+	<a href="StudyNote_InsertFormAction.do">글쓰기</a>
 	<table border="1">
 		<tr>
 			<td>글번호</td>
@@ -21,11 +21,11 @@
 		</tr>
 		<c:forEach var="studynote" items="${StudyNoteListVO.list}">
 		<tr>	
-			<td>${StudyNote.sn_num }</td>		
-			<td><a href="StudyNote_DetailAction.do?seq=${StudyNote.sn_num }">${StudyNote.sn_title }</a></td>
-			<td>${StudyNote.gm_num }</td>
+			<td>${studynote.sn_num }</td>		
+			<td><a href="StudyNote_DetailAction.do?seq=${studynote.sn_num }">${studynote.sn_title }</a></td>
+			<td>${studynote.gm_num }</td>
 			<td>
-				<fmt:parseDate var="dt" value="${StudyNote.sn_date }" pattern="yyyy-MM-dd HH:mm:ss"/>
+				<fmt:parseDate var="dt" value="${studynote.sn_date }" pattern="yyyy-MM-dd HH:mm:ss"/>
 				<fmt:formatDate value="${dt }" pattern="yyyy/MM/dd"/>
 			</td>
 		</tr>
@@ -35,7 +35,7 @@
 	
 	<!-- 페이징 영역 -->
 	<!-- 이전 영역 -->
-	<c:if test="${StudyNoteListVO.startPage > 5 }">
+<%-- 	<c:if test="${StudyNoteListVO.startPage > 5 }">
 		<a href="ListAction.do?pageNum=${StudyNoteListVO.startPage -1 }">[이전]</a>
 	</c:if>
 	
@@ -49,7 +49,7 @@
 	<!-- 이후 영역 -->
 	<c:if test="${StudyNoteListVO.endPage < StudyNoteListVO.totalPageCount}">
 		<a href="StudyNote_ListAction.do?pageNum=${StudyNoteListVO.endPage +1 }">[이후]</a>
-	</c:if>
+	</c:if> --%>
 	
 	<form action="StudyNote_ListAction.do" method="post">
 		<input type="checkbox" name="area" value="title">제목

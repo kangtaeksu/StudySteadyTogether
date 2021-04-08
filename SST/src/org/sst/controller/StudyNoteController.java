@@ -10,7 +10,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import org.sst.action.StudyNote_InsertFormAction;
-
+import org.sst.action.StudyNote_ListAction;
 import org.sst.action.Action;
 import org.sst.action.ActionForward;
 import org.sst.action.StudyNote_InsertAction;
@@ -66,6 +66,17 @@ public class StudyNoteController extends HttpServlet {
     	}
     	
     	
+
+    	else if(command.equals("StudyNote_ListAction.do")) {
+    		action = new StudyNote_ListAction();
+    		try {
+    			forward = action.execute(request, response);
+			} catch (Exception e) {
+				e.printStackTrace();
+			}
+    	}
+    	
+
     	if(forward != null) {
     		if(forward.isRedirect()) {
     			response.sendRedirect(forward.getPath());

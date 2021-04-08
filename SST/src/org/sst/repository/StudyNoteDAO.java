@@ -1,6 +1,7 @@
 package org.sst.repository;
 
 import java.io.InputStream;
+import java.util.List;
 
 
 import org.apache.ibatis.io.Resources;
@@ -57,6 +58,71 @@ public class StudyNoteDAO {
 		
 		
 		return re;
+	}
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	public List<StudyNoteVO> studyNoteList(){
+		SqlSession sqlSession = getSqlSessionFactory().openSession();
+		
+		List<StudyNoteVO> list=null;
+		
+		try {
+			list = sqlSession.getMapper(StudyNoteMapper.class).listStudyNote();
+			System.out.println("DAO");
+			System.out.println(list);
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		
+		
+		return list;
 	}
 	
 }

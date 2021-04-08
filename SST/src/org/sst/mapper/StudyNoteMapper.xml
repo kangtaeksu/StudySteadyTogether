@@ -18,6 +18,10 @@
 		
 	</insert>
 	
+	<select id="listStudyNote" resultType="StudyNoteVO">
+		SELECT * FROM studynote
+	</select>
+	
 </mapper>
 
 
