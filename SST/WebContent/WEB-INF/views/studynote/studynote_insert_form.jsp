@@ -57,7 +57,11 @@
 							<br>
 							<textarea rows="30" cols="100" name="sn_contents"></textarea>
 </div>
-							<br> <input type="submit" value="제출">
+							<br><div class="btn btn-primary btn-icon-split noteFooterBtn"><span class="icon text-white-50"><i class="fas fa-check"></i></span><input  type="submit" value="노트제출"></div> 
+							
+						
+								
+								
 						</form>
 						
 					</div>
