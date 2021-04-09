@@ -1,9 +1,12 @@
 
 @charset "UTF-8";
 .sn_insertform{
-	margin : 20px
+	margin : 20px;
 }
 
+.sn_updateform{
+	margin : 20px;
+}
 .sn_contents {
   
     position: absolute;

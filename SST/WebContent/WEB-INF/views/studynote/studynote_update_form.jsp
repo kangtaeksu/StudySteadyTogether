@@ -44,22 +44,23 @@
 					</div>
 					<!-- Content Row -->
 					<div class="row">
-
+<div class="sn_updateform">
 						
-						<hr>
 					<form action="StudyNote_UpdateAction.do" method="post">
 		<input type="hidden" name="sn_num" value="${studynote.sn_num }">
 		작성자 : <input type="text" name="gm_num" value="${studynote.sn_num }"><br>
 
 		제목 : <input type="text" name="sn_title" value="${studynote.sn_title}"><br>
 
-		<span class="sn_contents">내용을 입력하세요.</span><br>
-		<textarea rows="40" cols="40" name="sn_contents">${studynote.sn_contents  }</textarea>
+		<!--  <span class="sn_contents">내용을 입력하세요.</span><br>-->
+		<textarea rows="30" cols="100" name="sn_contents">${studynote.sn_contents  }</textarea>
 		<br>
-	<input type="submit" value="수정완료">
+	<div class="btn btn-primary btn-icon-split noteFooterBtn">
+							<span class="icon text-white-50"><i class="fas fa-check"></i></span><input  type="submit" value="노트수정"></div> 
 	</form>
 
 					</div>
+				</div>
 				</div>
 				<!-- /.container-fluid -->
 
