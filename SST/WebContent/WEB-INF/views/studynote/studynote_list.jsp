@@ -44,38 +44,44 @@
 					<!-- Page Heading -->
 					<div
 						class="d-sm-flex align-items-center justify-content-between mb-4">
-						<h1 class="h3 mb-0 text-gray-800">페이지헤더</h1>
+						<h1 class="h3 mb-0 text-gray-800">노트 목록</h1>
 					</div>
+					
 					<!-- Content Row -->
 					<div class="row">
+					<a href="StudyNote_InsertFormAction.do">글쓰기</a>
+					
+					</div>
+					<!-- end of row -->
+					
+					<div class="row">
 
-						<a href="StudyNote_InsertFormAction.do">글쓰기</a>
-	<table border="1">
-		<tr>
-			<td>글번호</td>
-			<td>글제목</td>
-			<td>작성자</td>
-			<td>작성일자</td>
-			<td>조회수</td>
-		</tr>
-		<c:forEach var="studynote" items="${StudyNoteListVO.list}">
-			<tr>
-				<td>${studynote.sn_num }</td>
-				<td><a
-					href="StudyNote_DetailAction.do?seq=${studynote.sn_num }">${studynote.sn_title }</a></td>
-				<td>${studynote.gm_num }</td>
-				<td><fmt:parseDate var="dt" value="${studynote.sn_date }"
-						pattern="yyyy-MM-dd HH:mm:ss" /> <fmt:formatDate value="${dt }"
-						pattern="yyyy/MM/dd" /></td>
-			</tr>
-		</c:forEach>
-	</table>
-	<br>
-	<br>
+						
+						<table border="1">
+							<tr>
+								<td>글번호</td>
+								<td>글제목</td>
+								<td>작성자</td>
+								<td>작성일자</td>
+								<td>조회수</td>
+							</tr>
+							<c:forEach var="studynote" items="${StudyNoteListVO.list}">
+								<tr>
+									<td>${studynote.sn_num }</td>
+									<td><a
+										href="StudyNote_DetailAction.do?seq=${studynote.sn_num }">${studynote.sn_title }</a></td>
+									<td>${studynote.gm_num }</td>
+									<td><fmt:parseDate var="dt" value="${studynote.sn_date }"
+											pattern="yyyy-MM-dd HH:mm:ss" /> <fmt:formatDate
+											value="${dt }" pattern="yyyy/MM/dd" /></td>
+								</tr>
+							</c:forEach>
+						</table>
+						
 
-	<!-- 페이징 영역 -->
-	<!-- 이전 영역 -->
-	<%-- 	<c:if test="${StudyNoteListVO.startPage > 5 }">
+						<!-- 페이징 영역 -->
+						<!-- 이전 영역 -->
+						<%-- 	<c:if test="${StudyNoteListVO.startPage > 5 }">
 		<a href="ListAction.do?pageNum=${StudyNoteListVO.startPage -1 }">[이전]</a>
 	</c:if>
 	
@@ -91,15 +97,25 @@
 		<a href="StudyNote_ListAction.do?pageNum=${StudyNoteListVO.endPage +1 }">[이후]</a>
 	</c:if> --%>
 
-	<form action="StudyNote_ListAction.do" method="post">
-		<input type="checkbox" name="area" value="title">제목 <input
-			type="checkbox" name="area" value="writer">ID <input
-			type="text" name="searchKey" size="10"> <input type="submit"
-			value="검색">
-	</form>
+					
 
 
 					</div>
+					<!-- end of row -->
+					
+					
+					<div class="row">
+					
+						<form action="StudyNote_ListAction.do" method="post">
+							<input type="checkbox" name="area" value="title">제목 <input
+								type="checkbox" name="area" value="writer">ID <input
+								type="text" name="searchKey" size="10"> <input
+								type="submit" value="검색">
+						</form>
+					
+					</div>
+					<!-- end of row -->
+					
 				</div>
 				<!-- /.container-fluid -->
 
@@ -128,7 +144,6 @@
 	<!-- Custom scripts for all pages-->
 	<script src="../js/sb-admin-2.min.js"></script>
 
-	
 
 </body>
 </html>
