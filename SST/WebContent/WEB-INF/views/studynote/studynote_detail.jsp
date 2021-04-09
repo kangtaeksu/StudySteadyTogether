@@ -25,6 +25,7 @@
 <!-- Custom styles for this template-->
 <link href="../css/sb-admin-2.min.css" rel="stylesheet">
 <link href="../css/studynote.css" rel="stylesheet">
+<link>
 </head>
 
 <body id="page-top">
