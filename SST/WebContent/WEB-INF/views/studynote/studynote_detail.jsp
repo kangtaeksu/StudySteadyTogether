@@ -66,7 +66,7 @@
 			
 							<a href="listAction.do">글목록</a>
 							<a href="updateForm.do?sn_num=${studynote.sn_num}">글 수정하기</a> 
-							<a href="deleteAction.do?sn_num=${studynote.sn_num }">글삭제</a>
+							<a href="StudyNote_DeleteAction.do?sn_num=${studynote.sn_num }">글삭제</a>
 						</div>
 
 

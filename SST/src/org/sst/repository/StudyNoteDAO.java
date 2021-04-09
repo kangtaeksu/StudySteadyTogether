@@ -55,9 +55,7 @@ public class StudyNoteDAO {
 				sqlSession.close();
 			}
 		}
-		
-		
-		
+
 		return re;
 	}
 	
@@ -75,6 +73,30 @@ public class StudyNoteDAO {
 		}
 		
 		return snv;
+	}
+	
+
+	public int deleteStudyNote(String sn_num) {
+		SqlSession sqlSession = getSqlSessionFactory().openSession();
+		int re=-1;
+		
+		try {
+			re=sqlSession.getMapper(StudyNoteMapper.class).deleteStudyNote(sn_num);
+			System.out.println(re+"DAO delete sector");
+			if(re>0) {
+				sqlSession.commit();
+			}else {
+				sqlSession.rollback();
+			}
+						
+		} catch (Exception e) {
+			e.printStackTrace();
+		} finally {
+			if(sqlSession != null) {
+				sqlSession.close();
+			}
+		}
+		return re;
 	}
 	
 	

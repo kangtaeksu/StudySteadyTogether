@@ -26,6 +26,11 @@
 		select * from studynote where sn_num = #{sn_num}
 	</select>
 	
+	<delete id="deleteStudyNote" parameterType="String">
+	
+		DELETE FROM studynote WHERE sn_num = #{sn_num}
+	</delete>
+	
 </mapper>
 
 

@@ -10,4 +10,6 @@ public interface StudyNoteMapper {
 
 	List<StudyNoteVO> listStudyNote();
 	StudyNoteVO detailStudyNote(String sn_num);
+	
+	int deleteStudyNote(String sn_num);
 }
