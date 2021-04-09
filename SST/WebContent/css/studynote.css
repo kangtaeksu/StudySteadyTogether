@@ -1,3 +1,4 @@
+
 @charset "UTF-8";
 .sn_insertform{
 	margin : 20px
@@ -10,4 +11,31 @@
     right: 13px;
     font-size: 15px;
     color: #8e8e8e;
+
+
+.noteView{
+	width: 800px;
+	
+	height: 600px;
+}
+
+
+.noteHeader{
+	margin-bottom: 30px;
+	border-bottom: 1px solid black;
+}
+
+.noteContents{
+	
+	height: 350px;
+	
+}
+
+.noteFooter{
+	padding: 10px;
+}
+
+.noteFooterBtn{
+	margin-left: 10px;
+	
 }
