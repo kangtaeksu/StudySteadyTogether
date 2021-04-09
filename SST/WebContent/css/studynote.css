@@ -26,3 +26,24 @@
 	margin-left: 10px;
 	
 }
+
+.noteListArea{
+	width: 800px;
+	
+}
+
+.noteTable{
+	border: none;
+}
+
+.sn_num{
+	width: 100px;
+}
+
+.sn_title{
+	width: 300px;
+}
+
+.sn_writer{
+	width: 100px;
+}
