@@ -76,6 +76,7 @@ public class StudyNoteController extends HttpServlet {
 			}
     	}
     	
+    	//
 
     	if(forward != null) {
     		if(forward.isRedirect()) {
