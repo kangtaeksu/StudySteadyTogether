@@ -13,7 +13,7 @@ public class StudyNote_InsertFormAction implements Action{
 		
 		ActionForward forward = new ActionForward();
 		forward.setRedirect(false);
-		forward.setPath("/WEB-INF/views/studynote/studynote_insert_form.jsp");
+		forward.setPath("/WEB-INF/views/studynote/index.jsp");
 		
 		
 		return forward;
