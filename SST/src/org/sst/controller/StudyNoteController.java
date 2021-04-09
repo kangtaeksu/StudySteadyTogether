@@ -46,7 +46,7 @@ public class StudyNoteController extends HttpServlet {
     	Action action = null;
     	ActionForward forward = null;
     	
-    	//해당 URL에 대한 Action 호출 (각각의 액션을 만들어서 액션 호출)
+    	//해당 URL에 대한 Action 호출 (각각의 액션을 만들어서 액션 호출해야쥬)
     	if(command.equals("StudyNote_InsertFormAction.do")) {
     		//페이지 이동 insert
     		action = new StudyNote_InsertFormAction();
