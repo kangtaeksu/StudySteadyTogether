@@ -4,9 +4,10 @@ import java.util.List;
 
 import org.sst.domain.StudyNoteVO;
 
+
 public interface StudyNoteMapper {
 	int insertStudyNote(StudyNoteVO stdNote);
 
 	List<StudyNoteVO> listStudyNote();
-
+	StudyNoteVO detailStudyNote(String sn_num);
 }

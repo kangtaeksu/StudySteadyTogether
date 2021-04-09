@@ -22,6 +22,10 @@
 		SELECT * FROM studynote
 	</select>
 	
+	<select id="detailStudyNote" parameterType="String" resultType="StudyNoteVO">
+		select * from studynote where sn_num = #{sn_num}
+	</select>
+	
 </mapper>
 
 

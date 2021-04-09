@@ -4,7 +4,7 @@ import java.io.Serializable;
 
 public class StudyNoteVO implements Serializable {
 
-	private String sn_num; //노트번호
+	private String sn_num; //노트번호    
 	private String sn_title; //노트제목
 	private String sn_contents; //노트 내용
 	private String sn_date; //노트 작성날짜

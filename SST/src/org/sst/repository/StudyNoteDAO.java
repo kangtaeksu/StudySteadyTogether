@@ -11,6 +11,7 @@ import org.apache.ibatis.session.SqlSessionFactoryBuilder;
 import org.sst.domain.StudyNoteVO;
 import org.sst.mapper.StudyNoteMapper;
 
+
 public class StudyNoteDAO {
 	private static StudyNoteDAO dao = new StudyNoteDAO();
 
@@ -59,6 +60,23 @@ public class StudyNoteDAO {
 		
 		return re;
 	}
+	
+	public StudyNoteVO detailStudyNote(String sn_num) {
+		SqlSession sqlSession = getSqlSessionFactory().openSession();
+		StudyNoteVO snv = null;
+		try {
+			snv = sqlSession.getMapper(StudyNoteMapper.class).detailStudyNote(sn_num);
+		} catch (Exception e) {
+			e.printStackTrace();
+		}finally {
+			if(sqlSession != null) {
+				sqlSession.close();
+			}
+		}
+		
+		return snv;
+	}
+	
 	
 	
 	
