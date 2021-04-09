@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE configuration
+  PUBLIC "-//mybatis.org//DTD Config 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-config.dtd">
+
+<configuration>
+	<typeAliases>
+		<typeAlias type="org.sst.domain.StudyNoteVO" alias="StudyNoteVO"/>
+
+		<!-- kosta.bean.Board라고 써주는게 정석이다. alias를쓰면 Board라는 이름으로 간단하게 부를수 있어짐-->
+
+	</typeAliases>
+	
+	<environments default="development">
+		<environment id="development">
+			<transactionManager type="JDBC"/>
+			<dataSource type="POOLED">
+				<property name="driver" value="oracle.jdbc.driver.OracleDriver"/>
+				<property name="url" value="jdbc:oracle:thin:@localhost:1521:XE"/>
+				<property name="username" value="kosta211"/>
+				<property name="password" value="1234"/>
+			</dataSource>
+		</environment>		
+	</environments>
+	
+	<mappers>
+		<mapper resource="org/sst/mapper/StudyNoteMapper.xml"/>
+		<!-- <mapper resource="kosta/mapper/Order.xml"/> 이런식으로 여러개 포함할수도 있다.
+			(Mapper파일을 여러개 포함한다.)
+		-->
+
+	</mappers>
+	
+</configuration>
+
+
+
+
+
+
+
+
+
+
