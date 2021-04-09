@@ -1,0 +1,28 @@
+@charset "UTF-8";
+
+.noteView{
+	width: 800px;
+	
+	height: 600px;
+}
+
+
+.noteHeader{
+	margin-bottom: 30px;
+	border-bottom: 1px solid black;
+}
+
+.noteContents{
+	
+	height: 350px;
+	
+}
+
+.noteFooter{
+	padding: 10px;
+}
+
+.noteFooterBtn{
+	margin-left: 10px;
+	
+}
