@@ -17,6 +17,8 @@ import com.oreilly.servlet.multipart.DefaultFileRenamePolicy;
 
 
 
+
+
 public class StudyNoteServiceImpl implements StudyNoteService{
 	
 	private static StudyNoteServiceImpl service = new StudyNoteServiceImpl();
@@ -58,5 +60,10 @@ public class StudyNoteServiceImpl implements StudyNoteService{
 	public StudyNoteVO detailStudyNoteService(String sn_num)throws Exception{
 		return dao.detailStudyNote(sn_num);
 	}
+	
+	public int updateStudyNoteService(StudyNoteVO studynote)throws Exception{
+		return dao.updateStudyNote(studynote);
+	}
+	
 	
 }

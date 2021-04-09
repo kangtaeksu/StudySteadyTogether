@@ -11,7 +11,11 @@ import javax.servlet.http.HttpServletResponse;
 
 import org.sst.action.StudyNote_InsertFormAction;
 import org.sst.action.StudyNote_ListAction;
+import org.sst.action.StudyNote_UpdateAction;
+import org.sst.action.StudyNote_UpdateFormAction;
 import org.sst.action.StudyNote_detailAction;
+
+
 import org.sst.action.Action;
 import org.sst.action.ActionForward;
 import org.sst.action.StudyNote_InsertAction;
@@ -71,10 +75,23 @@ public class StudyNoteController extends HttpServlet {
 			} catch (Exception e) {
 				e.printStackTrace();
 		    }
+    	}else if(command.equals("StudyNote_UpdateFormAction.do")) {
+    		action = new StudyNote_UpdateFormAction();
+    		try {
+				forward = action.execute(request, response);
+			} catch (Exception e) {
+				e.printStackTrace();
+			}
+    	}else if(command.equals("StudyNote_UpdateAction.do")) {
+    		action = new StudyNote_UpdateAction();
+    		try {
+				forward = action.execute(request, response);
+			} catch (Exception e) {
+				e.printStackTrace();
+			}
     	}
     	
     	
-
     	else if(command.equals("StudyNote_ListAction.do")) {
     		action = new StudyNote_ListAction();
     		try {

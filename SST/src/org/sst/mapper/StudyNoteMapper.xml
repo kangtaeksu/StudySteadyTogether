@@ -26,6 +26,11 @@
 		select * from studynote where sn_num = #{sn_num}
 	</select>
 	
+	<update id="updateStudyNote" parameterType="StudyNoteVO">
+		update studynote set sn_title=#{sn_title}, sn_contents=#{sn_contents}
+			where sn_num = #{sn_num}
+	</update>
+	
 </mapper>
 
 
