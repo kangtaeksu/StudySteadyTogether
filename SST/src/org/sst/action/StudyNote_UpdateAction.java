@@ -15,7 +15,7 @@ public class StudyNote_UpdateAction implements Action {
 	public ActionForward execute(HttpServletRequest request, HttpServletResponse response) throws Exception {
 		ActionForward forward = new ActionForward();
 		StudyNoteServiceImpl service = StudyNoteServiceImpl.getInstance();
-		
+		request.setCharacterEncoding("utf-8");
 		StudyNoteVO snv = new StudyNoteVO();
 		snv.setSn_num(request.getParameter("sn_num"));
 		snv.setSn_title(request.getParameter("sn_title"));

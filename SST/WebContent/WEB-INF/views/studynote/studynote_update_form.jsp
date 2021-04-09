@@ -50,7 +50,7 @@
 					<form action="StudyNote_UpdateAction.do" method="post">
 		<input type="hidden" name="sn_num" value="${studynote.sn_num }">
 		작성자 : <input type="text" name="gm_num" value="${studynote.sn_num }"><br>
-		제목 : <input type="text" name="sn_title" value="${studynote.gm_num  }"><br>
+		제목 : <input type="text" name="sn_title" value="${studynote.sn_title  }"><br>
 		내용 <br>
 		<textarea rows="20" cols="20" name="sn_contents">${studynote.sn_contents  }</textarea>
 		<br>

@@ -65,7 +65,7 @@
 							작성일 :${studynote.sn_date }<br> 
 			
 							<a href="StudyNote_ListAction.do">글목록</a>
-							<a href="updateForm.do?sn_num=${studynote.sn_num}">글 수정하기</a> 
+							<a href="StudyNote_UpdateFormAction.do?sn_num=${studynote.sn_num}">글 수정하기</a> 
 							<a href="StudyNote_DeleteAction.do?sn_num=${studynote.sn_num }">글삭제</a>
 						</div>
 

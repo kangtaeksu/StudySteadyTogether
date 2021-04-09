@@ -20,7 +20,7 @@ public class StudyNote_UpdateFormAction implements Action {
 		request.setAttribute("studynote", snv);
 		
 		forward.setRedirect(false);
-		forward.setPath("/studynote_update_form.jsp");//ㅇㅇ
+		forward.setPath("/WEB-INF/views/studynote/studynote_update_form.jsp");//ㅇㅇ
 		
 		return forward;
 	}
