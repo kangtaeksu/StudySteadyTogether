@@ -69,7 +69,7 @@
 								<tr>
 									<td>${studynote.sn_num }</td>
 									<td><a
-										href="StudyNote_DetailAction.do?seq=${studynote.sn_num }">${studynote.sn_title }</a></td>
+										href="StudyNote_DetailAction.do?sn_num=${studynote.sn_num }">${studynote.sn_title }</a></td>
 									<td>${studynote.gm_num }</td>
 									<td><fmt:parseDate var="dt" value="${studynote.sn_date }"
 											pattern="yyyy-MM-dd HH:mm:ss" /> <fmt:formatDate

@@ -60,13 +60,13 @@
 						<div class="noteView">
 							글번호 :${studynote.sn_num }<br> 
 							글제목 :${studynote.sn_title }<br> 
-							작성자:${studynote.sn_writer }<br> 
+						
 							내용 <br> ${studynote.sn_contents }<br>
 							작성일 :${studynote.sn_date }<br> 
 			
 							<a href="listAction.do">글목록</a>
-							<a href="updateForm.do?seq=${studynote.seq }">글 수정하기</a> 
-							<a href="deleteAction.do?seq=${studynote.seq }">글삭제</a>
+							<a href="updateForm.do?seq=${studynote.sn_num}">글 수정하기</a> 
+							<a href="deleteAction.do?seq=${studynote.sn_num }">글삭제</a>
 						</div>
 
 
