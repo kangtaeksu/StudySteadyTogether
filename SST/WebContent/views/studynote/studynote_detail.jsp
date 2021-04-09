@@ -58,7 +58,7 @@
 							<div class="noteHeader">
 								<h2>${studynote.sn_title}</h2>
 								<hr>
-								작성일 :${studynote.sn_date}
+								작성일임 :${studynote.sn_date}
 							</div>
 							<%-- 글번호 :${studynote.sn_num }<br>  --%>
 							

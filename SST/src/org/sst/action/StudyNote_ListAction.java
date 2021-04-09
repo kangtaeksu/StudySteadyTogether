@@ -24,7 +24,7 @@ public class StudyNote_ListAction implements Action {
 		StudyNoteListVO snlVO = new StudyNoteListVO(list,1,5,1,5);
 		request.setAttribute("StudyNoteListVO", snlVO);
 		
-		forward.setPath("/WEB-INF/views/studynote/studynote_list.jsp");
+		forward.setPath("/views/studynote/studynote_list.jsp");
 		System.out.println("스터디노트_리스트액션");
 		System.out.println(list);
 		forward.setRedirect(false);

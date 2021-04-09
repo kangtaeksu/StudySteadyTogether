@@ -40,27 +40,22 @@
 					<!-- Page Heading -->
 					<div
 						class="d-sm-flex align-items-center justify-content-between mb-4">
-						<h1 class="h3 mb-0 text-gray-800">노트 수정</h1>
+						<h1 class="h3 mb-0 text-gray-800">노트필기</h1>
 					</div>
 					<!-- Content Row -->
 					<div class="row">
-<div class="sn_updateform">
+
 						
-					<form action="StudyNote_UpdateAction.do" method="post">
-		<input type="hidden" name="sn_num" value="${studynote.sn_num }">
-		작성자 : <input type="text" name="gm_num" value="${studynote.sn_num }"><br>
+						<form action="StudyNote_InsertAction.do" method="post">
 
-		제목 : <input type="text" name="sn_title" value="${studynote.sn_title}"><br>
+							작성자 : <input type="text" name="gm_num"><br> 제목 : <input
+								type="text" name="sn_title"><br> 내용 <br>
+							<textarea rows="30" cols="100" name="sn_contents"></textarea>
 
-		<!--  <span class="sn_contents">내용을 입력하세요.</span><br>-->
-		<textarea rows="30" cols="100" name="sn_contents">${studynote.sn_contents  }</textarea>
-		<br>
-	<div class="btn btn-primary btn-icon-split noteFooterBtn">
-							<span class="icon text-white-50"><i class="fas fa-check"></i></span><input  type="submit" value="노트수정"></div> 
-	</form>
+							<br> <input type="submit" value="제출">
+						</form>
 
 					</div>
-				</div>
 				</div>
 				<!-- /.container-fluid -->
 
