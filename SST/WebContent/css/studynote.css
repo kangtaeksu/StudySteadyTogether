@@ -1,0 +1,13 @@
+@charset "UTF-8";
+.sn_insertform{
+	margin : 20px
+}
+
+.sn_contents {
+  
+    position: absolute;
+    top: 16px;
+    right: 13px;
+    font-size: 15px;
+    color: #8e8e8e;
+}

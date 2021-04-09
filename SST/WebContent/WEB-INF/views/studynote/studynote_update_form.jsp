@@ -53,8 +53,8 @@
 
 		제목 : <input type="text" name="sn_title" value="${studynote.sn_title}"><br>
 
-		내용 <br>
-		<textarea rows="20" cols="20" name="sn_contents">${studynote.sn_contents  }</textarea>
+		<span class="sn_contents">내용을 입력하세요.</span><br>
+		<textarea rows="40" cols="40" name="sn_contents">${studynote.sn_contents  }</textarea>
 		<br>
 	<input type="submit" value="수정완료">
 	</form>
