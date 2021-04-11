@@ -73,8 +73,34 @@
 
 .noHyper{
 	text-decoration: none;
+	color: #858796;
 }
 
 .noteListFooterArea{
 	margin-top: 30px;
+}
+
+.notePagingArea{
+	margin-top:20px;
+	width:600px;
+	text-align: center;
+}
+
+.pageBtn{
+	text-decoration: none;
+	color: black;
+}
+
+.pageBeforeBtn{
+	text-decoration: none;
+	color: black;
+}
+
+.pageAfterBtn{
+	text-decoration: none;
+	color: black;
+}
+
+.curBtn{
+	background: #858796;
 }
