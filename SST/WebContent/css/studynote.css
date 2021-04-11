@@ -1,0 +1,67 @@
+
+@charset "UTF-8";
+.sn_insertform{
+	margin : 20px;
+}
+
+.sn_updateform{
+	margin : 20px;
+}
+.sn_contents {
+  
+    position: absolute;
+    top: 16px;
+    right: 13px;
+    font-size: 15px;
+    color: #8e8e8e;
+}
+
+.noteView{
+	width: 800px;
+	
+	height: 600px;
+}
+
+
+.noteHeader{
+	margin-bottom: 30px;
+	border-bottom: 1px solid black;
+}
+
+.noteContents{
+	
+	height: 350px;
+	
+}
+
+.noteFooter{
+	padding: 10px;
+}
+
+.noteFooterBtn{
+	margin-left: 10px;
+	
+	
+}
+
+.noteListArea{
+	width: 800px;
+	
+}
+
+.noteTable{
+	border: none;
+}
+
+.sn_num{
+	width: 100px;
+}
+
+.sn_title{
+	width: 300px;
+}
+
+.sn_writer{
+	width: 100px;
+
+}
