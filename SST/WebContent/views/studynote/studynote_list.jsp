@@ -86,21 +86,21 @@
 
 						<!-- 페이징 영역 -->
 						<!-- 이전 영역 -->
-						<%-- 	<c:if test="${StudyNoteListVO.startPage > 5 }">
-		<a href="ListAction.do?pageNum=${StudyNoteListVO.startPage -1 }">[이전]</a>
-	</c:if>
-	
-	<!-- 페이지목록 -->
-	<c:forEach var="pageNo" begin="${StudyNoteListVO.startPage }" end="${StudyNoteListVO.endPage }">
-		<c:if test="${StudyNoteListVO.requestPage == pageNo }"><b></c:if>
-			<a href="StudyNote_ListAction.do?pageNum=${pageNo }">[${pageNo }]</a>
-		<c:if test="${StudyNoteListVO.requestPage == pageNo }"></b></c:if>
-	</c:forEach>
-	
-	<!-- 이후 영역 -->
-	<c:if test="${StudyNoteListVO.endPage < StudyNoteListVO.totalPageCount}">
-		<a href="StudyNote_ListAction.do?pageNum=${StudyNoteListVO.endPage +1 }">[이후]</a>
-	</c:if> --%>
+						<c:if test="${StudyNoteListVO.startPage > 5 }">
+							<a href="ListAction.do?pageNum=${StudyNoteListVO.startPage -1 }">[이전]</a>
+						</c:if>
+						
+						<!-- 페이지목록 -->
+						<c:forEach var="pageNo" begin="${StudyNoteListVO.startPage }" end="${StudyNoteListVO.endPage }">
+							<c:if test="${StudyNoteListVO.requestPage == pageNo }"><b></c:if>
+								<a href="StudyNote_ListAction.do?pageNum=${pageNo }">[${pageNo }]</a>
+							<c:if test="${StudyNoteListVO.requestPage == pageNo }"></b></c:if>
+						</c:forEach>
+						
+						<!-- 이후 영역 -->
+						<c:if test="${StudyNoteListVO.endPage < StudyNoteListVO.totalPageCount}">
+							<a href="StudyNote_ListAction.do?pageNum=${StudyNoteListVO.endPage +1 }">[이후]</a>
+						</c:if>
 
 
 
@@ -114,8 +114,8 @@
 
 							<form
 								action="StudyNote_ListAction.do" method="post">
-								<input type="checkbox" name="area" value="title">제목 
-								<input type="checkbox" name="area" value="writer">ID 
+								<input type="checkbox" name="area" value="sn_title">제목 
+								<input type="checkbox" name="area" value="sn_contents">내용
 								<input type="text" class="" name="searchKey" placeholder="검색어를 입력해주세요" size="20"> 
 								<input type="submit" class="btn-primary" value="검색">
 
