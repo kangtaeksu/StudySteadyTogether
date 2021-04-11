@@ -18,7 +18,7 @@ import kosta.model.Search;
 
 public class BoardService {
 	private static BoardService service = new BoardService();
-	private static BoardDao2 dao;
+	private static BoardDao2 dao;//다옹
 	private static final int PAGE_SIZE = 2;
 	
 	public static BoardService getInstance() {
