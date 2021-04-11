@@ -48,29 +48,27 @@
 					</div>
 
 					<!-- Content Row -->
-					<div class="row">
-						
-
-					</div>
+					<div class="row headerLine"></div>
 					<!-- end of row -->
 
 					<div class="row">
 
 						<div class="noteListArea">
-							<a href="StudyNote_InsertFormAction.do">글쓰기</a>
-						
+
+
 							<div class="noteTableArea">
 								<table class="noteTable">
 									<tr>
-										<td class="sn_num">글번호</td>
-										<td class="sn_title">글제목</td>
-										<td class="sn_writer">작성자</td>
-										<td class="sn_date">작성일자</td>										
+										<td class="sn_num thead">글번호</td>
+										<td class="sn_title thead">글제목</td>
+										<td class="sn_writer thead">작성자</td>
+										<td class="sn_date thead">작성일자</td>
 									</tr>
+									<tr><td></td><td></td><td></td><td></td></tr>
 									<c:forEach var="studynote" items="${StudyNoteListVO.list}">
-										<tr>
+										<tr class="sn_row">
 											<td class="sn_num">${studynote.sn_num }</td>
-											<td class="sn_title"><a
+											<td class="sn_title"><a class="noHyper"
 												href="StudyNote_DetailAction.do?sn_num=${studynote.sn_num }">${studynote.sn_title }</a></td>
 											<td class="sn_writer">${studynote.gm_num }</td>
 											<td class="sn_date"><fmt:parseDate var="dt"
@@ -112,13 +110,26 @@
 
 
 					<div class="row">
+						<div class="noteListFooterArea">
 
-						<form action="StudyNote_ListAction.do" method="post">
-							<input type="checkbox" name="area" value="title">제목 <input
-								type="checkbox" name="area" value="writer">ID <input
-								type="text" name="searchKey" size="10"> <input
-								type="submit" value="검색">
-						</form>
+							<form
+								action="StudyNote_ListAction.do" method="post">
+								<input type="checkbox" name="area" value="title">제목 
+								<input type="checkbox" name="area" value="writer">ID 
+								<input type="text" class="" name="searchKey" placeholder="검색어를 입력해주세요" size="20"> 
+								<input type="submit" class="btn-primary" value="검색">
+
+
+								<a class="btn btn-secondary btn-icon-split rightBtn"
+									href="StudyNote_InsertFormAction.do"> 
+								<span class="icon text-white-50"> 
+									<i class="fas fa-pen"></i>
+								</span> <span class="text">글쓰기</span>
+								</a>
+							</form>
+							
+						</div>
+
 
 					</div>
 					<!-- end of row -->

@@ -32,12 +32,19 @@
 	
 }
 
+
+
 .noteTable{
 	border: none;
 }
 
+.sn_row{
+	border-bottom: 1px solid #DCDCDC;
+}
+
 .sn_num{
 	width: 100px;
+	height: 45px;
 }
 
 .sn_title{
@@ -46,4 +53,28 @@
 
 .sn_writer{
 	width: 100px;
+}
+
+.headerLine{
+	width: 800px;
+	border-bottom: 1px solid black;
+	margin-bottom: 30px;
+}
+
+.rightBtn{
+	margin-left: 140px;
+}
+
+.thead{
+	font-weight: bold;
+	color: black;
+	font-size: 20px;
+}
+
+.noHyper{
+	text-decoration: none;
+}
+
+.noteListFooterArea{
+	margin-top: 30px;
 }
