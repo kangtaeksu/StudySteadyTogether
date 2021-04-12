@@ -13,12 +13,11 @@
 			sn_num, sn_title, sn_contents, sn_date, g_num, gm_num
 		)
 		VALUES(
-			SN_SEQ.NEXTVAL, #{sn_title}, #{sn_contents}, SYSDATE, 1, 1
+			('sn_'||sn_seq.NEXTVAL), #{sn_title}, #{sn_contents,jdbcType=CLOB}, SYSDATE, 1, 1
 		)
 		
 	</insert>
 	
-
 	<select id="listStudyNote" resultType="StudyNoteVO" parameterType="StudyNoteSearchVO">
 		SELECT * FROM studynote
 		<if test="area != null">
@@ -53,7 +52,7 @@
 		select count(*) from studynote
 		<if test="area != null">
 			<where>
-				 <!--where (title LIKE %aa% OR writer LIKE %aa%)  -->
+				<!--where (title LIKE %aa% OR writer LIKE %aa%)  -->
 				<foreach collection="area" item="item" separator="OR"
 					open="(" close=")">
 					${item} LIKE #{searchKey}

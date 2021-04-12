@@ -18,6 +18,7 @@ import org.sst.action.StudyNote_detailAction;
 
 import org.sst.action.Action;
 import org.sst.action.ActionForward;
+import org.sst.action.SampleAction;
 import org.sst.action.StudyNote_DeleteAction;
 import org.sst.action.StudyNote_InsertAction;
 
@@ -102,6 +103,14 @@ public class StudyNoteController extends HttpServlet {
     		action = new StudyNote_DeleteAction();
     		try {
 				forward = action.execute(request, response);
+			} catch (Exception e) {
+				e.printStackTrace();
+			}
+    	}
+    	else if(command.equals("SampleAction.do")) {
+    		action = new SampleAction();
+    		try {
+				forward=action.execute(request, response);
 			} catch (Exception e) {
 				e.printStackTrace();
 			}
