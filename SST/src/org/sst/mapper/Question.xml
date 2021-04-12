@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" 
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+
+<mapper namespace="org.sst.mapper.StudyNoteMapper"> <!-- 동일한 이름의 인터페이스를 만들어야한다 -->
+	<cache />
+	
+	<!-- 컨트롤 스페이스 해도 resultType 안나옴 -->
+	<insert id="insertQuestion" parameterType="QuestionVO"><!-- id와 동일한 메서드를 만들어야한다 -->
+
+		INSERT INTO question(
+			q_num, q_title, q_contents,q_answer, q_date, g_num, gm_num
+		)
+		VALUES(
+			SN_SEQ.NEXTVAL, #{q_title}, #{q_contents},#{q_answer}, SYSDATE, 1, 1
+		)
+		
+	</insert>
+	
+
+	
+
+
+	
+</mapper>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

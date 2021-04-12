@@ -12,11 +12,13 @@
 <meta name="author" content="">
 <title>SST</title>
 <!-- Custom fonts for this template-->
-<link href="../vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
+<link href="../vendor/fontawesome-free/css/all.min.css" rel="stylesheet"
+	type="text/css">
 <link href="https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i" rel="stylesheet">
+
 <!-- Custom styles for this template-->
 <link href="../css/sb-admin-2.min.css" rel="stylesheet">
-<link href="../css/studynote.css" rel="stylesheet">
+<link href="../css/question.css" rel="stylesheet">
 </head>
 
 <body id="page-top">
@@ -36,22 +38,25 @@
 					<!-- Page Heading -->
 					<div
 						class="d-sm-flex align-items-center justify-content-between mb-4">
-						<h1 class="h3 mb-0 text-gray-800">노트필기</h1>
+						<h1 class="h3 mb-0 text-gray-800">문제등록</h1>
 					</div>
 					<!-- Content Row -->
 					<div class="row">
 
 						
-						<form action="StudyNote_InsertAction.do" method="post">
-
-							작성자 : <input type="text" name="gm_num"><br> 제목 : <input
-								type="text" name="sn_title"><br> 내용 <br>
-							<textarea rows="30" cols="100" name="sn_contents"></textarea>
-
-							<br> <input type="submit" value="제출">
+						<form action="Question_InsertAction.do" method="post">
+	
+							작성자 : <input type="text" name="gm_num" ><br>
+							 	<div class="q_insert">
+							 제목 : <input type="text" name="q_title"><br></div>
+							 내용 <br>
+							<textarea rows="15" cols="50" name="q_contents"></textarea><br>
+							답 : <input type="text" name="q_answer">
+							<input type="submit" value="제출"><br>
+							 
+						
 						</form>
-
-					</div>
+					</div></div>
 				</div>
 				<!-- /.container-fluid -->
 

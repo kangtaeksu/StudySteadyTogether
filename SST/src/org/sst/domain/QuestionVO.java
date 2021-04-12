@@ -2,20 +2,25 @@ package org.sst.domain;
 
 public class QuestionVO {
 	private String q_num; //문제번호
-	private String q_contents; //문제 내용
-	private String q_writer; //문제 작성자
-	private String gm_num; // 그룹원의 고유 번호
-	private String g_num; // 그룹고유번호  (어떤그룹인지)
+	private String q_title;
+	private String q_contents;
+	private String q_answer;
+	private String q_date;
+	private String g_num;
+	private String gm_num;
 	
 	public QuestionVO() {}
 
-	public QuestionVO(String q_num, String q_contents, String q_writer, String gm_num, String g_num) {
+	public QuestionVO(String q_num, String q_title, String q_contents, String q_answer, String q_date, String g_num,
+			String gm_num) {
 		super();
 		this.q_num = q_num;
+		this.q_title = q_title;
 		this.q_contents = q_contents;
-		this.q_writer = q_writer;
-		this.gm_num = gm_num;
+		this.q_answer = q_answer;
+		this.q_date = q_date;
 		this.g_num = g_num;
+		this.gm_num = gm_num;
 	}
 
 	public String getQ_num() {
@@ -26,6 +31,14 @@ public class QuestionVO {
 		this.q_num = q_num;
 	}
 
+	public String getQ_title() {
+		return q_title;
+	}
+
+	public void setQ_title(String q_title) {
+		this.q_title = q_title;
+	}
+
 	public String getQ_contents() {
 		return q_contents;
 	}
@@ -34,12 +47,28 @@ public class QuestionVO {
 		this.q_contents = q_contents;
 	}
 
-	public String getQ_writer() {
-		return q_writer;
+	public String getQ_answer() {
+		return q_answer;
 	}
 
-	public void setQ_writer(String q_writer) {
-		this.q_writer = q_writer;
+	public void setQ_answer(String q_answer) {
+		this.q_answer = q_answer;
+	}
+
+	public String getQ_date() {
+		return q_date;
+	}
+
+	public void setQ_date(String q_date) {
+		this.q_date = q_date;
+	}
+
+	public String getG_num() {
+		return g_num;
+	}
+
+	public void setG_num(String g_num) {
+		this.g_num = g_num;
 	}
 
 	public String getGm_num() {
@@ -50,15 +79,8 @@ public class QuestionVO {
 		this.gm_num = gm_num;
 	}
 
-	public String getG_num() {
-		return g_num;
-	}
+	
 
-	public void setG_num(String g_num) {
-		this.g_num = g_num;
-	}
-	
-	
 	
 	
 }
