@@ -57,7 +57,7 @@
       dayMaxEvents: true,
       events: [
     	  
-     	<% for(int i = 0;i<toDoList.size();i++ ){%>
+<%--      	<% for(int i = 0;i<toDoList.size();i++ ){%>
     	 {
              title: '<%=toDoList.get(i).getT_title()%>',
              <%Date sdate = toDoList.get(i).getT_startdate();
@@ -75,7 +75,7 @@
              constraint: 'availableForMeeting', // defined below
              color: '#257e4a'
            },
-    	<%}%>
+    	<%}%> --%>
         
          {
           title: 'Meeting',
