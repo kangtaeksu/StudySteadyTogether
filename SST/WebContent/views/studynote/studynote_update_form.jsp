@@ -39,6 +39,13 @@
 			sendRegData();
 			
 		});
+		
+		$('select').change(function(){
+	        document.execCommand($(this).attr('id'), false, $(this).val());
+	      });
+	    $('.button').click(function(){
+	        document.execCommand($(this).attr('id'), false, true);
+	      });
 	});
 	
 	function sendRegData(){
@@ -80,8 +87,8 @@
 					<!-- Content Row -->
 					<div class="row">
 
-						
-						<form action="StudyNote_InsertAction.do" method="post">
+						<div class="studyNoteFormWrap">
+							<form action="StudyNote_UpdateAction.do" method="post">
 							<input id="sn_num" type="hidden" name="sn_num" value="${studynote.sn_num }">
 							<!-- 작성자 : <input type="text" name="gm_num"> --><br> 
 							<!-- <input class="input_title" type="text" placeholder="제목을 입력하세요" name="sn_title"> -->
@@ -90,45 +97,107 @@
 							</div>
 							
 							<div class="input_tools_wrap">
-							<input type="button" class="BOLD" value="Bold"
-				onclick="document.execCommand('bold')" /> <input type="button"
-				class="ITALIC" value="Italic"
-				onclick="document.execCommand('Italic')" /> <input type="button"
-				class="UNDERBAR" value="underline"
-				onclick="document.execCommand('Underline')" />
-			<button type="button" class="aignLeft"
-				onclick="document.execCommand('justifyleft')">
-				<i class="fas fa-align-left"></i>
-			</button>
-			<button type="button" class="aignCenter"
-				onclick="document.execCommand('justifycenter')">
-				<i class="fas fa-align-center"></i>
-			</button>
-			<button type="button" class="aignRight" value="오른쪽 정렬"
-				onclick="document.execCommand('justifyright')">
-				<i class="fas fa-align-right"></i>
-			</button>
-			<select id="fontSize" width="50px">
-				<option value="">글자 크기</option>
-				<option value="3">10px</option>
-				<option value="4">12px</option>
-				<option value="5">16px</option>
-				<option value="6">20px</option>
-				<option value="7">30px</option>
-			</select>
-			
+							
+								<a id="Undo" class="button btn btn-light btn-icon-split btn-sm">
+								<span class="icon text-white-100">
+                                       <i class="fas fa-undo"></i>
+                           		</span>							
+								</a>
+								
+								<a id="Redo" class="button btn btn-light btn-icon-split btn-sm">
+								<span class="icon text-white-100">
+                                       <i class="fas fa-redo"></i>
+                           		</span>							
+								</a>
+								
+								<a id="bold" class="button btn btn-light btn-icon-split btn-sm">
+								<span class="icon text-white-100">
+                                       <i class="fas fa-bold"></i>
+                           		</span>							
+								</a>
+								
+								<a id="italic" class="button btn btn-light btn-icon-split btn-sm">
+								<span class="icon text-white-100">
+                                       <i class="fas fa-italic"></i>
+                           		</span>							
+								</a>
+								
+								<a id="underLine" class="button btn btn-light btn-icon-split btn-sm">
+								<span class="icon text-white-100">
+                                       <i class="fas fa-underline"></i>
+                           		</span>							
+								</a>
+								
+								<a id="justifyLeft" class="button btn btn-light btn-icon-split btn-sm">
+								<span class="icon text-white-100">
+                                       <i class="fas fa-align-left"></i>
+                           		</span>							
+								</a>
+								
+								<a id="justifyCenter" class="button btn btn-light btn-icon-split btn-sm">
+								<span class="icon text-white-100">
+                                       <i class="fas fa-align-center"></i>
+                           		</span>							
+								</a>
+								
+								<a id="justifyRight" class="button btn btn-light btn-icon-split btn-sm">
+								<span class="icon text-white-100">
+                                       <i class="fas fa-align-right"></i>
+                           		</span>							
+								</a>
+								
+								<a id="insertunorderedList" class="button btn btn-light btn-icon-split btn-sm">
+								<span class="icon text-white-100">
+                                       <i class="fas fa-list-ul"></i>
+                           		</span>							
+								</a>
+								
+								<a id="insertorderedList" class="button btn btn-light btn-icon-split btn-sm">
+								<span class="icon text-white-100">
+                                      <i class="fas fa-list-ol"></i>
+                           		</span>							
+								</a>
+							
+								<select id="fontSize">
+									<option value="">글자 크기</option>
+									<option value="3">10px</option>
+									<option value="4">12px</option>
+									<option value="5">16px</option>
+									<option value="6">20px</option>
+									<option value="7">30px</option>
+								</select>
+								
+								<select id="foreColor">
+								    <option value="">글자 색깔</option>
+								    <option value="#f00">빨강</option>
+								    <option value="#00f">파랑</option>
+								    <option value="#0f0">초록</option>
+								    <option value="#ffff00">노랑</option>
+								    <option value="#000">검정</option>
+								</select>
 							
 							
 							</div>
 							
 							<div class="input_contents_wrap">
-								<div class="input_contents" name="sn_contents" contenteditable="true">${studynote.sn_contents}</div>
+								<div class="input_contents" contenteditable="true">${studynote.sn_contents}</div>
 							</div>
 							
-
-							<br> <input type="submit" value="제출">
-							<a id="submit" href="/SST/StudyNote/StudyNote_ListAction.do">수정하기</a>
+							<div class="formBtnWrap">
+								<a id="submit" href="/SST/StudyNote/StudyNote_ListAction.do" 
+									class="btn btn-primary btn-icon-split btn-sm">
+                                    <span class="icon text-white-50">
+                                        <i class="fas fa-check"></i>
+                                    </span>
+                                    <span class="text">수정하기</span>
+                            	</a>
+							</div>
+						
+							
 						</form>
+						
+						</div>
+						<!-- end of studyNoteFormWrap -->
 
 					</div>
 				</div>
