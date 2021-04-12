@@ -30,10 +30,11 @@
 	
 	<mappers>
 		<mapper resource="org/sst/mapper/StudyNoteMapper.xml"/>
-		<mapper resource="org/sst/mapper/Calendar.xml"/>
+		
 		<mapper resource="org/sst/mapper/QuestionMapper.xml"/>
 		<!-- <mapper resource="kosta/mapper/Order.xml"/> 이런식으로 여러개 포함할수도 있다.
 			(Mapper파일을 여러개 포함한다.)
+			<mapper resource="org/sst/mapper/Calendar.xml"/>
 		-->
 
 	</mappers>

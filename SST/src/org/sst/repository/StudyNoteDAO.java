@@ -126,54 +126,6 @@ public class StudyNoteDAO {
 		return re;
 	}
 	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
 	public List<StudyNoteVO> studyNoteList(StudyNoteSearchVO search, int startRow){
 		SqlSession sqlSession = getSqlSessionFactory().openSession();
 		

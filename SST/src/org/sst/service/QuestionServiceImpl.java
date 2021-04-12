@@ -1,8 +1,14 @@
 package org.sst.service;
 
-import javax.servlet.http.HttpServletRequest;
+import java.util.List;
 
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpSession;
+
+import org.sst.domain.QuestionListVO;
 import org.sst.domain.QuestionVO;
+import org.sst.domain.StudyNoteListVO;
+import org.sst.domain.StudyNoteSearchVO;
 import org.sst.domain.StudyNoteVO;
 import org.sst.repository.QuestionDAO;
 import org.sst.repository.StudyNoteDAO;
@@ -33,5 +39,16 @@ public class QuestionServiceImpl {
 		q.setGm_num(request.getParameter("gm_num"));
 
 		return dao.insertQuestion(q);
+	}
+	
+	public QuestionListVO questionListService(HttpServletRequest request) throws Exception {
+		request.setCharacterEncoding("utf-8");
+		
+		HttpSession session = request.getSession();
+
+	
+		List<QuestionVO> list = dao.questionList();
+		QuestionListVO questionListVO = new QuestionListVO(list);
+		return questionListVO;
 	}
 }

@@ -1,14 +1,18 @@
 package org.sst.repository;
 
 import java.io.InputStream;
+import java.util.List;
 
 import org.apache.ibatis.io.Resources;
+import org.apache.ibatis.session.RowBounds;
 import org.apache.ibatis.session.SqlSession;
 import org.apache.ibatis.session.SqlSessionFactory;
 import org.apache.ibatis.session.SqlSessionFactoryBuilder;
 import org.sst.domain.QuestionVO;
-
+import org.sst.domain.StudyNoteSearchVO;
+import org.sst.domain.StudyNoteVO;
 import org.sst.mapper.QuestionMapper;
+import org.sst.mapper.StudyNoteMapper;
 
 
 public class QuestionDAO {
@@ -56,6 +60,22 @@ public class QuestionDAO {
 		return re;
 	}
 	
+	public List<QuestionVO> questionList(){
+		SqlSession sqlSession = getSqlSessionFactory().openSession();
+		
+		List<QuestionVO> list=null;
+		
+		try {
+			list = sqlSession.getMapper(QuestionMapper.class).listQuestion();
+			System.out.println("DAO");
+			System.out.println(list);
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		
+		
+		return list;
+	}
 	
 	
 	

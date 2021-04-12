@@ -3,7 +3,7 @@
 "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 
 
-<mapper namespace="org.sst.mapper.StudyNoteMapper"> <!-- 동일한 이름의 인터페이스를 만들어야한다 -->
+<mapper namespace="org.sst.mapper.QuestionMapper"> <!-- 동일한 이름의 인터페이스를 만들어야한다 -->
 	<cache />
 	
 	<!-- 컨트롤 스페이스 해도 resultType 안나옴 -->
@@ -13,11 +13,16 @@
 			q_num, q_title, q_contents,q_answer, q_date, g_num, gm_num
 		)
 		VALUES(
-			SN_SEQ.NEXTVAL, #{q_title}, #{q_contents},#{q_answer}, SYSDATE, 1, 1
+			Q_SEQ.NEXTVAL, #{q_title}, #{q_contents},#{q_answer}, SYSDATE, 1, 1
 		)
 		
 	</insert>
 	
+		<select id="listQuestion" resultType="QuestionVO" >
+		SELECT * FROM question
+		
+
+	</select>
 
 	
 

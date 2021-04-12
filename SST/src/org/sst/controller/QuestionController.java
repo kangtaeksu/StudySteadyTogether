@@ -13,6 +13,8 @@ import org.sst.action.Action;
 import org.sst.action.ActionForward;
 import org.sst.action.Question_InsertAction;
 import org.sst.action.Question_InsertFormAction;
+import org.sst.action.Question_ListAction;
+import org.sst.action.StudyNote_ListAction;
 
 @WebServlet("/Question/*")
 public class QuestionController extends HttpServlet {
@@ -58,6 +60,13 @@ public class QuestionController extends HttpServlet {
 				e.printStackTrace();
 		    }
     		
+    	}	else if(command.equals("Question_ListAction.do")) {
+    		action = new Question_ListAction();
+    		try {
+    			forward = action.execute(request, response);
+			} catch (Exception e) {
+				e.printStackTrace();
+			}
     	}
     	if(forward != null) {
 	    		if(forward.isRedirect()) {
