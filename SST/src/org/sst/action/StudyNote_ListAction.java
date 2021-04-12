@@ -19,9 +19,9 @@ public class StudyNote_ListAction implements Action {
 		
 		StudyNoteServiceImpl service = StudyNoteServiceImpl.getInstance();
 		
-		list = service.studyNoteListService(request);
+		StudyNoteListVO snlVO = service.studyNoteListService(request);
 		
-		StudyNoteListVO snlVO = new StudyNoteListVO(list,1,5,1,5);
+		
 		request.setAttribute("StudyNoteListVO", snlVO);
 		
 		forward.setPath("/views/studynote/studynote_list.jsp");

@@ -18,8 +18,20 @@
 		
 	</insert>
 	
-	<select id="listStudyNote" resultType="StudyNoteVO">
-		SELECT * FROM studynote ORDER BY sn_num DESC
+
+	<select id="listStudyNote" resultType="StudyNoteVO" parameterType="StudyNoteSearchVO">
+		SELECT * FROM studynote
+		<if test="area != null">
+			<where>
+				 <!--where (title LIKE %aa% OR writer LIKE %aa%)  -->
+				<foreach collection="area" item="item" separator="OR"
+					open="(" close=")">
+					${item} LIKE #{searchKey}
+				</foreach>
+			</where>
+		</if>
+		order by sn_num desc
+
 	</select>
 	
 	<select id="detailStudyNote" parameterType="String" resultType="StudyNoteVO">
@@ -37,7 +49,18 @@
 		DELETE FROM studynote WHERE sn_num = #{sn_num}
 	</delete>
 
-	
+	<select id="countStudyNote" parameterType="StudyNoteSearchVO" resultType="int">
+		select count(*) from studynote
+		<if test="area != null">
+			<where>
+				 <!--where (title LIKE %aa% OR writer LIKE %aa%)  -->
+				<foreach collection="area" item="item" separator="OR"
+					open="(" close=")">
+					${item} LIKE #{searchKey}
+				</foreach>
+			</where>
+		</if>
+	</select>
 </mapper>
 
 
