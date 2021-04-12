@@ -6,6 +6,7 @@
 <configuration>
 	<typeAliases>
 		<typeAlias type="org.sst.domain.StudyNoteVO" alias="StudyNoteVO"/>
+		<typeAlias type="org.sst.domain.StudyNoteSearchVO" alias="StudyNoteSearchVO"/>
 
 		<!-- kosta.bean.Board라고 써주는게 정석이다. alias를쓰면 Board라는 이름으로 간단하게 부를수 있어짐-->
 

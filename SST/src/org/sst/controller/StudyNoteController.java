@@ -117,26 +117,17 @@ public class StudyNoteController extends HttpServlet {
     					request.getRequestDispatcher(forward.getPath());
     			dispatcher.forward(request, response);
     		}
-    	}
-    	
-    	
-    	
-    	
-    	
-  
-    	
+    	}	
     }
     
 
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		doProcess(request, response);
-		
 	}
 
 
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		doProcess(request, response);
-
 	}
 
 }
