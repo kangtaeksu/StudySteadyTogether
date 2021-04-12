@@ -10,7 +10,7 @@
 	content="width=device-width, initial-scale=1, shrink-to-fit=no">
 <meta name="description" content="">
 <meta name="author" content="">
-<title>SST</title>
+<title>필기 수정</title>
 <!-- Custom fonts for this template-->
 <link href="../vendor/fontawesome-free/css/all.min.css" rel="stylesheet"
 	type="text/css">
@@ -20,6 +20,41 @@
 
 <!-- Custom styles for this template-->
 <link href="../css/sb-admin-2.min.css" rel="stylesheet">
+<link href="../css/studynote_input.css" rel="stylesheet">
+<script src="https://code.jquery.com/jquery-1.12.4.min.js"></script>
+<script type="text/javascript">
+	window.onload = function(){
+		
+		document.execCommand('styleWithCSS', false, true);
+		document.execCommand('insertBrOnReturn', false, true);
+		
+		$("#fontSize").change(function(){
+		    document.execCommand('fontSize', false, $(this).val());
+		 });
+	}
+	
+	$(function(){
+		$("#submit").click(function(){
+			
+			sendRegData();
+			
+		});
+	});
+	
+	function sendRegData(){
+		$.ajax({
+			type: "POST",
+			url: "/SST/StudyNote/StudyNote_UpdateAction.do",
+			data: {sn_contents:$(".input_contents").html(),sn_title:$(".input_title").val(),sn_num:$("#sn_num").val()},
+			async:"true",
+			success: function(){
+				console.log("asdfawef");
+			}
+		});
+	}
+
+</script>
+
 
 </head>
 
@@ -40,23 +75,60 @@
 					<!-- Page Heading -->
 					<div
 						class="d-sm-flex align-items-center justify-content-between mb-4">
-						<h1 class="h3 mb-0 text-gray-800">노트 수정</h1>
+						
 					</div>
 					<!-- Content Row -->
 					<div class="row">
 
 						
-					<form action="StudyNote_UpdateAction.do" method="post">
-		<input type="hidden" name="sn_num" value="${studynote.sn_num }">
-		작성자 : <input type="text" name="gm_num" value="${studynote.sn_num }"><br>
+						<form action="StudyNote_InsertAction.do" method="post">
+							<input id="sn_num" type="hidden" name="sn_num" value="${studynote.sn_num }">
+							<!-- 작성자 : <input type="text" name="gm_num"> --><br> 
+							<!-- <input class="input_title" type="text" placeholder="제목을 입력하세요" name="sn_title"> -->
+							<div class="input_title_wrap">
+								<textarea class="input_title" placeholder="제목을 입력하세요" name="sn_title">${studynote.sn_title }</textarea>
+							</div>
+							
+							<div class="input_tools_wrap">
+							<input type="button" class="BOLD" value="Bold"
+				onclick="document.execCommand('bold')" /> <input type="button"
+				class="ITALIC" value="Italic"
+				onclick="document.execCommand('Italic')" /> <input type="button"
+				class="UNDERBAR" value="underline"
+				onclick="document.execCommand('Underline')" />
+			<button type="button" class="aignLeft"
+				onclick="document.execCommand('justifyleft')">
+				<i class="fas fa-align-left"></i>
+			</button>
+			<button type="button" class="aignCenter"
+				onclick="document.execCommand('justifycenter')">
+				<i class="fas fa-align-center"></i>
+			</button>
+			<button type="button" class="aignRight" value="오른쪽 정렬"
+				onclick="document.execCommand('justifyright')">
+				<i class="fas fa-align-right"></i>
+			</button>
+			<select id="fontSize" width="50px">
+				<option value="">글자 크기</option>
+				<option value="3">10px</option>
+				<option value="4">12px</option>
+				<option value="5">16px</option>
+				<option value="6">20px</option>
+				<option value="7">30px</option>
+			</select>
+			
+							
+							
+							</div>
+							
+							<div class="input_contents_wrap">
+								<div class="input_contents" name="sn_contents" contenteditable="true">${studynote.sn_contents}</div>
+							</div>
+							
 
-		제목 : <input type="text" name="sn_title" value="${studynote.sn_title}"><br>
-
-		내용 <br>
-		<textarea rows="30" cols="100" name="sn_contents">${studynote.sn_contents  }</textarea>
-		<br>
-	<input type="submit" value="수정완료">
-	</form>
+							<br> <input type="submit" value="제출">
+							<a id="submit" href="/SST/StudyNote/StudyNote_ListAction.do">수정하기</a>
+						</form>
 
 					</div>
 				</div>

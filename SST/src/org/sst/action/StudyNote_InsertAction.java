@@ -15,8 +15,7 @@ public class StudyNote_InsertAction implements Action {
 		ActionForward forward = new ActionForward();
 		StudyNoteServiceImpl service = StudyNoteServiceImpl.getInstance();
 		
-		service.studyNoteInsertService(request);
-				
+		service.studyNoteInsertService(request);				
 	
 		forward.setRedirect(true);
 		forward.setPath("StudyNote_ListAction.do");

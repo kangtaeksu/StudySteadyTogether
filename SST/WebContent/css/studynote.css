@@ -62,6 +62,7 @@
 
 .sn_writer{
 	width: 100px;
+}
 
 .sn_row{
 	border-bottom: 1px solid #DCDCDC;
@@ -129,4 +130,8 @@
 .curBtn{
 	background: #858796;
 
+}
+
+.input_contents{
+	min-height: 100%;
 }
