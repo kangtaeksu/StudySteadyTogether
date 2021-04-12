@@ -24,7 +24,8 @@
 
 <!-- Custom styles for this template-->
 <link href="../css/sb-admin-2.min.css" rel="stylesheet">
-
+<link href="../css/studynote.css" rel="stylesheet">
+<link>
 </head>
 
 <body id="page-top">
@@ -48,28 +49,42 @@
 					</div>
 
 					<!-- Content Row -->
-					<div class="row">
-						<a href="StudyNote_InsertFormAction.do">글쓰기</a>
 
-					</div>
-					<!-- end of row -->
 
 					<div class="row">
 
 
 						<div class="noteView">
-							글번호 :${studynote.sn_num }<br> 
-							글제목 :${studynote.sn_title }<br> 
-						
-							내용 <br> ${studynote.sn_contents }<br>
-							작성일 :${studynote.sn_date }<br> 
+							<div class="noteHeader">
+								<h2>${studynote.sn_title}</h2>
+								<hr>
+								작성일임 :${studynote.sn_date}
+							</div>
+							<%-- 글번호 :${studynote.sn_num }<br>  --%>
+							
+							<div class="noteContents">
+							  ${studynote.sn_contents}
+							</div>
+							
+							<div class="noteFooter">
+								<a class="btn btn-light btn-icon-split noteFooterBtn" href="StudyNote_ListAction.do">
+								<span class="icon text-gray-600"><i class="fas fa-arrow-right"></i></span><span class="text">글 목록</span>
+								</a>
+								
+								<a class="btn btn-primary btn-icon-split noteFooterBtn" 
+								href="StudyNote_UpdateFormAction.do?sn_num=${studynote.sn_num}">
+									<span class="icon text-white-50"><i class="fas fa-check"></i></span><span class="text">글 수정하기</span>
+								</a> 
+								
+								<a class="btn btn-danger btn-icon-split noteFooterBtn" 
+								href="StudyNote_DeleteAction.do?sn_num=${studynote.sn_num }">
+									<span class="icon text-white-50"><i class="fas fa-trash"></i></span><span class="text">글 삭제</span>
+								</a>
+							</div>
+					
 			
-							<a href="StudyNote_ListAction.do">글목록</a>
-							<a href="StudyNote_UpdateFormAction.do?sn_num=${studynote.sn_num}">글 수정하기</a> 
-							<a href="StudyNote_DeleteAction.do?sn_num=${studynote.sn_num }">글삭제</a>
+							
 						</div>
-
-
 					</div>
 					<!-- end of row -->
 

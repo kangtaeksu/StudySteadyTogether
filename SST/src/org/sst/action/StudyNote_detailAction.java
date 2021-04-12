@@ -26,7 +26,7 @@ public class StudyNote_detailAction implements Action {
 		//request.setAttribute("replys", replys);
 		
 		forward.setRedirect(false);
-		forward.setPath("/WEB-INF/views/studynote/studynote_detail.jsp");
+		forward.setPath("/views/studynote/studynote_detail.jsp");
 		
 		return forward;
 	}

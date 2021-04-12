@@ -22,9 +22,6 @@ import org.sst.action.StudyNote_DeleteAction;
 import org.sst.action.StudyNote_InsertAction;
 
 
-
-
-
 @WebServlet("/StudyNote/*")
 public class StudyNoteController extends HttpServlet {
 	private static final long serialVersionUID = 1L;
