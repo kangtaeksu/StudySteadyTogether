@@ -18,10 +18,10 @@
         rel="stylesheet">
 
     <link href="../css/sb-admin-2.min.css" rel="stylesheet">
-	<link href="../css/hycss.css" rel="stylesheet">
+	<link href="../css/member.css" rel="stylesheet">
 </head>
 
-<body class="main-bg">
+<body class="main-bg memback">
 
     <div class="container">
 

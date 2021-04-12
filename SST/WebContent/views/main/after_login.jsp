@@ -25,13 +25,13 @@
     <!-- Page Wrapper -->
     <div id="wrapper">
         <!-- sidemenu -->
-        <%@include file="../template/sidemenu.jsp" %>
+        <%@include file="../../template/sidemenu.jsp" %>
         <!-- Content Wrapper -->
         <div id="content-wrapper" class="d-flex flex-column">
             <!-- Main Content -->
             <div id="content">
                 <!-- topbar -->
-				<%@include file="../template/topbar.jsp" %>
+				<%@include file="../../template/topbar.jsp" %>
                 <!-- Begin Page Content -->
                 <div class="container-fluid">
                     <!-- Page Heading -->
@@ -40,10 +40,8 @@
                     </div>
                     <!-- Content Row -->
                     <div class="row">
-
-                        <h1>활용면적</h1>
-
-                     
+						<h3>${sessionScope.loginsession.id }님 환영합니다.</h3> 
+						<br> 
                     </div>
                 </div>
                 <!-- /.container-fluid -->
@@ -52,7 +50,7 @@
             <!-- End of Main Content -->
 
             <!-- Footer -->
-            <%@include file="../template/footer.jsp" %>
+            <%@include file="../../template/footer.jsp" %>
             <!-- End of Footer -->
         </div>
         <!-- End of Content Wrapper -->
