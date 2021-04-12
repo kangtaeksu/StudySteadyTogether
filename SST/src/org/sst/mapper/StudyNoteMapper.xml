@@ -19,7 +19,7 @@
 	</insert>
 	
 	<select id="listStudyNote" resultType="StudyNoteVO">
-		SELECT * FROM studynote
+		SELECT * FROM studynote ORDER BY sn_num DESC
 	</select>
 	
 	<select id="detailStudyNote" parameterType="String" resultType="StudyNoteVO">
