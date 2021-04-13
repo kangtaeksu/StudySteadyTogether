@@ -35,7 +35,7 @@ public class StudyNoteController extends HttpServlet {
     
     public void doProcess(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
     	System.out.println("요청 받음");
-    	//http://localhost:8081/MVC/board/updateBoard.do => 문자열 부분추출해야쥬
+    	//http://localhost:8081/MVC/board/updateBoard.do => 문자열 부분추출해야쥬nn
     	//첫번째 할 것 url 식별
     	
     	String requestURI = request.getRequestURI();
