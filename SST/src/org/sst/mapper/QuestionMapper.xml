@@ -39,22 +39,22 @@
 
 		<!-- 동일 게시글 추천 여부 검색 -->
 	<select id="rec_check" parameterType="map" resultType="int">
-		select count(*) from ex_rec where board_no = #{no} and rec_id = #{id}
+		select count(*) from questionreply where q_num = #{q_num} and gm_num = #{gm_num}
 	</select>
 	
 	<!-- 게시글 추천 -->
 	<insert id="rec_update" parameterType="map">
-		insert into ex_rec values(#{no}, #{id})
+		insert into questionreply values(#{c_like}, #{gm_num})
 	</insert>
 	
 	<!-- 게시글 추천 취소 -->
 	<delete id="rec_delete" parameterType="map">
-		delete from ex_rec where board_no = #{no} and rec_id = #{id}
+		delete from questionreply where c_num = #{c_num} and gm_num = #{gm_num}
 	</delete>
 	
 	<!-- 게시글 추천수 -->
 	<select id="rec_count" parameterType="int" resultType="int">
-		select count(*) from ex_rec where board_no = #{no}
+		select count(*) from questionreply where c_num = #{c_num}
 	</select>
 </mapper>
 
