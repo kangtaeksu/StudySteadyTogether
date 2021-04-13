@@ -91,6 +91,7 @@ public class StudyNoteController extends HttpServlet {
     	
 
     	else if(command.equals("StudyNote_ListAction.do")) {
+    		
     		action = new StudyNote_ListAction();
     		try {
     			forward = action.execute(request, response);

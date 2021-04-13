@@ -7,14 +7,14 @@ import org.apache.ibatis.io.Resources;
 import org.apache.ibatis.session.SqlSession;
 import org.apache.ibatis.session.SqlSessionFactory;
 import org.apache.ibatis.session.SqlSessionFactoryBuilder;
-import org.sst.domain.Todo;
+import org.sst.domain.CalendarTodoVO;
 import org.sst.mapper.CalendarMapper;
 
 
-public class CalendarDao {
-	private static CalendarDao dao = new CalendarDao();
+public class CalendarDAO {
+	private static CalendarDAO dao = new CalendarDAO();
 	
-	public static CalendarDao getInstance() {
+	public static CalendarDAO getInstance() {
 		return dao;
 	}
 	
@@ -28,7 +28,7 @@ public class CalendarDao {
 		}
 		return new SqlSessionFactoryBuilder().build(in);
 	}
-	public int insertTodo(Todo todo){
+	public int insertTodo(CalendarTodoVO todo){
 		int re = -1;
 		SqlSession sqlSession = getSqlSessionFactory().openSession();
 		try {
@@ -47,9 +47,9 @@ public class CalendarDao {
 		}
 		return re;
 	}
-	public List<Todo> listTodo() {
+	public List<CalendarTodoVO> listTodo() {
 		SqlSession sqlSession = getSqlSessionFactory().openSession();
-		List<Todo> list = null;
+		List<CalendarTodoVO> list = null;
 		
 		try {
 			list = sqlSession.getMapper(CalendarMapper.class).listTodo();
@@ -65,7 +65,6 @@ public class CalendarDao {
 		
 	}
 }
-
 
 
 

@@ -5,7 +5,7 @@ import javax.servlet.http.HttpServletResponse;
 
 import org.sst.service.CalendarService;
 
-public class insertTodoAction implements Action {
+public class Calendar_insertTodoAction implements Action {
 
 	@Override
 	public ActionForward execute(HttpServletRequest request, HttpServletResponse response) throws Exception {
