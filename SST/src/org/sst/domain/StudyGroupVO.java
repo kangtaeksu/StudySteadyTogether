@@ -9,8 +9,7 @@ public class StudyGroupVO implements Serializable {
 	private String g_contents;
 	private String g_secreat; //비밀번호를 할지말지
 	private String g_passwd; // 비밀번호
-	private String g_category;
-	
+	private String g_category; // 그룹 카테고리
 	
 	public StudyGroupVO() {}
 
