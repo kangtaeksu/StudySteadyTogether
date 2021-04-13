@@ -28,6 +28,14 @@
 		select * from question where q_num = #{q_num}
 	</select>
 
+	<insert id="insertQuestionReply" parameterType="QuestionReplyVO">
+		insert into questionreply
+			values(q_reply.nextval, #{c_num}, #{c_contents}, sysdate, #{q_num},1, 1)
+	</insert>
+	
+	<select id="listQuestionReply" parameterType="int" resultType="QuestionReplyVO">
+		select * from questionreply where q_num = #{q_num}
+	</select>
 
 	
 </mapper>

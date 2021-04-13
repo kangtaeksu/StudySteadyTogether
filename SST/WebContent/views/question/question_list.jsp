@@ -76,6 +76,7 @@
 										</tr>
 									</c:forEach>
 								</table>
+								<input type="hidden" name="q_answer" value="${question.q_answer }">
 							</div>
 							
 							

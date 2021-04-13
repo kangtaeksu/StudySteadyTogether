@@ -11,11 +11,14 @@ import javax.servlet.http.HttpServletResponse;
 
 import org.sst.action.Action;
 import org.sst.action.ActionForward;
+import org.sst.action.Question_DetailAction;
 import org.sst.action.Question_InsertAction;
 import org.sst.action.Question_InsertFormAction;
+import org.sst.action.Question_InsertReplyAction;
 import org.sst.action.Question_ListAction;
 import org.sst.action.StudyNote_ListAction;
 import org.sst.action.StudyNote_detailAction;
+
 
 @WebServlet("/Question/*")
 public class QuestionController extends HttpServlet {
@@ -68,13 +71,20 @@ public class QuestionController extends HttpServlet {
 			} catch (Exception e) {
 				e.printStackTrace();
 			}
-    	}else if(command.equals("StudyNote_DetailAction.do")) {
-    		action = new StudyNote_detailAction();
+    	}else if(command.equals("Question_DetailAction.do")) {
+    		action = new Question_DetailAction();
     		try {
 				forward = action.execute(request, response);
 			} catch (Exception e) {
 				e.printStackTrace();
 		    }
+    	}else if(command.equals("Question_InsertReplyAction.do")) {
+    		action = new Question_InsertReplyAction();
+    		try {
+				forward = action.execute(request, response);
+			} catch (Exception e) {
+				e.printStackTrace();
+			}
     	}
     	if(forward != null) {
 	    		if(forward.isRedirect()) {

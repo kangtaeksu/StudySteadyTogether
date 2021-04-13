@@ -1,6 +1,8 @@
 package org.sst.domain;
 
-public class QuestionVO {
+import java.io.Serializable;
+
+public class QuestionVO implements Serializable{
 	private String q_num; //문제번호
 	private String q_title;
 	private String q_contents;

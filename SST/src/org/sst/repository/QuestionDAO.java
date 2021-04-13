@@ -8,11 +8,13 @@ import org.apache.ibatis.session.RowBounds;
 import org.apache.ibatis.session.SqlSession;
 import org.apache.ibatis.session.SqlSessionFactory;
 import org.apache.ibatis.session.SqlSessionFactoryBuilder;
+import org.sst.domain.QuestionReplyVO;
 import org.sst.domain.QuestionVO;
 import org.sst.domain.StudyNoteSearchVO;
 import org.sst.domain.StudyNoteVO;
 import org.sst.mapper.QuestionMapper;
 import org.sst.mapper.StudyNoteMapper;
+
 
 
 public class QuestionDAO {
@@ -91,6 +93,45 @@ public class QuestionDAO {
 		}
 		
 		return q;
+	}
+	
+	public int insertQuestionReply(QuestionReplyVO q_reply) {
+		SqlSession sqlSession = getSqlSessionFactory().openSession();
+		int re = -1;
+		
+		try {
+			re = sqlSession.getMapper(QuestionMapper.class).insertQuestionReply(q_reply);
+			if(re>0) {
+				sqlSession.commit();
+			}else {
+				sqlSession.rollback();
+			}
+		} catch (Exception e) {
+			e.printStackTrace();
+		}finally {
+			if(sqlSession != null) {
+				sqlSession.close();
+			}
+		}
+		
+		return re;
+	}
+	
+	public List<QuestionReplyVO> listQuestionReply(int q_num){
+		SqlSession sqlSession = getSqlSessionFactory().openSession();
+		List<QuestionReplyVO> list = null;
+		
+		try {
+			list = sqlSession.getMapper(QuestionMapper.class).listQuestionReply(q_num);			
+		} catch (Exception e) {
+			e.printStackTrace();
+		}finally {
+			if(sqlSession != null) {
+				sqlSession.close();
+			}
+		}
+		
+		return list;
 	}
 	
 }
