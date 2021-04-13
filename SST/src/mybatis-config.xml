@@ -12,7 +12,7 @@
 
 		
 		<typeAlias type="org.sst.domain.QuestionVO" alias="QuestionVO"/>
-<typeAlias type="org.sst.domain.QuestionReplyVO" alias="QuestionReplyVO"/>
+		<typeAlias type="org.sst.domain.QuestionReplyVO" alias="QuestionReplyVO"/>
 
 		<typeAlias type="org.sst.domain.MemberVO" alias="MemberVO"/>
 

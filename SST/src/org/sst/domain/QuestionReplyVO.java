@@ -1,6 +1,8 @@
 package org.sst.domain;
 
-public class QuestionReplyVO {
+import java.io.Serializable;
+
+public class QuestionReplyVO implements Serializable {
 
 	private String c_num;
 	private String c_contents;
@@ -8,10 +10,12 @@ public class QuestionReplyVO {
 	private String q_num;
 	private String gm_num;
 	private String g_num;
+	private int c_like;
 	
 	public QuestionReplyVO() {}
 
-	public QuestionReplyVO(String c_num, String c_contents, String c_date, String q_num, String gm_num, String g_num) {
+	public QuestionReplyVO(String c_num, String c_contents, String c_date, String q_num, String gm_num, String g_num,
+			int c_like) {
 		super();
 		this.c_num = c_num;
 		this.c_contents = c_contents;
@@ -19,6 +23,7 @@ public class QuestionReplyVO {
 		this.q_num = q_num;
 		this.gm_num = gm_num;
 		this.g_num = g_num;
+		this.c_like = c_like;
 	}
 
 	public String getC_num() {
@@ -68,6 +73,16 @@ public class QuestionReplyVO {
 	public void setG_num(String g_num) {
 		this.g_num = g_num;
 	}
+
+	public int getC_like() {
+		return c_like;
+	}
+
+	public void setC_like(int c_like) {
+		this.c_like = c_like;
+	}
+
+
 	
 	
 }

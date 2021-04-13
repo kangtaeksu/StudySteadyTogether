@@ -57,43 +57,12 @@
 							<div class="noteHeader">
 								<h2>${question.q_title}</h2>
 								<hr>
-								작성일임 :${question.q_date}
+								작성일 :${question.q_date}
 							</div>
-							<!-- 
-							여기부터 댓글
-							 -->
+							
 		
 	
-	<div>
-		<h3>댓글 목록</h3>
-		<table border="1">
-			<tr>
-				<td>댓글번호</td>
-				<td>댓글내용</td>
-				<td>댓글날짜</td>
-				<td>문제번호</td>
-				<td>그룹원아이디</td>
-			</tr>
-			<c:forEach var="reply" items="${replys }">
-			<tr>
-				<td>${questionreplyvo.c_num }</td>
-				<td>${questionreplyvo.c_contents }</td>
-				<td>${questionreplyvo.c_date }</td>
-				<td>${questionreplyvo.q_num }</td>
-				<td>${questionreplyvo.gm_num }</td>
-			</tr>			
-			</c:forEach>
-		</table>	
-	</div>
-	<br>
 	
-	<form action="Question_InsertReplyAction.do" method="post">
-		<input type="hidden" name="q_num" value="${question.q_num }">
-		
-		댓글작성자: <input type="text" name="gm_num"><br>
-		댓글내용: <input type="text" name="c_contents"><br>
-		<input type="submit" value="댓글쓰기">
-	</form>
 							
 							
 							<%-- 글번호 :${studynote.sn_num }<br>  --%>
@@ -122,19 +91,68 @@
 							
 						</div>
 					</div>
-					<!-- end of row -->
+					<!-- 
+							여기부터 댓글
+							 -->
+					<div>
+		<h3>댓글 목록</h3>
+		<table border="1">
+			<tr>
+				<td>댓글번호</td>
+				<td>댓글내용</td>
+				<td>댓글날짜</td>
+				<td>문제번호</td>
+				<td>그룹원아이디</td>
+			</tr>
+			<c:forEach var="reply" items="${questionreplyvo}">
+			<tr>
+				<td>${questionreplyvo.c_num }</td>
+				<td>${questionreplyvo.c_contents }</td>
+				<td>${questionreplyvo.c_date }</td>
+				<td>${questionreplyvo.q_num }</td>
+				<td>${questionreplyvo.gm_num }</td>
+				<td>${questionreplyvo.g_num }</td>
+			</tr>			
+			</c:forEach>
+		</table>	
+	</div>
+	<br>
+	
+	<form action="Question_InsertReplyAction.do" method="post">
+		<input type="hidden" name="q_num" value="${question.q_num }">
+		
+		댓글작성자: <input type="text" name="gm_num"><br>
+		댓글내용: <input type="text" name="c_contents"><br>
+		<input type="submit" value="댓글쓰기">
+	</form>
+	<br>
+	
+	<!-- 여기서 댓글이 보여짐  -->
+		<div class="noteView">
+							<div class="noteHeader">
+							 	${questionreplyvo.gm_num}님 : ${questionreplyvo.c_contents}  작성일 :${questionreplyvo.c_date}
+							</div>
+	
+						
+							
+					<!-- end of row  여기서 댓글 추천기능 로그인해야만 된다 -->
+<div>
+			<div class="w3-border w3-center w3-padding">
+				<c:if test="${ id == null }">
+					추천 기능은 <button type="button" id="newLogin"><b class="w3-text-blue">로그인</b></button> 후 사용 가능합니다.<br />
+					<i class="fa fa-heart" style="font-size:16px;color:red"></i>
+					<span class="rec_count"></span>					
+				</c:if>
+				<c:if test="${ id != null }">
+					<button class="w3-button w3-black w3-round" id="rec_update">
+						<i class="fa fa-heart" style="font-size:16px;color:red"></i>
+						&nbsp;<span class="rec_count"></span>
+					</button> 
+				</c:if>
+			</div>
+		</div>
 
-
-					<div class="row">
-
-						<form action="Question_ListAction.do" method="post">
-							<input type="checkbox" name="area" value="title">제목 <input
-								type="checkbox" name="area" value="writer">ID <input
-								type="text" name="searchKey" size="10"> <input
-								type="submit" value="검색">
-						</form>
-
-					</div>
+					
 					<!-- end of row -->
 
 				</div>

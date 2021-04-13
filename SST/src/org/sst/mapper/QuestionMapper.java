@@ -14,5 +14,5 @@ public interface QuestionMapper {
 	QuestionVO detailQuestion(String q_num);
 	
 	int insertQuestionReply(QuestionReplyVO q_reply);
-	List<QuestionReplyVO> listQuestionReply(int q_num); 
+	List<QuestionReplyVO> listQuestionReply(String q_num); 
 }

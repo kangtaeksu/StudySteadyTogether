@@ -16,6 +16,8 @@ import org.sst.action.Question_InsertAction;
 import org.sst.action.Question_InsertFormAction;
 import org.sst.action.Question_InsertReplyAction;
 import org.sst.action.Question_ListAction;
+import org.sst.action.Question_RecCountReplyAction;
+import org.sst.action.Question_RecReplyAction;
 import org.sst.action.StudyNote_ListAction;
 import org.sst.action.StudyNote_detailAction;
 
@@ -85,7 +87,23 @@ public class QuestionController extends HttpServlet {
 			} catch (Exception e) {
 				e.printStackTrace();
 			}
+    	}else if(command.equals("Question_RecReplyAction.do")) {
+    		action = new Question_RecReplyAction();
+    		try {
+				forward = action.execute(request, response);
+			} catch (Exception e) {
+				e.printStackTrace();
+			}
+    	}else if(command.equals("Question_RecCountAction.do")) {
+    		action = new Question_RecCountReplyAction();
+    		try {
+				forward = action.execute(request, response);
+			} catch (Exception e) {
+				e.printStackTrace();
+			}
     	}
+    	
+    	
     	if(forward != null) {
 	    		if(forward.isRedirect()) {
 	    			response.sendRedirect(forward.getPath());

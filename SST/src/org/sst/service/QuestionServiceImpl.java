@@ -70,7 +70,10 @@ public class QuestionServiceImpl {
 		return dao.insertQuestionReply(q_reply);
 	}
 	
-	public List<QuestionReplyVO> listQuestionReplyService(int q_num){
+	public List<QuestionReplyVO> listQuestionReplyService(String q_num){
 		return dao.listQuestionReply(q_num);
 	}
+	
+	
+	
 }

@@ -2,6 +2,7 @@ package org.sst.repository;
 
 import java.io.InputStream;
 import java.util.List;
+import java.util.Map;
 
 import org.apache.ibatis.io.Resources;
 import org.apache.ibatis.session.RowBounds;
@@ -117,7 +118,7 @@ public class QuestionDAO {
 		return re;
 	}
 	
-	public List<QuestionReplyVO> listQuestionReply(int q_num){
+	public List<QuestionReplyVO> listQuestionReply(String q_num){
 		SqlSession sqlSession = getSqlSessionFactory().openSession();
 		List<QuestionReplyVO> list = null;
 		
@@ -133,5 +134,54 @@ public class QuestionDAO {
 		
 		return list;
 	}
+	
+	// 게시글 추천여부 검사
+		public int recCheck(Map<String, Object> m){
+			int result = 0;
+			try {
+				SqlSession sqlSession = getSqlSessionFactory().openSession();
+				result = (Integer) sqlSession.selectOne("board.rec_check", m);
+			} catch (Exception e) {
+				System.out.println("recCheck : " + e);
+				e.printStackTrace();
+			}
+			return result;
+		}
+		
+		// 게시글 추천
+		public void recUpdate(Map<String, Object> m){
+			try {
+				SqlSession sqlSession = getSqlSessionFactory().openSession();
+				sqlSession.insert("board.rec_update", m);
+			} catch (Exception e) {
+				System.out.println("recUpdate : " + e);
+				e.printStackTrace();
+			}
+		}
+		
+		// 게시글 추천 제거
+		public void recDelete(Map<String, Object> m){
+			try {
+				SqlSession sqlSession = getSqlSessionFactory().openSession();
+				sqlSession.insert("board.rec_delete", m);
+			} catch (Exception e) {
+				System.out.println("recDelete : " + e);
+				e.printStackTrace();
+			}
+		}
+		
+		// 게시글 추천수
+		public int recCount(int no){
+			int count = 0;
+			try {
+				SqlSession sqlSession = getSqlSessionFactory().openSession();
+				count = (Integer) sqlSession.selectOne("board.rec_count", no);
+			} catch (Exception e) {
+				System.out.println("recCount : " + e);
+				e.printStackTrace();
+			}
+			return count;
+		}
+	
 	
 }

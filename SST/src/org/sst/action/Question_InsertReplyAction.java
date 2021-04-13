@@ -18,7 +18,7 @@ public class Question_InsertReplyAction implements Action {
 		service.insertQuestionReplyService(request);
 		
 		forward.setRedirect(true);
-		forward.setPath("Quesiton_DetailAction.do?q_num="+ request.getParameter("q_num"));
+		forward.setPath("Question_DetailAction.do?q_num="+ request.getParameter("q_num"));
 		
 		return forward;
 	}
