@@ -200,8 +200,9 @@
 						</div>
 						<div class = "col-md-3">
 							<div class="row">
-								<button><a href = "/PrivateSteudy/fullcalendar-5.6.0/Calendar2/insertTodoForm.do">Todo작성</a></button>
+								<button><a href = "/SST/fullcalendar-5.6.0/Calendar2/insertTodoForm.do">Todo작성</a></button>
 							</div>
+
 							<div class="row">
 								<h5 class = "toDoListHeader">이번달 일정</h5>
 							</div>

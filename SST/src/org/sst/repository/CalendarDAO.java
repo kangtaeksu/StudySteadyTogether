@@ -9,10 +9,10 @@ import org.apache.ibatis.session.SqlSessionFactory;
 import org.apache.ibatis.session.SqlSessionFactoryBuilder;
 import org.sst.domain.CalendarTodoVO;
 import org.sst.mapper.CalendarMapper;
-
+import org.sst.service.CalendarService;
 
 public class CalendarDAO {
-	private static CalendarDAO dao = new CalendarDAO();
+private static CalendarDAO dao = new CalendarDAO();
 	
 	public static CalendarDAO getInstance() {
 		return dao;
@@ -65,13 +65,3 @@ public class CalendarDAO {
 		
 	}
 }
-
-
-
-
-
-
-
-
-
-

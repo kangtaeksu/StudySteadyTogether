@@ -15,7 +15,7 @@ public class Calendar_insertTodoAction implements Action {
 		service.insertTodoService(request);
 		
 		forward.setRedirect(true);
-		forward.setPath("/PrivateSteudy/fullcalendar-5.6.0/Calendar2/CalendarForm.do");
+		forward.setPath("/SST/fullcalendar-5.6.0/Calendar2/CalendarForm.do");
 		
 		return forward;
 	}
