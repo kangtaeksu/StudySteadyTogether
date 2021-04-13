@@ -39,7 +39,7 @@
 
 		<!-- 동일 게시글 추천 여부 검색 -->
 	<select id="rec_check" parameterType="map" resultType="int">
-		select count(*) from questionreply where q_num = #{q_num} and gm_num = #{gm_num}
+		select count(*) from questionreply where c_like = #{c_like} and gm_num = #{gm_num}
 	</select>
 	
 	<!-- 게시글 추천 -->
@@ -49,12 +49,12 @@
 	
 	<!-- 게시글 추천 취소 -->
 	<delete id="rec_delete" parameterType="map">
-		delete from questionreply where c_num = #{c_num} and gm_num = #{gm_num}
+		delete from questionreply where c_like = #{c_like} and gm_num = #{gm_num}
 	</delete>
 	
 	<!-- 게시글 추천수 -->
 	<select id="rec_count" parameterType="int" resultType="int">
-		select count(*) from questionreply where c_num = #{c_num}
+		select count(*) from questionreply where c_like = #{c_like}
 	</select>
 </mapper>
 
