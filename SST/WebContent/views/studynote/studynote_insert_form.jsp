@@ -24,21 +24,21 @@
 <script src="https://code.jquery.com/jquery-1.12.4.min.js"></script>
 <script type="text/javascript">
 	window.onload = function(){
-		
 		document.execCommand('styleWithCSS', false, true);
 		document.execCommand('insertBrOnReturn', false, true);
-		
-		$("#fontSize").change(function(){
-		    document.execCommand('fontSize', false, $(this).val());
-		 });
 	}
 	
 	$(function(){
 		$("#submit").click(function(){
-			
 			sendRegData();
-			
 		});
+		
+	    $('select').change(function(){
+	        document.execCommand($(this).attr('id'), false, $(this).val());
+	      });
+	    $('.button').click(function(){
+	        document.execCommand($(this).attr('id'), false, true);
+	      });
 	});
 	
 	function sendRegData(){
@@ -90,63 +90,67 @@
 							</div>
 							
 							<div class="input_tools_wrap">
-							
-								<a class="btn btn-light btn-icon-split btn-sm">
+								
+								<a id="Undo" class="button btn btn-light btn-icon-split btn-sm">
+								<span class="icon text-white-100">
+                                       <i class="fas fa-undo"></i>
+                           		</span>							
+								</a>
+								
+								<a id="Redo" class="button btn btn-light btn-icon-split btn-sm">
+								<span class="icon text-white-100">
+                                       <i class="fas fa-redo"></i>
+                           		</span>							
+								</a>
+								
+								<a id="bold" class="button btn btn-light btn-icon-split btn-sm">
 								<span class="icon text-white-100">
                                        <i class="fas fa-bold"></i>
                            		</span>							
 								</a>
 								
-								<a class="btn btn-light btn-icon-split btn-sm">
+								<a id="italic" class="button btn btn-light btn-icon-split btn-sm">
 								<span class="icon text-white-100">
                                        <i class="fas fa-italic"></i>
                            		</span>							
 								</a>
 								
-								<a class="btn btn-light btn-icon-split btn-sm">
+								<a id="underLine" class="button btn btn-light btn-icon-split btn-sm">
 								<span class="icon text-white-100">
                                        <i class="fas fa-underline"></i>
                            		</span>							
 								</a>
 								
-								<a class="btn btn-light btn-icon-split btn-sm">
+								<a id="justifyLeft" class="button btn btn-light btn-icon-split btn-sm">
 								<span class="icon text-white-100">
                                        <i class="fas fa-align-left"></i>
                            		</span>							
 								</a>
 								
-								<a class="btn btn-light btn-icon-split btn-sm">
+								<a id="justifyCenter" class="button btn btn-light btn-icon-split btn-sm">
 								<span class="icon text-white-100">
                                        <i class="fas fa-align-center"></i>
                            		</span>							
 								</a>
 								
-								<a class="btn btn-light btn-icon-split btn-sm">
+								<a id="justifyRight" class="button btn btn-light btn-icon-split btn-sm">
 								<span class="icon text-white-100">
                                        <i class="fas fa-align-right"></i>
                            		</span>							
 								</a>
 								
-								<input type="button" class="BOLD" value="B"
-									onclick="document.execCommand('bold')" /> 
-									<input type="button"
-									class="ITALIC" value="Italic"
-									onclick="document.execCommand('Italic')" /> 
-									<input type="button"
-									class="UNDERBAR" value="underline"
-									onclick="document.execCommand('Underline')" />
-								<button type="button" class="aignLeft"
-									onclick="document.execCommand('justifyleft')">
-									<i class="fas fa-align-left"></i>
-								</button>
-								<button type="button" class="aignCenter"
-									onclick="document.execCommand('justifycenter')">
-									<i class="fas fa-align-center"></i>
-								</button>
-								<button type="button" class="aignRight" value="오른쪽 정렬"
-									onclick="document.execCommand('justifyright')">
-									<i class="fas fa-align-right"></i>
-								</button>
+								<a id="insertunorderedList" class="button btn btn-light btn-icon-split btn-sm">
+								<span class="icon text-white-100">
+                                       <i class="fas fa-list-ul"></i>
+                           		</span>							
+								</a>
+								
+								<a id="insertorderedList" class="button btn btn-light btn-icon-split btn-sm">
+								<span class="icon text-white-100">
+                                      <i class="fas fa-list-ol"></i>
+                           		</span>							
+								</a>
+							
 								<select id="fontSize">
 									<option value="">글자 크기</option>
 									<option value="3">10px</option>
@@ -155,12 +159,30 @@
 									<option value="6">20px</option>
 									<option value="7">30px</option>
 								</select>
+								
+								<select id="foreColor">
+								    <option value="">글자 색깔</option>
+								    <option value="#f00">빨강</option>
+								    <option value="#00f">파랑</option>
+								    <option value="#0f0">초록</option>
+								    <option value="#ffff00">노랑</option>
+								    <option value="#000">검정</option>
+								</select>
+								
+<!-- 							<select id="hiliteColor">
+							        <option value="">글자 배경색</option>
+							        <option value="#f00">빨강</option>
+							        <option value="#00f">파랑</option>
+							        <option value="#0f0">초록</option>
+							        <option value="#ffff00">노랑</option>
+							        <option value="#000">검정</option>
+							    </select> -->
 
 							</div>
 							<!-- end of tool Wrap -->
 							
 							<div class="input_contents_wrap">
-								<div class="input_contents" name="sn_contents" contenteditable="true"></div>
+								<div class="input_contents" contenteditable="true"></div>
 							</div>
 							
 							<div class="formBtnWrap">
@@ -168,7 +190,7 @@
 								<a id="submit" href="/SST/StudyNote/StudyNote_ListAction.do" 
 									class="btn btn-primary btn-icon-split btn-sm">
                                     <span class="icon text-white-50">
-                                        <i class="fas fa-flag"></i>
+                                        <i class="fas fa-check"></i>
                                     </span>
                                     <span class="text">제출</span>
                                 </a>
