@@ -47,4 +47,32 @@ public class CalendarService {
 		System.out.println(list + "서비스 list입니다.");
 		return list;
 	}
+	public int updateCheckService(HttpServletRequest request)throws Exception{
+		request.setCharacterEncoding("utf-8");
+		CalendarTodoVO todo = new CalendarTodoVO();
+		
+		todo.setT_num(request.getParameter("t_num"));
+		System.out.println(todo.getT_num() + "업데이트 쳌서비스 todo입니다.");
+		return dao.updateCheckTodo(todo);
+	}
+	public int updateNonCheckService(HttpServletRequest request)throws Exception{
+		System.out.println("==1-3-1==");
+		request.setCharacterEncoding("utf-8");
+		System.out.println("==1-3-2==");
+		CalendarTodoVO todo = new CalendarTodoVO();
+		System.out.println("==1-3-3==");
+		todo.setT_num(request.getParameter("t_num"));
+		System.out.println("==1-3-4==");
+		System.out.println(todo.getT_num() + "업데이트 넌쳌서비스 todo입니다.");
+		System.out.println("==1-3-5==");
+		return dao.updateNonCheckTodo(todo);
+	}
+	public int deleteTodoService(HttpServletRequest request)throws Exception{
+		request.setCharacterEncoding("utf-8");
+		CalendarTodoVO todo = new CalendarTodoVO();
+		
+		todo.setT_num(request.getParameter("t_num"));
+		System.out.println(todo.getT_num() + "딜리트 쳌서비스 todo입니다.");
+		return dao.deleteTodo(todo);
+	}
 }
