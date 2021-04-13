@@ -10,7 +10,7 @@ public class MemberServiceImpl implements MemberService {
 	private static MemberServiceImpl service = new MemberServiceImpl();
 	private static MemberDAO memdao;
 	
-	public static MemberService getInstance() {
+	public static MemberServiceImpl getInstance() {
 		memdao = MemberDAO.getInstance();
 		return service;
 	}
