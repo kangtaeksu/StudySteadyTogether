@@ -150,10 +150,29 @@
 
     calendar.render();
   });
+</script>
+<script type="text/javascript">
+$(function(){
+	$(".toDos").click(function(e){
+	e.preventDefault();  
+	$(this).parent().parent().prev().find("li").addClass('doneto');
+	  alert($(this).parent().parent().prev().find("li").html())
+		});
+	$(".nontoDos").click(function(e){
+		e.preventDefault();  
+		$(this).parent().parent().prev().find("li").removeClass('doneto');
+		  alert($(this).parent().parent().prev().find("li").html())
+			});
+	$(".toDoList .1").addClass('doneto');
+	});
+
 
 </script>
 <style>
-
+  .doneto{
+  	text-decoration: line-through;
+  	color: green;
+  }
 /*   body {
     margin: 40px 10px;
     padding: 0;
@@ -200,17 +219,29 @@
 						</div>
 						<div class = "col-md-3">
 							<div class="row">
-								<button><a href = "/PrivateSteudy/fullcalendar-5.6.0/Calendar2/insertTodoForm.do">Todo작성</a></button>
+								<button><a href = "/SST/fullcalendar-5.6.0/Calendar2/insertTodoForm.do">Todo작성</a></button>
 							</div>
+
 							<div class="row">
 								<h5 class = "toDoListHeader">이번달 일정</h5>
 							</div>
 							<div class="row">
-								<ul class = "toDoList">
+								
+								
 									<c:forEach var ="CalendarTodoVO" items = "${toDoList}">
-										<li>${CalendarTodoVO.t_title}</li>								
+									<div class = "col-md-4">
+										<ul class = "toDoList">
+											<li class = "${CalendarTodoVO.t_todocheck}">${CalendarTodoVO.t_title}</li>
+										</ul>
+									</div>
+									<div class = "col-md-8">
+										<button><a class = "toDos" href = "/SST/fullcalendar-5.6.0/Calendar2/CheckTodo.do?t_num=${CalendarTodoVO.t_num }">완료</a></button>
+										<button><a class = "nontoDos" href = "/SST/fullcalendar-5.6.0/Calendar2/NonCheckTodo.do?t_num=${CalendarTodoVO.t_num }">미완료</a></button>
+										<button><a href = "/SST/fullcalendar-5.6.0/Calendar2/DeleteTodo.do?t_num=${CalendarTodoVO.t_num }">삭제</a></button>
+									</div>							
 									</c:forEach>
-								</ul>
+								
+								
 							</div>
 						</div>
                     </div>

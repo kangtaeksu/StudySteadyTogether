@@ -5,14 +5,13 @@ import javax.servlet.http.HttpServletResponse;
 
 import org.sst.service.CalendarService;
 
-public class Calendar_insertTodoAction implements Action {
+public class Calendar_CheckTodoAction implements Action {
 
 	@Override
 	public ActionForward execute(HttpServletRequest request, HttpServletResponse response) throws Exception {
 		ActionForward forward = new ActionForward();
 		CalendarService service = CalendarService.getInstance();
-		
-		service.insertTodoService(request);
+		service.updateCheckService(request);
 		
 		forward.setRedirect(true);
 		forward.setPath("/SST/fullcalendar-5.6.0/Calendar2/CalendarForm.do");

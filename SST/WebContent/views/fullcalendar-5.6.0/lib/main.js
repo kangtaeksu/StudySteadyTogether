@@ -405,6 +405,8 @@ var FullCalendar = (function (exports) {
         }
         return a - b;
     }
+    
+
     /* String Utilities
     ----------------------------------------------------------------------------------------------------------------------*/
     function padStart(val, len) {
