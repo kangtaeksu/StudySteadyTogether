@@ -35,12 +35,12 @@ public class StudyNoteServiceImpl implements StudyNoteService {
 		request.setCharacterEncoding("utf-8");
 
 		StudyNoteVO snv = new StudyNoteVO();
-		snv.setSn_num(request.getParameter("sn_num"));
+		//snv.setSn_num(request.getParameter("sn_num"));
 		snv.setSn_title(request.getParameter("sn_title"));
 		snv.setSn_contents(request.getParameter("sn_contents"));
-		snv.setSn_date(request.getParameter("sn_date"));
-		snv.setG_num(request.getParameter("g_num"));
-		snv.setGm_num(request.getParameter("gm_num"));
+		//snv.setSn_date(request.getParameter("sn_date"));
+		//snv.setG_num(request.getParameter("g_num"));
+		//snv.setGm_num(request.getParameter("gm_num"));
 
 		return dao.insertStudyNote(snv);
 	}

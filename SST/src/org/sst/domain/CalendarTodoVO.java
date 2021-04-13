@@ -3,7 +3,7 @@ package org.sst.domain;
 import java.io.Serializable;
 import java.util.Date;
 
-public class Todo implements Serializable {
+public class CalendarTodoVO implements Serializable {
 	private String t_num;
 	private String t_category;
 	private String t_title;
@@ -11,9 +11,9 @@ public class Todo implements Serializable {
 	private Date t_startdate;
 	private Date t_enddate;
 	
-	public Todo() {}
+	public CalendarTodoVO() {}
 
-	public Todo(String t_num, String t_category, String t_title, String t_contents, Date t_startdate, Date t_enddate) {
+	public CalendarTodoVO(String t_num, String t_category, String t_title, String t_contents, Date t_startdate, Date t_enddate) {
 		super();
 		this.t_num = t_num;
 		this.t_category = t_category;

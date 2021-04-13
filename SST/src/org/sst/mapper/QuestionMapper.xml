@@ -24,7 +24,9 @@
 
 	</select>
 
-	
+	<select id="detailQuestion" parameterType="String" resultType="QuestionVO">
+		select * from question where q_num = #{q_num}
+	</select>
 
 
 	

@@ -18,5 +18,5 @@ public interface StudyNoteMapper {
 
 	int countStudyNote(StudyNoteSearchVO search);
 	int deleteStudyNote(String sn_num);
-
+//
 }

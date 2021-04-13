@@ -11,9 +11,9 @@ import javax.servlet.http.HttpServletResponse;
 
 import org.sst.action.Action;
 import org.sst.action.ActionForward;
-import org.sst.action.CalendarMainAction;
-import org.sst.action.insertTodoAction;
-import org.sst.action.insertTodoForm;
+import org.sst.action.Calendar_MainAction;
+import org.sst.action.Calendar_insertTodoAction;
+import org.sst.action.Calendar_insertTodoForm;
 
 @WebServlet("/fullcalendar-5.6.0/Calendar2/*")
 public class CalendarController extends HttpServlet {
@@ -36,21 +36,21 @@ public class CalendarController extends HttpServlet {
     	ActionForward forward = null;
     	
     	if(command.equals("/insertTodoForm.do")) {
-    		action = new insertTodoForm();
+    		action = new Calendar_insertTodoForm();
     		try {
 				forward = action.execute(request, response);
 			} catch (Exception e) {
 				// TODO: handle exception
 			}
     	}else if(command.equals("/insertTodo.do")) {
-    		action = new insertTodoAction();
+    		action = new Calendar_insertTodoAction();
     		try {
 				forward = action.execute(request, response);
 			} catch (Exception e) {
 				e.printStackTrace();
 			}
     	}else if(command.equals("/CalendarForm.do")) {
-    		action = new CalendarMainAction();
+    		action = new Calendar_MainAction();
     		try {
 				forward = action.execute(request, response);
 			} catch (Exception e) {

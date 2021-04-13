@@ -51,4 +51,8 @@ public class QuestionServiceImpl {
 		QuestionListVO questionListVO = new QuestionListVO(list);
 		return questionListVO;
 	}
+	
+	public QuestionVO detailQuestionService(String q_num) throws Exception {
+		return dao.detailQuestion(q_num);
+	}
 }

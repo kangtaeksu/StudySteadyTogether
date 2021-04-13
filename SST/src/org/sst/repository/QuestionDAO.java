@@ -77,6 +77,20 @@ public class QuestionDAO {
 		return list;
 	}
 	
-	
+	public QuestionVO detailQuestion(String q_num) {
+		SqlSession sqlSession = getSqlSessionFactory().openSession();
+		QuestionVO q = null;
+		try {
+			q = sqlSession.getMapper(QuestionMapper.class).detailQuestion(q_num);
+		} catch (Exception e) {
+			e.printStackTrace();
+		}finally {
+			if(sqlSession != null) {
+				sqlSession.close();
+			}
+		}
+		
+		return q;
+	}
 	
 }

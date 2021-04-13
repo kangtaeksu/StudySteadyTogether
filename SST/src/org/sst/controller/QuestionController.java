@@ -15,6 +15,7 @@ import org.sst.action.Question_InsertAction;
 import org.sst.action.Question_InsertFormAction;
 import org.sst.action.Question_ListAction;
 import org.sst.action.StudyNote_ListAction;
+import org.sst.action.StudyNote_detailAction;
 
 @WebServlet("/Question/*")
 public class QuestionController extends HttpServlet {
@@ -67,6 +68,13 @@ public class QuestionController extends HttpServlet {
 			} catch (Exception e) {
 				e.printStackTrace();
 			}
+    	}else if(command.equals("StudyNote_DetailAction.do")) {
+    		action = new StudyNote_detailAction();
+    		try {
+				forward = action.execute(request, response);
+			} catch (Exception e) {
+				e.printStackTrace();
+		    }
     	}
     	if(forward != null) {
 	    		if(forward.isRedirect()) {

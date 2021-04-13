@@ -8,20 +8,20 @@ import java.util.List;
 
 import javax.servlet.http.HttpServletRequest;
 
-import org.sst.domain.Todo;
-import org.sst.repository.CalendarDao;
+import org.sst.domain.CalendarTodoVO;
+import org.sst.repository.CalendarDAO;
 
 public class CalendarService {
 	private static CalendarService service = new CalendarService();
-	private static CalendarDao dao;
+	private static CalendarDAO dao;
 	
 	public static CalendarService getInstance() {
-		dao = CalendarDao.getInstance();
+		dao = CalendarDAO.getInstance();
 		return service;
 	}
 	public int insertTodoService(HttpServletRequest request)throws Exception{
 		request.setCharacterEncoding("utf-8");
-		Todo todo = new Todo();
+		CalendarTodoVO todo = new CalendarTodoVO();
 		
 		todo.setT_category(request.getParameter("t_category"));
 		todo.setT_title(request.getParameter("t_title"));
@@ -42,8 +42,8 @@ public class CalendarService {
 		return dao.insertTodo(todo);
 	}
 	
-	public List<Todo> listTodo()throws Exception{
-		List<Todo> list = dao.listTodo();
+	public List<CalendarTodoVO> listTodo()throws Exception{
+		List<CalendarTodoVO> list = dao.listTodo();
 		System.out.println(list + "서비스 list입니다.");
 		return list;
 	}

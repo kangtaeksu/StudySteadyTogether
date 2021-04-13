@@ -24,7 +24,8 @@
 
 <!-- Custom styles for this template-->
 <link href="../css/sb-admin-2.min.css" rel="stylesheet">
-<link href="../css/question.css" rel="stylesheet">
+<link href="../css/studynote.css" rel="stylesheet">
+<link>
 </head>
 
 <body id="page-top">
@@ -44,68 +45,58 @@
 					<!-- Page Heading -->
 					<div
 						class="d-sm-flex align-items-center justify-content-between mb-4">
-						<h1 class="h3 mb-0 text-gray-800">노트 목록</h1>
+						<h1 class="h3 mb-0 text-gray-800"></h1>
 					</div>
 
 					<!-- Content Row -->
-					<div class="row headerLine"></div>
-					<!-- end of row -->
+
 
 					<div class="row">
 
-						<div class="noteListArea">
 
-
-							<div class="noteTableArea">
-								<table class="noteTable">
-									<tr>
-										<td class="q_num thead">글번호</td>
-										<td class="q_title thead">글제목</td>
-		
-										<td class="q_date thead">작성일자</td>
-									</tr>
-									<tr><td></td><td></td><td></td><td></td></tr>
-									<c:forEach var="question" items="${QuestionListVO.list}">
-										<tr class="q_row">
-											<td class="q_num">${question.q_num }</td>
-											<td class="q_title"><a class="noHyper" href="Question_DetailAction.do?q_num=${question.q_num }"> ${question.q_title }</a></td>
-											<td class="gm_num">${question.gm_num }</td>
-<%-- 											<td class="q_date"><fmt:parseDate var="dt"
-													value="${question.q_date}" pattern="yyyy-MM-dd HH:mm:ss" />
-												<fmt:formatDate value="${dt}" pattern="yyyy/MM/dd" /></td> --%>
-										</tr>
-									</c:forEach>
-								</table>
+						<div class="noteView">
+							<div class="noteHeader">
+								<h2>${question.q_title}</h2>
+								<hr>
+								작성일임 :${question.q_date}
+							</div>
+							<%-- 글번호 :${studynote.sn_num }<br>  --%>
+							
+							<div class="noteContents">
+							  ${question.q_contents}
 							</div>
 							
+							<div class="noteFooter">
+								<a class="btn btn-light btn-icon-split noteFooterBtn" href="Question_ListAction.do">
+								<span class="icon text-gray-600"><i class="fas fa-arrow-right"></i></span><span class="text">글 목록</span>
+								</a>
+								
+								<a class="btn btn-primary btn-icon-split noteFooterBtn" 
+								href="Question_UpdateFormAction.do?sn_num=${question.q_num}">
+									<span class="icon text-white-50"><i class="fas fa-check"></i></span><span class="text">글 수정하기</span>
+								</a> 
+								
+								<a class="btn btn-danger btn-icon-split noteFooterBtn" 
+								href="Question_DeleteAction.do?sn_num=${question.q_num }">
+									<span class="icon text-white-50"><i class="fas fa-trash"></i></span><span class="text">글 삭제</span>
+								</a>
+							</div>
+					
+			
 							
 						</div>
-
-
-
-
-
-
-
 					</div>
 					<!-- end of row -->
 
 
 					<div class="row">
-						<div class="questionListFooterArea">
 
-							
-
-
-								<a class="btn btn-secondary btn-icon-split rightBtn"
-									href="Question_InsertFormAction.do"> 
-								<span class="icon text-white-50"> 
-									<i class="fas fa-pen"></i>
-								</span> <span class="text">글쓰기</span>
-								</a>
-							
-						</div>
-
+						<form action="Question_ListAction.do" method="post">
+							<input type="checkbox" name="area" value="title">제목 <input
+								type="checkbox" name="area" value="writer">ID <input
+								type="text" name="searchKey" size="10"> <input
+								type="submit" value="검색">
+						</form>
 
 					</div>
 					<!-- end of row -->
