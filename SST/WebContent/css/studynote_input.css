@@ -19,6 +19,8 @@
 	min-height:300px;
 	border: 1px solid #ebecef;
 	background: white;
+	padding: 20px;
+	color: black;
 }
 
 .studyNoteFormWrap{
@@ -31,4 +33,8 @@
 
 .formBtnWrap{
 	margin-top: 20px;
+}
+
+.input_contents_wrap{
+	
 }
