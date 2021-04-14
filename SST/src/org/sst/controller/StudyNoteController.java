@@ -108,14 +108,7 @@ public class StudyNoteController extends HttpServlet {
 				e.printStackTrace();
 			}
     	}
-    	else if(command.equals("SampleAction.do")) {
-    		action = new SampleAction();
-    		try {
-				forward=action.execute(request, response);
-			} catch (Exception e) {
-				e.printStackTrace();
-			}
-    	}
+    
     	
     	//
 

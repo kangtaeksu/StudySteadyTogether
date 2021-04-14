@@ -21,6 +21,9 @@ import org.sst.action.Question_RecReplyAction;
 import org.sst.action.StudyNote_ListAction;
 import org.sst.action.StudyNote_detailAction;
 
+import com.joker.board.service.RecCount;
+import com.joker.board.service.RecUpdate;
+
 
 @WebServlet("/Question/*")
 public class QuestionController extends HttpServlet {
@@ -87,21 +90,25 @@ public class QuestionController extends HttpServlet {
 			} catch (Exception e) {
 				e.printStackTrace();
 			}
-    	}else if(command.equals("Question_RecReplyAction.do")) {
-    		action = new Question_RecReplyAction();
-    		try {
-				forward = action.execute(request, response);
+    	}	
+    	// 추천추가
+		else if (command.equals("/RecUpdate.do")) {
+			try {
+				action = new RecUpdate();
+				action.execute(request, response);
 			} catch (Exception e) {
 				e.printStackTrace();
 			}
-    	}else if(command.equals("Question_RecCountAction.do")) {
-    		action = new Question_RecCountReplyAction();
-    		try {
-				forward = action.execute(request, response);
+		}
+		// 추천세기
+		else if (command.equals("/RecCount.do")) {
+			try {
+				action = new RecCount();
+				action.execute(request, response);
 			} catch (Exception e) {
 				e.printStackTrace();
 			}
-    	}
+		}
     	
     	
     	if(forward != null) {

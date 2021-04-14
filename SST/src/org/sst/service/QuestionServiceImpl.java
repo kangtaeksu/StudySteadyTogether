@@ -73,7 +73,11 @@ public class QuestionServiceImpl {
 	public List<QuestionReplyVO> listQuestionReplyService(String q_num){
 		return dao.listQuestionReply(q_num);
 	}
+	//추천하는 서비스
 	
+	
+	
+		//추천수 세기 서비스
 	
 	
 }

@@ -11,6 +11,7 @@ import org.apache.ibatis.session.SqlSessionFactory;
 import org.apache.ibatis.session.SqlSessionFactoryBuilder;
 import org.sst.domain.QuestionReplyVO;
 import org.sst.domain.QuestionVO;
+import org.sst.domain.RecDTO;
 import org.sst.domain.StudyNoteSearchVO;
 import org.sst.domain.StudyNoteVO;
 import org.sst.mapper.QuestionMapper;
@@ -135,53 +136,63 @@ public class QuestionDAO {
 		return list;
 	}
 	
-	// 게시글 추천여부 검사
-		public int recCheck(Map<String, Object> m){
-			int result = 0;
-			try {
-				SqlSession sqlSession = getSqlSessionFactory().openSession();
-				result = (Integer) sqlSession.selectOne("board.rec_check", m);
-			} catch (Exception e) {
-				System.out.println("recCheck : " + e);
-				e.printStackTrace();
+	// 추천체크 public int insertQuestionReply(QuestionReplyVO q_reply) {
+	public int recCheck(RecDTO  m){
+
+		SqlSession sqlSession = getSqlSessionFactory().openSession();
+		int re = -1;
+		//.(Integer).selectOne("board.rec_check", m);
+		try {
+			re = sqlSession.getMapper(QuestionMapper.class).rec_check(m);
+			if(re>0) {
+				sqlSession.commit();
+			}else {
+				sqlSession.rollback();
 			}
-			return result;
-		}
-		
-		// 게시글 추천
-		public void recUpdate(Map<String, Object> m){
-			try {
-				SqlSession sqlSession = getSqlSessionFactory().openSession();
-				sqlSession.insert("board.rec_update", m);
-			} catch (Exception e) {
-				System.out.println("recUpdate : " + e);
-				e.printStackTrace();
+		} catch (Exception e) {
+			e.printStackTrace();
+		}finally {
+			if(sqlSession != null) {
+				sqlSession.close();
 			}
 		}
 		
-		// 게시글 추천 제거
-		public void recDelete(Map<String, Object> m){
-			try {
-				SqlSession sqlSession = getSqlSessionFactory().openSession();
-				sqlSession.insert("board.rec_delete", m);
-			} catch (Exception e) {
-				System.out.println("recDelete : " + e);
-				e.printStackTrace();
-			}
-		}
-		
-		// 게시글 추천수
-		public int recCount(int no){
-			int count = 0;
-			try {
-				SqlSession sqlSession = getSqlSessionFactory().openSession();
-				count = (Integer) sqlSession.selectOne("board.rec_count", no);
-			} catch (Exception e) {
-				System.out.println("recCount : " + e);
-				e.printStackTrace();
-			}
-			return count;
-		}
+		return re;
+	}
 	
+	// �Խñ� ��õ
+	public void recUpdate(Map<String, Object> m){
+		try {
+			session = getSession();
+			session.insert("board.rec_update", m);
+		} catch (Exception e) {
+			System.out.println("recUpdate : " + e);
+			e.printStackTrace();
+		}
+	}
+	
+	// �Խñ� ��õ ����
+	public void recDelete(Map<String, Object> m){
+		try {
+			session = getSession();
+			session.insert("board.rec_delete", m);
+		} catch (Exception e) {
+			System.out.println("recDelete : " + e);
+			e.printStackTrace();
+		}
+	}
+	
+	// �Խñ� ��õ��
+	public int recCount(int no){
+		int count = 0;
+		try {
+			session = getSession();
+			count = (Integer) session.selectOne("board.rec_count", no);
+		} catch (Exception e) {
+			System.out.println("recCount : " + e);
+			e.printStackTrace();
+		}
+		return count;
+	}
 	
 }

@@ -37,24 +37,24 @@
 		select * from questionreply where q_num = #{q_num}
 	</select>
 
-		<!-- 동일 게시글 추천 여부 검색 -->
-	<select id="rec_check" parameterType="map" resultType="int">
-		select count(*) from questionreply where c_like = #{c_like} and gm_num = #{gm_num}
+	<!-- 동일 게시글 추천 여부 검색 -->
+	<select id="rec_check" parameterType="RecDTO" resultType="int">
+		select count(*) from questionrec where board_no = #{no} and rec_id = #{id}
 	</select>
 	
 	<!-- 게시글 추천 -->
 	<insert id="rec_update" parameterType="map">
-		insert into questionreply values(#{c_like}, #{gm_num})
+		insert into questionrec values(#{no}, #{id})
 	</insert>
 	
 	<!-- 게시글 추천 취소 -->
 	<delete id="rec_delete" parameterType="map">
-		delete from questionreply where c_like = #{c_like} and gm_num = #{gm_num}
+		delete from questionrec where board_no = #{no} and rec_id = #{id}
 	</delete>
 	
 	<!-- 게시글 추천수 -->
 	<select id="rec_count" parameterType="int" resultType="int">
-		select count(*) from questionreply where c_like = #{c_like}
+		select count(*) from questionreca where board_no = #{no}
 	</select>
 </mapper>
 
