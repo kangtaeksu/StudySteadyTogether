@@ -16,11 +16,11 @@ import org.sst.action.Question_InsertAction;
 import org.sst.action.Question_InsertFormAction;
 import org.sst.action.Question_InsertReplyAction;
 import org.sst.action.Question_ListAction;
+import org.sst.action.Question_RecCountAction;
 
-import org.sst.action.StudyNote_ListAction;
-import org.sst.action.StudyNote_detailAction;
-import org.sst.service.RecCount;
-import org.sst.service.RecUpdate;
+import org.sst.action.Question_RecUpdateAction;
+
+
 
 
 
@@ -71,6 +71,7 @@ public class QuestionController extends HttpServlet {
     		
     	}	else if(command.equals("Question_ListAction.do")) {
     		action = new Question_ListAction();
+    		
     		try {
     			forward = action.execute(request, response);
 			} catch (Exception e) {
@@ -91,19 +92,30 @@ public class QuestionController extends HttpServlet {
 				e.printStackTrace();
 			}
     	}	
+    	// 추천체크
+    			
     	// 추천추가
-		else if (command.equals("Question_DetailAction.do")) {
+		else if (command.equals("Question_RecUpdateAction.do")) {
 			try {
-				action = new RecUpdate();
+				action = new Question_RecUpdateAction();
 				action.execute(request, response);
 			} catch (Exception e) {
 				e.printStackTrace();
 			}
 		}
+    	// 추천삭제
+    			/*else if (command.equals("Question_RecDeleteAction.do")) {
+    				try {
+    					action = new Question_RecDeleteAction();
+    					action.execute(request, response);
+    				} catch (Exception e) {
+    					e.printStackTrace();
+    				}
+    			}*/
 		// 추천세기
-		else if (command.equals("Question_DetailAction.do")) {
+		else if (command.equals("Question_RecCountAction.do")) {
 			try {
-				action = new RecCount();
+				action = new Question_RecCountAction();
 				action.execute(request, response);
 			} catch (Exception e) {
 				e.printStackTrace();

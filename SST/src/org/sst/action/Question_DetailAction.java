@@ -24,7 +24,7 @@ public class Question_DetailAction implements Action {
 		List<QuestionReplyVO> q_reply = service.listQuestionReplyService(q_num);
 		
 		request.setAttribute("question", q);
-		request.setAttribute("questionreply", q_num);
+		request.setAttribute("questionreply", q_reply);
 		
 		forward.setRedirect(false);
 		forward.setPath("/views/question/question_detail.jsp");

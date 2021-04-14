@@ -25,7 +25,7 @@
 <!-- Custom styles for this template-->
 <link href="../css/sb-admin-2.min.css" rel="stylesheet">
 <link href="../css/studynote.css" rel="stylesheet">
-
+<link href="../css/question.css" rel="stylesheet">
 <link>
 </head>
 
@@ -97,48 +97,54 @@
 					<div>
 						<h3>댓글 목록</h3>
 						<table border="1">
-							<tr>
+						<!--  <tr>
 								<td>댓글번호</td>
 								<td>댓글내용</td>
 								<td>댓글날짜</td>
 								<td>문제번호</td>
 								<td>그룹원아이디</td>
 							</tr>
-							<c:forEach var="reply" items="${questionreplyvo}">
-								<tr>
-									<td>${questionreplyvo.c_num }</td>
-									<td>${questionreplyvo.c_contents }</td>
-									<td>${questionreplyvo.c_date }</td>
-									<td>${questionreplyvo.q_num }</td>
-									<td>${questionreplyvo.gm_num }</td>
-									<td>${questionreplyvo.g_num }</td>
-								</tr>
-							</c:forEach>
+						-->	
 						</table>
 					</div>
 					<br>
 
 					<form action="Question_InsertReplyAction.do" method="post">
-						<input type="hidden" name="q_num" value="${question.q_num }">
-
-						댓글작성자: <input type="text" name="gm_num"><br> 댓글내용: <input
-							type="text" name="c_contents"><br> <input
-							type="submit" value="댓글쓰기">
+							<div class = "prac">
+							<input type="hidden" name="q_num" value="${question.q_num }">
+						댓글작성자: <input type="text" name="c_num"><br> 
+						댓글내용: <input type="text" name="c_contents"><br> 
+						<input type="submit" value="댓글쓰기"></div>
 					</form>
+					
 					<br>
 
 					<!-- 여기서 댓글이 보여짐  -->
 					<div class="noteView">
-						<div class="noteHeader">${questionreplyvo.gm_num}님 :
+						<div class="noteHeader">
+						<c:forEach var="questionreply" items="${questionreply}">
+										<tr class="q_row">
+											<td class="c_num">${questionreply.c_num }</td>
+											<td class="q_title"><a class="noHyper" href="Question_DetailAction.do?q_num=${questionreply.q_num }"> </a></td>
+											<td class="gm_num">${questionreply.c_num }</td>
+											<td class="c_contents">${questionreply.c_contents }<br></td>
+										<%--  <td class="q_date"><fmt:parseDate var="dt"
+													value="${question.q_date}" pattern="yyyy-MM-dd HH:mm:ss" />
+												<fmt:formatDate value="${dt}" pattern="yyyy/MM/dd" /></td> 
+										</tr> --%>
+										<td class="w3-border w3-center w3-padding">
+		
+			
+			<button class="w3-button w3-black w3-round" id="rec_update">
+					<i class="fa fa-heart" style="font-size:16px;color:red"></i>
+					&nbsp;<span class="rec_count"></span>
+				</button> 
+			
+		
+	</td>
+									</c:forEach>
 						
-							<tr>
-									<td>${questionreplyvo.c_num }</td>
-									<td>${questionreplyvo.c_contents }</td>
-									<td>${questionreplyvo.c_date }</td>
-									<td>${questionreplyvo.q_num }</td>
-									<td>${questionreplyvo.gm_num }</td>
-									<td>${questionreplyvo.g_num }</td>
-								</tr>
+							
 							</div>
 
 
@@ -152,10 +158,10 @@
 		// 추천버튼 클릭시(추천 추가 또는 추천 제거)
 		$("#rec_update").click(function(){
 			$.ajax({
-				url: "/expro/RecUpdate.do",
+				url: "/service/Question_RecUpdate.do",
                 type: "POST",
                 data: {
-                    no: ${content.board_no},
+                    no: ${RecDTO.board_no},
                     id: '${id}'
                 },
                 success: function () {
@@ -167,10 +173,10 @@
 		// 게시글 추천수
 	    function recCount() {
 			$.ajax({
-				url: "/expro/RecCount.do",
+				url: "/service/Question_RecCount.do",
                 type: "POST",
                 data: {
-                    no: ${content.board_no}
+                    no: ${RecDTO.board_no}
                 },
                 success: function (count) {
                 	$(".rec_count").html(count);
@@ -178,22 +184,10 @@
 			})
 	    };
 	    recCount(); // 처음 시작했을 때 실행되도록 해당 함수 호출
-	    </script>
-	    <div>
-		<div class="w3-border w3-center w3-padding">
-			<c:if test="${ gm_num == null }">
-				추천 기능은 <button type="button" id="newLogin"><b class="w3-text-blue">로그인</b></button> 후 사용 가능합니다.<br />
-				<i class="fa fa-heart" style="font-size:16px;color:red"></i>
-				<span class="rec_count"></span>					
-			</c:if>
-			<c:if test="${ gm_num != null }">
-				<button class="w3-button w3-black w3-round" id="rec_update">
-					<i class="fa fa-heart" style="font-size:16px;color:red"></i>
-					&nbsp;<span class="rec_count"></span>
-				</button> 
-			</c:if>
-		</div>
-	</div>
+	</script>
+
+	    
+		
 					<!-- end of row -->
 
 				</div>

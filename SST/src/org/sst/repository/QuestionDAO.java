@@ -137,29 +137,7 @@ public class QuestionDAO {
 	}
 	
 	// 추천체크 public int insertQuestionReply(QuestionReplyVO q_reply) {
-	public int recCheck(RecDTO  m){
 
-		SqlSession sqlSession = getSqlSessionFactory().openSession();
-		int re = -1;
-		//.(Integer).selectOne("board.rec_check", m);
-		try {
-			re = sqlSession.getMapper(QuestionMapper.class).rec_check(m);
-			if(re>0) {
-				sqlSession.commit();
-			}else {
-				sqlSession.rollback();
-			}
-		} catch (Exception e) {
-			e.printStackTrace();
-		}finally {
-			if(sqlSession != null) {
-				sqlSession.close();
-			}
-		}
-		
-		return re;
-	}
-	
 	// 추천클릭 public int insertQuestionReply(QuestionReplyVO q_reply) {
 	public int recUpdate(RecDTO m){
 		
@@ -184,7 +162,7 @@ public class QuestionDAO {
 	}
 	
 //추천삭제 public int insertQuestionReply(QuestionReplyVO q_reply) {
-	public int recDelete(RecDTO m){
+	/*public int recDelete(RecDTO m){
 		
 		SqlSession sqlSession = getSqlSessionFactory().openSession();
 		int re=-1;
@@ -207,7 +185,7 @@ public class QuestionDAO {
 		}
 		return re;
 	}
-	
+	*/
 	//추천개수세기 public int insertQuestionReply(QuestionReplyVO q_reply) {
 	public int recCount(int no){
 	

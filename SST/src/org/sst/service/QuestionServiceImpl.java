@@ -78,30 +78,39 @@ public class QuestionServiceImpl {
 	}
 	
 	
+	//좋아요 해도되는지 체크해도 되겠습니까?
+	
+	
 	//추천하는 서비스
 	
 	public int recUpdateService(HttpServletRequest request) throws Exception {
 		request.setCharacterEncoding("utf-8");
-		QuestionDAO manager = QuestionDAO.getInstance();
+		QuestionDAO dao = QuestionDAO.getInstance();
+		RecDTO q = new RecDTO();
+		q.setBoard_no(Integer.parseInt(request.getParameter("board_no")));
+		q.setRec_id(request.getParameter("rec_id"));
+			
+		return dao.recUpdate(q);
+
+	}
+	
+	//추천 취소~
+	/*public int recDeleteService(HttpServletRequest request) throws Exception {
+		request.setCharacterEncoding("utf-8");
+		QuestionDAO dao = QuestionDAO.getInstance();
 		RecDTO q = new RecDTO();
 		q.setBoard_no(Integer.parseInt(request.getParameter("board_no")));
 		q.setRec_id(request.getParameter("rec_id"));
 		
 		
 	
-		return manager.recCheck(q);
+		return dao.recDelete(q);
 		
-
-		
-	}
-
+	}*/
 	
 		//추천수 세기 서비스
 	public int recCountService(HttpServletRequest request, HttpServletResponse response) throws Exception {
 		request.setCharacterEncoding("utf-8");
-
-	
-		
 		HttpSession session = request.getSession();
 		
 		PrintWriter out = response.getWriter();
