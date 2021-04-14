@@ -18,6 +18,7 @@ import org.sst.action.StudyNote_detailAction;
 
 import org.sst.action.Action;
 import org.sst.action.ActionForward;
+import org.sst.action.SampleAction;
 import org.sst.action.StudyNote_DeleteAction;
 import org.sst.action.StudyNote_InsertAction;
 
@@ -34,7 +35,7 @@ public class StudyNoteController extends HttpServlet {
     
     public void doProcess(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
     	System.out.println("요청 받음");
-    	//http://localhost:8081/MVC/board/updateBoard.do => 문자열 부분추출해야쥬
+    	//http://localhost:8081/MVC/board/updateBoard.do => 문자열 부분추출해야쥬nn
     	//첫번째 할 것 url 식별
     	
     	String requestURI = request.getRequestURI();
@@ -107,6 +108,14 @@ public class StudyNoteController extends HttpServlet {
 				e.printStackTrace();
 			}
     	}
+    	else if(command.equals("SampleAction.do")) {
+    		action = new SampleAction();
+    		try {
+				forward=action.execute(request, response);
+			} catch (Exception e) {
+				e.printStackTrace();
+			}
+    	}
     	
     	//
 
@@ -118,26 +127,17 @@ public class StudyNoteController extends HttpServlet {
     					request.getRequestDispatcher(forward.getPath());
     			dispatcher.forward(request, response);
     		}
-    	}
-    	
-    	
-    	
-    	
-    	
-  
-    	
+    	}	
     }
     
 
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		doProcess(request, response);
-		
 	}
 
 
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		doProcess(request, response);
-
 	}
 
 }

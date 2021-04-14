@@ -48,29 +48,27 @@
 					</div>
 
 					<!-- Content Row -->
-					<div class="row">
-						
-
-					</div>
+					<div class="row headerLine"></div>
 					<!-- end of row -->
 
 					<div class="row">
 
 						<div class="noteListArea">
-							<a href="StudyNote_InsertFormAction.do">글쓰기</a>
-						
+
+
 							<div class="noteTableArea">
 								<table class="noteTable">
 									<tr>
-										<td class="sn_num">글번호</td>
-										<td class="sn_title">글제목</td>
-										<td class="sn_writer">작성자</td>
-										<td class="sn_date">작성일자</td>										
+										<td class="sn_num thead">글번호</td>
+										<td class="sn_title thead">글제목</td>
+										<td class="sn_writer thead">작성자</td>
+										<td class="sn_date thead">작성일자</td>
 									</tr>
+									<tr><td></td><td></td><td></td><td></td></tr>
 									<c:forEach var="studynote" items="${StudyNoteListVO.list}">
-										<tr>
+										<tr class="sn_row">
 											<td class="sn_num">${studynote.sn_num }</td>
-											<td class="sn_title"><a
+											<td class="sn_title"><a class="noHyper"
 												href="StudyNote_DetailAction.do?sn_num=${studynote.sn_num }">${studynote.sn_title }</a></td>
 											<td class="sn_writer">${studynote.gm_num }</td>
 											<td class="sn_date"><fmt:parseDate var="dt"
@@ -80,29 +78,41 @@
 									</c:forEach>
 								</table>
 							</div>
-
+							
+							<div class="notePagingArea">
+								<!-- 페이징 영역 -->
+								<!-- 이전 영역 -->
+								<c:if test="${StudyNoteListVO.startPage > 5 }">
+									<a class="pageBeforeBtn btn btn-light btn-icon-split" href="StudyNote_ListAction.do?pageNum=${StudyNoteListVO.startPage -1 }">이전</a>
+								</c:if>
+								
+								<!-- 페이지목록 -->
+								<c:forEach var="pageNo" begin="${StudyNoteListVO.startPage }" end="${StudyNoteListVO.endPage }">
+									<c:if test="${StudyNoteListVO.requestPage == pageNo }">
+									<div class="curBtn btn btn-icon-split">
+									</c:if>
+										<a class="pageBtn btn btn-light btn-icon-split" 
+										href="StudyNote_ListAction.do?pageNum=${pageNo }">
+									
+                                        <span class="text">${pageNo }</span>
+										
+										
+										</a>
+									<c:if test="${StudyNoteListVO.requestPage == pageNo }"></div></c:if>
+								</c:forEach>
+								
+						
+								
+								<!-- 이후 영역 -->
+								<c:if test="${StudyNoteListVO.endPage < StudyNoteListVO.totalPageCount}">
+									<a class="pageAfterBtn btn btn-light btn-icon-split" href="StudyNote_ListAction.do?pageNum=${StudyNoteListVO.endPage +1 }">이후</a>
+								</c:if>
+							
+							</div>
 						</div>
 
 
 
-
-						<!-- 페이징 영역 -->
-						<!-- 이전 영역 -->
-						<%-- 	<c:if test="${StudyNoteListVO.startPage > 5 }">
-		<a href="ListAction.do?pageNum=${StudyNoteListVO.startPage -1 }">[이전]</a>
-	</c:if>
-	
-	<!-- 페이지목록 -->
-	<c:forEach var="pageNo" begin="${StudyNoteListVO.startPage }" end="${StudyNoteListVO.endPage }">
-		<c:if test="${StudyNoteListVO.requestPage == pageNo }"><b></c:if>
-			<a href="StudyNote_ListAction.do?pageNum=${pageNo }">[${pageNo }]</a>
-		<c:if test="${StudyNoteListVO.requestPage == pageNo }"></b></c:if>
-	</c:forEach>
-	
-	<!-- 이후 영역 -->
-	<c:if test="${StudyNoteListVO.endPage < StudyNoteListVO.totalPageCount}">
-		<a href="StudyNote_ListAction.do?pageNum=${StudyNoteListVO.endPage +1 }">[이후]</a>
-	</c:if> --%>
 
 
 
@@ -112,14 +122,27 @@
 
 
 					<div class="row">
+						<div class="noteListFooterArea">
 
-						<form action="StudyNote_ListAction.do" method="post">
-							<input type="checkbox" name="area" value="title">제목 <input
-								type="checkbox" name="area" value="writer">ID <input
-								type="text" name="searchKey" size="10"> <input
-								type="submit" value="검색">
-						</form>
+							<form
+								action="StudyNote_ListAction.do" method="post">
+								<input type="checkbox" name="area" value="sn_title">제목 
+								<input type="checkbox" name="area" value="sn_contents">내용
+								<input type="text" class="" name="searchKey" placeholder="검색어를 입력해주세요" size="20"> 
+								<input type="submit" class="btn-primary" value="검색">
 
+
+								<a class="btn btn-secondary btn-icon-split rightBtn"
+									href="StudyNote_InsertFormAction.do"> 
+								<span class="icon text-white-50"> 
+									<i class="fas fa-pen"></i>
+								</span> <span class="text">글쓰기</span>
+								</a>
+							</form>
+							
+						</div>
+
+						<a href="http://192.168.0.189:3000">채팅 참가</a>
 					</div>
 					<!-- end of row -->
 

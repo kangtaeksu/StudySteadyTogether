@@ -5,11 +5,15 @@ import java.util.List;
 
 
 import org.apache.ibatis.io.Resources;
+import org.apache.ibatis.session.RowBounds;
 import org.apache.ibatis.session.SqlSession;
 import org.apache.ibatis.session.SqlSessionFactory;
 import org.apache.ibatis.session.SqlSessionFactoryBuilder;
+import org.sst.domain.StudyNoteSearchVO;
 import org.sst.domain.StudyNoteVO;
 import org.sst.mapper.StudyNoteMapper;
+
+
 
 
 
@@ -170,13 +174,13 @@ public class StudyNoteDAO {
 	
 	
 	
-	public List<StudyNoteVO> studyNoteList(){
+	public List<StudyNoteVO> studyNoteList(StudyNoteSearchVO search, int startRow){
 		SqlSession sqlSession = getSqlSessionFactory().openSession();
 		
 		List<StudyNoteVO> list=null;
 		
 		try {
-			list = sqlSession.getMapper(StudyNoteMapper.class).listStudyNote();
+			list = sqlSession.getMapper(StudyNoteMapper.class).listStudyNote(search,new RowBounds(startRow, 3));
 			System.out.println("DAO");
 			System.out.println(list);
 		} catch (Exception e) {
@@ -185,6 +189,22 @@ public class StudyNoteDAO {
 		
 		
 		return list;
+	}
+	
+	public int countStudyNote(StudyNoteSearchVO search) {
+		SqlSession sqlSession = getSqlSessionFactory().openSession();
+		int re = 0;
+		try {
+			re = sqlSession.getMapper(StudyNoteMapper.class).countStudyNote(search);
+		} catch (Exception e) {
+			e.printStackTrace();
+		}finally {
+			if(sqlSession != null) {
+				sqlSession.close();
+			}
+		}
+		
+		return re;
 	}
 	
 }

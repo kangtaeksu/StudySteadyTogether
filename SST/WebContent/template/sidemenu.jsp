@@ -81,7 +81,7 @@
                 <div id="collapsePages" class="collapse" aria-labelledby="headingPages" data-parent="#accordionSidebar">
                     <div class="bg-white py-2 collapse-inner rounded">
                         <h6 class="collapse-header">그룹관리:</h6>
-                        <a class="collapse-item" href="login.html">그룹생성</a>
+                        <a class="collapse-item" href="groupnew.do">그룹생성</a>
                         <a class="collapse-item" href="register.html">그룹검색</a>
                         <a class="collapse-item" href="forgot-password.html">그룹관리</a>
                     </div>

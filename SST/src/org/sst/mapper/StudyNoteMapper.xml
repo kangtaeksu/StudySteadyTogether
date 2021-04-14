@@ -13,13 +13,24 @@
 			sn_num, sn_title, sn_contents, sn_date, g_num, gm_num
 		)
 		VALUES(
-			SN_SEQ.NEXTVAL, #{sn_title}, #{sn_contents}, SYSDATE, 1, 1
+			('sn_'||sn_seq.NEXTVAL), #{sn_title}, #{sn_contents,jdbcType=CLOB}, SYSDATE, 1, 1
 		)
 		
 	</insert>
 	
-	<select id="listStudyNote" resultType="StudyNoteVO">
+	<select id="listStudyNote" resultType="StudyNoteVO" parameterType="StudyNoteSearchVO">
 		SELECT * FROM studynote
+		<if test="area != null">
+			<where>
+				 <!--where (title LIKE %aa% OR writer LIKE %aa%)  -->
+				<foreach collection="area" item="item" separator="OR"
+					open="(" close=")">
+					${item} LIKE #{searchKey}
+				</foreach>
+			</where>
+		</if>
+		order by sn_num desc
+
 	</select>
 	
 	<select id="detailStudyNote" parameterType="String" resultType="StudyNoteVO">
@@ -37,7 +48,18 @@
 		DELETE FROM studynote WHERE sn_num = #{sn_num}
 	</delete>
 
-	
+	<select id="countStudyNote" parameterType="StudyNoteSearchVO" resultType="int">
+		select count(*) from studynote
+		<if test="area != null">
+			<where>
+				<!--where (title LIKE %aa% OR writer LIKE %aa%)  -->
+				<foreach collection="area" item="item" separator="OR"
+					open="(" close=")">
+					${item} LIKE #{searchKey}
+				</foreach>
+			</where>
+		</if>
+	</select>
 </mapper>
 
 
