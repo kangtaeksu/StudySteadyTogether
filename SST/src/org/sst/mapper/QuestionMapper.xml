@@ -43,18 +43,18 @@
 	</select>
 	
 	<!-- 게시글 추천 -->
-	<insert id="rec_update" parameterType="map">
+	<insert id="rec_update" parameterType="RecDTO">
 		insert into questionrec values(#{no}, #{id})
 	</insert>
 	
 	<!-- 게시글 추천 취소 -->
-	<delete id="rec_delete" parameterType="map">
+	<delete id="rec_delete" parameterType="RecDTO">
 		delete from questionrec where board_no = #{no} and rec_id = #{id}
 	</delete>
 	
 	<!-- 게시글 추천수 -->
 	<select id="rec_count" parameterType="int" resultType="int">
-		select count(*) from questionreca where board_no = #{no}
+		select count(*) from questionrec where board_no = #{no}
 	</select>
 </mapper>
 

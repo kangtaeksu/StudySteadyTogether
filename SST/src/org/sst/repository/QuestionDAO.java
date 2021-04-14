@@ -160,39 +160,72 @@ public class QuestionDAO {
 		return re;
 	}
 	
-	// �Խñ� ��õ
-	public void recUpdate(Map<String, Object> m){
+	// 추천클릭 public int insertQuestionReply(QuestionReplyVO q_reply) {
+	public int recUpdate(RecDTO m){
+		
+		int re=-1;
+		SqlSession sqlSession = getSqlSessionFactory().openSession();
 		try {
-			session = getSession();
-			session.insert("board.rec_update", m);
+			re = sqlSession.getMapper(QuestionMapper.class).rec_update(m);
+			if(re>0) {
+				sqlSession.commit();
+			}else {
+				sqlSession.rollback();
+			}
 		} catch (Exception e) {
-			System.out.println("recUpdate : " + e);
 			e.printStackTrace();
+		}finally {
+			if(sqlSession != null) {
+				sqlSession.close();
+			}
 		}
+
+		return re;
 	}
 	
-	// �Խñ� ��õ ����
-	public void recDelete(Map<String, Object> m){
+//추천삭제 public int insertQuestionReply(QuestionReplyVO q_reply) {
+	public int recDelete(RecDTO m){
+		
+		SqlSession sqlSession = getSqlSessionFactory().openSession();
+		int re=-1;
+		
 		try {
-			session = getSession();
-			session.insert("board.rec_delete", m);
+			re=sqlSession.getMapper(QuestionMapper.class).rec_delete(m);
+			
+			if(re>0) {
+				sqlSession.commit();
+			}else {
+				sqlSession.rollback();
+			}
+						
 		} catch (Exception e) {
-			System.out.println("recDelete : " + e);
 			e.printStackTrace();
+		} finally {
+			if(sqlSession != null) {
+				sqlSession.close();
+			}
 		}
+		return re;
 	}
 	
-	// �Խñ� ��õ��
+	//추천개수세기 public int insertQuestionReply(QuestionReplyVO q_reply) {
 	public int recCount(int no){
-		int count = 0;
-		try {
-			session = getSession();
-			count = (Integer) session.selectOne("board.rec_count", no);
-		} catch (Exception e) {
-			System.out.println("recCount : " + e);
-			e.printStackTrace();
+	
+		
+	
+	SqlSession sqlSession = getSqlSessionFactory().openSession();
+	int re = 0;
+	try {
+		re = sqlSession.getMapper(QuestionMapper.class).rec_count(no);
+	} catch (Exception e) {
+		e.printStackTrace();
+	}finally {
+		if(sqlSession != null) {
+			sqlSession.close();
 		}
-		return count;
 	}
 	
+	return re;
+	
+}
 }

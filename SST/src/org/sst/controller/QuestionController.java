@@ -16,13 +16,13 @@ import org.sst.action.Question_InsertAction;
 import org.sst.action.Question_InsertFormAction;
 import org.sst.action.Question_InsertReplyAction;
 import org.sst.action.Question_ListAction;
-import org.sst.action.Question_RecCountReplyAction;
-import org.sst.action.Question_RecReplyAction;
+
 import org.sst.action.StudyNote_ListAction;
 import org.sst.action.StudyNote_detailAction;
+import org.sst.service.RecCount;
+import org.sst.service.RecUpdate;
 
-import com.joker.board.service.RecCount;
-import com.joker.board.service.RecUpdate;
+
 
 
 @WebServlet("/Question/*")
@@ -92,7 +92,7 @@ public class QuestionController extends HttpServlet {
 			}
     	}	
     	// 추천추가
-		else if (command.equals("/RecUpdate.do")) {
+		else if (command.equals("Question_DetailAction.do")) {
 			try {
 				action = new RecUpdate();
 				action.execute(request, response);
@@ -101,7 +101,7 @@ public class QuestionController extends HttpServlet {
 			}
 		}
 		// 추천세기
-		else if (command.equals("/RecCount.do")) {
+		else if (command.equals("Question_DetailAction.do")) {
 			try {
 				action = new RecCount();
 				action.execute(request, response);

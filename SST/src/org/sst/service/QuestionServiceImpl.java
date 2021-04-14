@@ -1,13 +1,16 @@
 package org.sst.service;
 
+import java.io.PrintWriter;
 import java.util.List;
 
 import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
 import org.sst.domain.QuestionListVO;
 import org.sst.domain.QuestionReplyVO;
 import org.sst.domain.QuestionVO;
+import org.sst.domain.RecDTO;
 import org.sst.domain.StudyNoteListVO;
 import org.sst.domain.StudyNoteSearchVO;
 import org.sst.domain.StudyNoteVO;
@@ -73,11 +76,42 @@ public class QuestionServiceImpl {
 	public List<QuestionReplyVO> listQuestionReplyService(String q_num){
 		return dao.listQuestionReply(q_num);
 	}
+	
+	
 	//추천하는 서비스
 	
+	public int recUpdateService(HttpServletRequest request) throws Exception {
+		request.setCharacterEncoding("utf-8");
+		QuestionDAO manager = QuestionDAO.getInstance();
+		RecDTO q = new RecDTO();
+		q.setBoard_no(Integer.parseInt(request.getParameter("board_no")));
+		q.setRec_id(request.getParameter("rec_id"));
+		
+		
 	
+		return manager.recCheck(q);
+		
+
+		
+	}
+
 	
 		//추천수 세기 서비스
+	public int recCountService(HttpServletRequest request, HttpServletResponse response) throws Exception {
+		request.setCharacterEncoding("utf-8");
+
 	
+		
+		HttpSession session = request.getSession();
+		
+		PrintWriter out = response.getWriter();
+		int no = Integer.parseInt(request.getParameter("no"));
+		
+		QuestionDAO manager = QuestionDAO.getInstance();
+		int count = manager.recCount(no);
+	
+		
+		return count;
+	}
 	
 }

@@ -16,7 +16,8 @@
 <meta name="author" content="">
 <title>SST</title>
 <!-- Custom fonts for this template-->
-<link href="../vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
+<link href="../vendor/fontawesome-free/css/all.min.css" rel="stylesheet"
+	type="text/css">
 <link
 	href="https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i"
 	rel="stylesheet">
@@ -24,7 +25,7 @@
 <!-- Custom styles for this template-->
 <link href="../css/sb-admin-2.min.css" rel="stylesheet">
 <link href="../css/studynote.css" rel="stylesheet">
-<script src="http://code.jquery.com/jquery-latest.js"></script>
+
 <link>
 </head>
 
@@ -60,88 +61,91 @@
 								<hr>
 								작성일 :${question.q_date}
 							</div>
-							
-		
-	
-	
-							
-							
+
+
+
+
+
+
 							<%-- 글번호 :${studynote.sn_num }<br>  --%>
-							
-							<div class="noteContents">
-							  ${question.q_contents}
-							</div>
-							
+
+							<div class="noteContents">${question.q_contents}</div>
+
 							<div class="noteFooter">
-								<a class="btn btn-light btn-icon-split noteFooterBtn" href="Question_ListAction.do">
-								<span class="icon text-gray-600"><i class="fas fa-arrow-right"></i></span><span class="text">문제 목록</span>
+								<a class="btn btn-light btn-icon-split noteFooterBtn"
+									href="Question_ListAction.do"> <span
+									class="icon text-gray-600"><i class="fas fa-arrow-right"></i></span><span
+									class="text">문제 목록</span>
+								</a> <a class="btn btn-primary btn-icon-split noteFooterBtn"
+									href="Question_UpdateFormAction.do?q_num=${question.q_num}">
+									<span class="icon text-white-50"><i class="fas fa-check"></i></span><span
+									class="text">문제 수정하기</span>
+								</a> <a class="btn btn-danger btn-icon-split noteFooterBtn"
+									href="Question_DeleteAction.do?q_num=${question.q_num }"> <span
+									class="icon text-white-50"><i class="fas fa-trash"></i></span><span
+									class="text">문제 삭제</span>
 								</a>
-								
-							 	<a class="btn btn-primary btn-icon-split noteFooterBtn" 
-								href="Question_UpdateFormAction.do?q_num=${question.q_num}">
-									<span class="icon text-white-50"><i class="fas fa-check"></i></span><span class="text">문제 수정하기</span>
-								</a> 
-								
-								<a class="btn btn-danger btn-icon-split noteFooterBtn" 
-								href="Question_DeleteAction.do?q_num=${question.q_num }">
-									<span class="icon text-white-50"><i class="fas fa-trash"></i></span><span class="text">문제 삭제</span>
-								</a>
-							</div> 
-					
-			
-							
+							</div>
+
+
+
 						</div>
 					</div>
 					<!-- 
-							여기부터 댓글
+							여기부터 댓글 입력
 							 -->
 					<div>
-		<h3>댓글 목록</h3>
-		<table border="1">
-			<tr>
-				<td>댓글번호</td>
-				<td>댓글내용</td>
-				<td>댓글날짜</td>
-				<td>문제번호</td>
-				<td>그룹원아이디</td>
-			</tr>
-			<c:forEach var="reply" items="${questionreplyvo}">
-			<tr>
-				<td>${questionreplyvo.c_num }</td>
-				<td>${questionreplyvo.c_contents }</td>
-				<td>${questionreplyvo.c_date }</td>
-				<td>${questionreplyvo.q_num }</td>
-				<td>${questionreplyvo.gm_num }</td>
-				<td>${questionreplyvo.g_num }</td>
-			</tr>			
-			</c:forEach>
-		</table>	
-	</div>
-	<br>
-	
-	<form action="Question_InsertReplyAction.do" method="post">
-		<input type="hidden" name="q_num" value="${question.q_num }">
-		
-		댓글작성자: <input type="text" name="gm_num"><br>
-		댓글내용: <input type="text" name="c_contents"><br>
-		<input type="submit" value="댓글쓰기">
-	</form>
-	<br>
-	
-	<!-- 여기서 댓글이 보여짐  -->
-		<div class="noteView">
-							<div class="noteHeader">
-							 	${questionreplyvo.gm_num}님 : ${questionreplyvo.c_contents}  작성일 :${questionreplyvo.c_date}
-							</div>
-	
+						<h3>댓글 목록</h3>
+						<table border="1">
+							<tr>
+								<td>댓글번호</td>
+								<td>댓글내용</td>
+								<td>댓글날짜</td>
+								<td>문제번호</td>
+								<td>그룹원아이디</td>
+							</tr>
+							<c:forEach var="reply" items="${questionreplyvo}">
+								<tr>
+									<td>${questionreplyvo.c_num }</td>
+									<td>${questionreplyvo.c_contents }</td>
+									<td>${questionreplyvo.c_date }</td>
+									<td>${questionreplyvo.q_num }</td>
+									<td>${questionreplyvo.gm_num }</td>
+									<td>${questionreplyvo.g_num }</td>
+								</tr>
+							</c:forEach>
+						</table>
+					</div>
+					<br>
+
+					<form action="Question_InsertReplyAction.do" method="post">
+						<input type="hidden" name="q_num" value="${question.q_num }">
+
+						댓글작성자: <input type="text" name="gm_num"><br> 댓글내용: <input
+							type="text" name="c_contents"><br> <input
+							type="submit" value="댓글쓰기">
+					</form>
+					<br>
+
+					<!-- 여기서 댓글이 보여짐  -->
+					<div class="noteView">
+						<div class="noteHeader">${questionreplyvo.gm_num}님 :
 						
-							
-					<!-- end of row  여기서 댓글 추천기능 로그인해야만 된다 -->
+							<tr>
+									<td>${questionreplyvo.c_num }</td>
+									<td>${questionreplyvo.c_contents }</td>
+									<td>${questionreplyvo.c_date }</td>
+									<td>${questionreplyvo.q_num }</td>
+									<td>${questionreplyvo.gm_num }</td>
+									<td>${questionreplyvo.g_num }</td>
+								</tr>
+							</div>
 
-<!-- 
 
 
- -->
+						<!-- end of row  여기서 댓글 추천기능 로그인해야만 된다 -->
+
+			
 
 <script>
 	$(function(){
@@ -174,7 +178,7 @@
 			})
 	    };
 	    recCount(); // 처음 시작했을 때 실행되도록 해당 함수 호출
-	    
+	    </script>
 	    <div>
 		<div class="w3-border w3-center w3-padding">
 			<c:if test="${ gm_num == null }">
@@ -214,13 +218,13 @@
 
 	<!-- Bootstrap core JavaScript-->
 	<script src="../vendor/jquery/jquery.min.js"></script>
-	<script src="../vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
-	<!-- Core plugin JavaScript-->
-	<script src="../vendor/jquery-easing/jquery.easing.min.js"></script>
-	<!-- Custom scripts for all pages-->
-	<script src="../js/sb-admin-2.min.js"></script>
-
-
+						<script src="../vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+						<!-- Core plugin JavaScript-->
+						<script src="../vendor/jquery-easing/jquery.easing.min.js"></script>
+						<!-- Custom scripts for all pages-->
+						<script src="../js/sb-admin-2.min.js"></script>
+						
+						
 </body>
 </html>
 

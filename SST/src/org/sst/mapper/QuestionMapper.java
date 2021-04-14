@@ -5,6 +5,7 @@ import java.util.Map;
 
 import org.sst.domain.QuestionReplyVO;
 import org.sst.domain.QuestionVO;
+import org.sst.domain.RecDTO;
 
 
 
@@ -16,8 +17,12 @@ public interface QuestionMapper {
 	
 	int insertQuestionReply(QuestionReplyVO q_reply);
 	List<QuestionReplyVO> listQuestionReply(String q_num); 
-	int recCheck(Map<String, Object> m);
-	void recUpdate(Map<String, Object> m);
-	void recDelete(Map<String, Object> m);
-	int recCount(int c_like);
+	
+	int rec_check(RecDTO m);
+	int rec_update(RecDTO m);
+	int rec_delete(RecDTO m);
+	int rec_count(int no);
+	
+	
+
 }
