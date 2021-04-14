@@ -95,7 +95,35 @@
 							여기부터 댓글 입력
 							 -->
 					<div>
-						<h3>댓글 목록</h3>
+					
+
+					<!-- 여기서 댓글이 보여짐  -->
+					<div class="noteView">
+						<div class="noteHeader">
+						<c:forEach var="questionreply" items="${questionreply}">
+										<tr class="q_row">
+											<td class="c_num">${questionreply.c_num }</td>
+											<td class="q_title"><a class="noHyper" href="Question_DetailAction.do?q_num=${questionreply.q_num }"> </a></td>
+											<td class="gm_num">${questionreply.c_num }</td>
+											<td class="c_contents">${questionreply.c_contents }</td>
+										<%--  <td class="q_date"><fmt:parseDate var="dt"
+													value="${question.q_date}" pattern="yyyy-MM-dd HH:mm:ss" />
+												<fmt:formatDate value="${dt}" pattern="yyyy/MM/dd" /></td> 
+										</tr> --%>
+										<td class="w3-border w3-center w3-padding">
+		
+			
+			<button class="w3-button w3-black w3-round" id="rec_update">
+					<i class="fa fa-heart" style="font-size:16px;color:red"></i>
+					&nbsp;<span class="rec_count"></span>
+				</button> 
+			
+		<br>
+				</td>
+									</c:forEach>
+						<br><br>
+						
+								<h3>댓글 목록</h3>
 						<table border="1">
 						<!--  <tr>
 								<td>댓글번호</td>
@@ -118,33 +146,6 @@
 					</form>
 					
 					<br>
-
-					<!-- 여기서 댓글이 보여짐  -->
-					<div class="noteView">
-						<div class="noteHeader">
-						<c:forEach var="questionreply" items="${questionreply}">
-										<tr class="q_row">
-											<td class="c_num">${questionreply.c_num }</td>
-											<td class="q_title"><a class="noHyper" href="Question_DetailAction.do?q_num=${questionreply.q_num }"> </a></td>
-											<td class="gm_num">${questionreply.c_num }</td>
-											<td class="c_contents">${questionreply.c_contents }<br></td>
-										<%--  <td class="q_date"><fmt:parseDate var="dt"
-													value="${question.q_date}" pattern="yyyy-MM-dd HH:mm:ss" />
-												<fmt:formatDate value="${dt}" pattern="yyyy/MM/dd" /></td> 
-										</tr> --%>
-										<td class="w3-border w3-center w3-padding">
-		
-			
-			<button class="w3-button w3-black w3-round" id="rec_update">
-					<i class="fa fa-heart" style="font-size:16px;color:red"></i>
-					&nbsp;<span class="rec_count"></span>
-				</button> 
-			
-		
-	</td>
-									</c:forEach>
-						
-							
 							</div>
 
 
