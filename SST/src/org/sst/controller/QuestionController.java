@@ -121,6 +121,7 @@ public class QuestionController extends HttpServlet {
 				e.printStackTrace();
 			}
 		}
+    	//이미지 첨부 저장 컨트롤
     	
     	
     	if(forward != null) {

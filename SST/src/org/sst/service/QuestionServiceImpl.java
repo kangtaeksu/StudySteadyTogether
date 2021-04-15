@@ -42,7 +42,7 @@ public class QuestionServiceImpl {
 		q.setQ_date(request.getParameter("q_date"));
 		q.setG_num(request.getParameter("g_num"));
 		q.setGm_num(request.getParameter("gm_num"));
-
+		System.out.println(q);
 		return dao.insertQuestion(q);
 	}
 	
@@ -122,5 +122,6 @@ public class QuestionServiceImpl {
 		
 		return count;
 	}
+	//이미지 첨부 
 	
 }

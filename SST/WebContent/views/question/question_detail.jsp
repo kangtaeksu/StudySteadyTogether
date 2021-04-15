@@ -64,7 +64,7 @@
 	    recCount(); // 처음 시작했을 때 실행되도록 해당 함수 호출
 	    
 	});
-</script>
+	</script>
 </head>
 
 <body id="page-top">
@@ -99,13 +99,20 @@
 								<hr>
 								작성일 :${question.q_date}
 							</div>
+<%--  이미지가 있다면 이미지부터 보여주고 --%>
 
+<c:if test="">
+	<tr><td align = "center" width="190">
+	<input type ="hidden" value="${dto.num }" name = "num"/>
+	<a href="${imagePath }/${dto.saveFileName }">
+		<img alt"" src= "${imagePath}/${dto.saveFileName }" width = "190"	height = "190"><br>
+		${dto.subject }
+	</a>
+	
 
+</c:if>
 
-
-
-
-							<%-- 글번호 :${studynote.sn_num }<br>  --%>
+							<%-- 글내용 보여주기 --%>
 
 							<div class="noteContents">${question.q_contents}</div>
 

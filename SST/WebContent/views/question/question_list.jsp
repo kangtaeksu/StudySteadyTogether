@@ -97,7 +97,7 @@
 						<div class="noteListFooterArea">
 
 							<form
-								action="StudyNote_ListAction.do" method="post">
+								action="Question_ListAction.do" method="post">
 								<input type="checkbox" name="area" value="sn_title">제목 
 								<input type="checkbox" name="area" value="sn_contents">내용
 								<input type="text" class="" name="searchKey" placeholder="검색어를 입력해주세요" size="20"> 
@@ -105,7 +105,7 @@
 
 
 								<a class="btn btn-secondary btn-icon-split rightBtn"
-									href="StudyNote_InsertFormAction.do"> 
+									href="Question_InsertFormAction.do"> 
 								<span class="icon text-white-50"> 
 									<i class="fas fa-pen"></i>
 								</span> <span class="text">글쓰기</span>

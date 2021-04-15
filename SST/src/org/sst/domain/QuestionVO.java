@@ -13,6 +13,12 @@ public class QuestionVO implements Serializable{
 	
 	public QuestionVO() {}
 
+	@Override
+	public String toString() {
+		return "QuestionVO [q_num=" + q_num + ", q_title=" + q_title + ", q_contents=" + q_contents + ", q_answer="
+				+ q_answer + ", q_date=" + q_date + ", g_num=" + g_num + ", gm_num=" + gm_num + "]";
+	}
+
 	public QuestionVO(String q_num, String q_title, String q_contents, String q_answer, String q_date, String g_num,
 			String gm_num) {
 		super();
