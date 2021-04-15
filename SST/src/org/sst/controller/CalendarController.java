@@ -16,7 +16,7 @@ import org.sst.action.Calendar_MainAction;
 import org.sst.action.Calendar_NonCheckTodoAction;
 import org.sst.action.Calendar_deleteTodoAction;
 import org.sst.action.Calendar_insertTodoAction;
-import org.sst.action.Calendar_insertTodoForm;
+import org.sst.action.Calendar_insertTodoFormAction;
 
 @WebServlet("/fullcalendar-5.6.0/Calendar2/*")
 public class CalendarController extends HttpServlet {
@@ -39,7 +39,7 @@ public class CalendarController extends HttpServlet {
     	ActionForward forward = null;
     	
     	if(command.equals("/insertTodoForm.do")) {
-    		action = new Calendar_insertTodoForm();
+    		action = new Calendar_insertTodoFormAction();
     		try {
 				forward = action.execute(request, response);
 			} catch (Exception e) {

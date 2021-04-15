@@ -1,160 +1,145 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
-    pageEncoding="UTF-8"%>
-<%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
-<%@taglib prefix = "fmt" uri = "http://java.sun.com/jsp/jstl/fmt" %>
-<%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions" %>
+	pageEncoding="UTF-8"%>
 <!DOCTYPE html>
-<html lang="en">
+<html>
 <head>
+<style type="text/css">
+
+</style>
 <script src="http://code.jquery.com/jquery-1.10.2.js"></script>
-    <meta charset="utf-8">
-<link href='../../views/fullcalendar-5.6.0/lib/main.css' rel='stylesheet' />
-<script src='../../views/fullcalendar-5.6.0/lib/main.js'></script>
-
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <meta name="description" content="">
-    <meta name="author" content="">
-    <title>SST</title>
-    <!-- Custom fonts for this template-->
-    <link href="../../vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
-    <link
-        href="https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i"
-        rel="stylesheet">
-
-    <!-- Custom styles for this template-->
-    <link href="../../css/sb-admin-2.min.css" rel="stylesheet">
+<meta charset="UTF-8">
+<title>Insert title here</title>
 </head>
-<script type="text/javascript">
-	var timId;
-	var running = false;
-	//를 걸어주어 상태를 만들어 준뒤
-	function show() {
-		var now = new Date();
-		var hour = now.setHours(now.getHours());
-		var minute = now.setMinutes(now.getMinutes());
-		var seconds = now.setSeconds(now.getSeconds());
-		var millionseconds = now.setMilliseconds(now.getMilliseconds());
-		
-		var mTimeHour = now.getHours();
-		var mTimeMinutes = now.getMinutes ();
-		var mTimeSeconds = now.getSeconds();
-		var mTimeMilliseconds = now.getMilliseconds();
-		
-		
-		var stTime = new Date();
-		var stHour = stTime.getHours();
-		var stMinute = stTime.getMinutes();
-		var stSecond = stTime.getSeconds();
-		var stMillisecond = stTime.getMilliseconds();
-		var timeValue = (stHour-mTimeHour) + '시' + (stMinute-mTimeMinutes) + '분' 
-		+ (stSecond-mTimeSeconds) + '초'+(stMillisecond-mTimeMilliseconds);
+<body>
+	<form action="insertTimeAction.do">
+	<input type="text" name="ps_place">
+	<input type="text" name="ps_category">
+	<div>
+		<div>
+			<span id="studyhour">00</span>
+			<span>:</span><span id="studymin">00</span>
+			<!-- 분 -->
+			<span>:</span> <span id="studysec">00</span>
 
-		document.fmt.display.value = timeValue;
-		//브라우저객체 에서 바디의 이름fmt 를찾고 그 아래서
-		//display이름을 찾고 거기의 value값을 timeValue 으로한다.
-		/* setTimeout("show()",100); */
-		//1초마다 출력하는 함수이다. 즉 이게 없다면 시작을 누를때 출력이된다.
-		timId = setTimeout("show()",1000);
-		//변수를 하나 생성해서 넣어줘어야 멈춤이 가능하다.
-		
-		
-	}
-
-	function startClock() {
-		if(running){
-			return;
-		}//러닝이라면 startclock를 다시 실행하지않고 돌려준다.
-		show();
-		running = true;
-		// if문으로running상태를 주어준다.
-	}
-
-	function stopClock() {
-		if(running){
-			clearTimeout(timId);
-			running = false;
-			//러닝상태면 종료를 실행하고 running을 false로 돌려준다.
-		}
-		
-		// setTimeout 과 clearTimeout은 쌍으로써줘야한다.
-		//그런데 시작을 여러번 누르고 종료를 누르면 그만큼 종료를 안누르면안멈춘다.
-		//그이유는show가 여러번 생성되어 러닝 되기 때문이다.
-		
-	}
-</script>
-<body id="page-top">
-
-    <!-- Page Wrapper -->
-    <div id="wrapper">
-        <!-- sidemenu -->
-        <%@include file="../../../../template/sidemenu.jsp" %>
-        <!-- Content Wrapper -->
-        <div id="content-wrapper" class="d-flex flex-column">
-            <!-- Main Content -->
-            <div id="content">
-                <!-- topbar -->
-				<%@include file="../../../../template/topbar.jsp" %>
-                <!-- Begin Page Content -->
-                <div class="container-fluid">
-                    <!-- Page Heading -->
-                    <div class="d-sm-flex align-items-center justify-content-between mb-4">
-                        <h1 class="h3 mb-0 text-gray-800">페이지헤더</h1>
-                    </div>
-                    <!-- Content Row -->
-                    <div class="row">
-                    	<div class="col-md-1">
-                        	과목분류
-                    	</div>
-                        <div class="col-md-11">
-                        	<textarea rows="1" cols="15" name="ps_category"></textarea>
-                        </div>
-                    </div>
-                    <div class="row">
-                    	<div class="col-md-1">
-                        	과목명
-                    	</div>
-                        <div class="col-md-11">
-                        	<textarea rows="1" cols="15" name="ps_subjectname"></textarea>
-                        </div>
-                    </div>
-                    <div class="row">
-                        <div class="col-md-12">
-							<form name="fmt">
-
-								<input type="text" name="display"><br> 
-								<input type="button" name="start" value="시작" onclick="startClock()">
-								<input type="button" name="ps_studytime" value="종료" onclick="stopClock()"><br>
-							</form>
-                       </div>
-                   	</div>
-
-
-                <!-- /.container-fluid -->
-
-            </div>
-            <!-- End of Main Content -->
-
-            <!-- Footer -->
-            <%@include file="../../../../template/footer.jsp" %>
-            <!-- End of Footer -->
-        </div>
-        <!-- End of Content Wrapper -->
-
-    </div>
-    <!-- End of Page Wrapper -->
-
-    <!-- Scroll to Top Button-->
-    <a class="scroll-to-top rounded" href="#page-top">
-        <i class="fas fa-angle-up"></i>
-    </a>
-
-    <!-- Bootstrap core JavaScript-->
-    <script src="../vendor/jquery/jquery.min.js"></script>
-    <script src="../vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
-    <!-- Core plugin JavaScript-->
-    <script src="../vendor/jquery-easing/jquery.easing.min.js"></script>
-    <!-- Custom scripts for all pages-->
-    <script src="../js/sb-admin-2.min.js"></script>
+			<!--초-->
+			<span>.</span> <span id="studymilisec">00</span>
+			<!--밀리초-->
+			
+		</div>
+		<input type="text" name="ps_time" id = "inputTime">
+		<div>
+			<ul id="recordlist">
+			
+			</ul>
+			<!--중간 기록할 리스트-->
+		</div>
+		<div>
+			<button type="button" id="startbtn">START</button>
+			<!--시작/재시작/기록 버튼-->
+			<button type="button" id="stopbtn">STOP</button>
+			<!--스톱 버튼-->
+		</div>
+	</div>
+	<input type="submit" value = "공부완료" >
+</form>
 </body>
+<script type="text/javascript">
+	var stTime = 0
+	var endTime = 0
+	var timerStart
+	var hour
+	var min
+	var sec
+	var milisec
+	var startBtn = document.getElementById('startbtn')
+	var stopBtn = document.getElementById('stopbtn')
+	var recordList = document.getElementById('recordlist')
+	startBtn.addEventListener('click', function() {
+		
+		// RECORD
+		if (this.innerText == 'RECORD' && milisec) {
+			//console.log(hour,min, sec, milisec)
+			var li = document.createElement('li')
+			li.style.color = "black"
+			li.innerText =hour +' : ' +min + ' : ' + sec + ' : ' + milisec
+			if (!recordList.firstChild) {
+				recordList.append(li)
+			} else {
+				recordList.insertBefore(li, recordList.firstChild)
+			}
+			return false
+		}
+		this.innerText = 'RECORD'
+		if (!stTime) {
+			stTime = Date.now() // 최초 START
+		} else {
+			stopBtn.innerText = 'STOP'
+			stTime += (Date.now() - endTime) // RESTART
+		}
+		timerStart = setInterval(function() {
+			var nowTime = new Date(Date.now() - stTime)
+			
+			hour = addZero(nowTime.getHours()-9)//기본초기값이 대한민국 표준이 9시로 맞춰져 있음
+			min = addZero(nowTime.getMinutes())
+			sec = addZero(nowTime.getSeconds())
+			milisec = addZero(Math.floor(nowTime.getMilliseconds() / 10))
+			document.getElementById('studyhour').innerText = hour
+			document.getElementById('studymin').innerText = min
+			document.getElementById('studysec').innerText = sec
+			document.getElementById('studymilisec').innerText = milisec
+		}, 1)
+	})
+	stopBtn.addEventListener('click', function() {
+		var hour = $('#studyhour').text();
+		var min = $('#studymin').text();
+		var sec = $('#studysec').text();
+		var milisec = $('#studymilisec').text();
+		alert(hour+':'+min+' : '+sec+' : '+milisec+$(".input_contents")	);
+		$('#inputTime').val(hour+":"+min+":"+sec+":"+milisec);
+		if (timerStart) {
+			clearInterval(timerStart) // STOP
+			if (this.innerText == 'STOP') {
+				endTime = Date.now()
+				this.innerText = 'RESET'
+				startBtn.innerText = 'RESTART'
+			} else { // RESET
+				stTime = 0
+				hour = 0
+				min = 0
+				sec = 0
+				milisec = 0
+				document.getElementById('studyhour').innerText = '00'
+				document.getElementById('studymin').innerText = '00'
+				document.getElementById('studysec').innerText = '00'
+				document.getElementById('studymilisec').innerText = '00'
+				startBtn.innerText = 'START'
+				this.innerText = 'STOP'
+				timerStart = null
+				recordList.innerHTML = ''
+			}
+		}
+	})
+	function addZero(num) {
+		return (num < 10 ? '0' + num : '' + num)
+	}
+	
+
+	
+	/* $(function(){
+	$("#submit").click(function(){
+	 
+
+	sessionStorage.setItem("studytime",hour+":"+min+":"+sec+":"+milisec); */
+/*   	$.ajax({
+		type: "POST",
+		url: "/SST/views/personalstudy/dkstjdals.jsp",
+		data: {studytime :$("#studysec").val()},
+		async:"true",
+		success: function(){
+			console.log("asdfawef");
+		}
+	});   
+ 	}); 
+});*/
+</script>
 </html>

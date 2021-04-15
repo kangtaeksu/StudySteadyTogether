@@ -14,7 +14,7 @@
 		<typeAlias type="org.sst.domain.MemberVO" alias="MemberVO"/>
 
 		<typeAlias type="org.sst.domain.CalendarTodoVO" alias="CalendarTodoVO"/>
-
+		<typeAlias type="org.sst.domain.PersonalStudyVO" alias="PersonalStudyVO"/>
 
 		<typeAlias type="org.sst.domain.GroupMemberVO" alias="GroupMemberVO"/>
 		<typeAlias type="org.sst.domain.StudyGroupVO" alias="StudyGroupVO"/>
@@ -42,6 +42,7 @@
 	
 
 		<mapper resource="org/sst/mapper/CalendarMapper.xml"/>
+		<mapper resource="org/sst/mapper/PersonalStudyMapper.xml"/>
 
 
 		<mapper resource="org/sst/mapper/StudyGroupMapper.xml"/>

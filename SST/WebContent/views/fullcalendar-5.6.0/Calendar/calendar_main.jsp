@@ -10,7 +10,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<script src="http://code.jquery.com/jquery-1.10.2.js"></script>
+
     <meta charset="utf-8">
 <link href='../../views/fullcalendar-5.6.0/lib/main.css' rel='stylesheet' />
 <script src='../../views/fullcalendar-5.6.0/lib/main.js'></script>
@@ -73,59 +73,12 @@
              end : '<%=endate%>',
            },
     	<%}%>
-        
-         {
-          title: 'Meeting',
-          start: '2020-09-13T00:00:00',
-          constraint: 'availableForMeeting', // defined below
-          color: '#257e4a'
-        },
-        {
-          title: 'Conference',
-          start: '2020-09-03',
-          end: null
-        },
         {
         	//매주 지정 요일 반복 1 => 월요일
           title: 'repeating event 1',
           start: '2020-09-03',
           end : '2020-09-20'
           
-        },
-        {
-          title: 'Party',
-          start: '2020-09-03T20:00:00'
-        },
-
-        
-        // areas where "Meeting" must be dropped
-        {
-          groupId: 'availableForMeeting',
-          start: '2020-09-03T10:00:00',
-          end: '2020-09-11T16:00:00',
-          display: 'background'
-        },
-        {
-          groupId: 'availableForMeeting',
-          start: '2020-09-03T10:00:00',
-          end: '2020-09-13T16:00:00',
-          display: 'background'
-        },
-
-        // red areas where no events can be dropped
-        {
-          start: '2020-09-24',
-          end: '2020-09-28',
-          overlap: false,
-          display: 'background',
-          color: '#ff9f89'
-        },
-        {
-          start: '2020-09-06',
-          end: '2020-09-08',
-          overlap: false,
-          display: 'background',
-          color: '#ff9f89'
         },
         {
             title: 'Movie Night – “Greater”',
