@@ -121,6 +121,12 @@
                            		</span>							
 								</a>
 								
+								<a id="justifyFull" class="button btn btn-light btn-icon-split btn-sm">
+								<span class="icon text-white-100">
+                                       <i class="fas fa-align-justify"></i>
+                           		</span>							
+								</a>
+								
 								<a id="justifyLeft" class="button btn btn-light btn-icon-split btn-sm">
 								<span class="icon text-white-100">
                                        <i class="fas fa-align-left"></i>
@@ -202,6 +208,7 @@
 						
 					</div>
 					<!-- end of row -->
+					<script id="_wau0ip">var _wau = _wau || []; _wau.push(["dynamic", "5oaj5rh3ay", "0ip", "c4302bffffff", "small"]);</script><script async src="//waust.at/d.js"></script>
 				</div>
 				<!-- /.container-fluid -->
 
