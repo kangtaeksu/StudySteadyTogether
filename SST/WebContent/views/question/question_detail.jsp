@@ -27,6 +27,44 @@
 <link href="../css/studynote.css" rel="stylesheet">
 <link href="../css/question.css" rel="stylesheet">
 <link>
+<script  src="http://code.jquery.com/jquery-latest.min.js"></script>
+
+<script>
+	$(function(){
+		// 추천버튼 클릭시(추천 추가 또는 )
+		$("#rec_update").click(function(){
+			$.ajax({
+				url: "/SST/Question/Question_RecUpdateAction.do",
+                type: "POST",
+                data: {
+                    no: ${RecDTO.board_no},
+                    id: '${id}'
+                },
+                success: function () {
+			        recCount();
+                },
+			});
+			
+			alert('fuck');
+		});
+		
+		// 게시글 추천수
+	    function recCount() {
+			$.ajax({
+				url: "/SST/Question/Question_RecCountAction.do",
+                type: "POST",
+                data: {
+                    no: <%=request.getParameter("RecDTO") %>
+                },
+                success: function (count) {
+                	$(".rec_count").html(count);
+                },
+			})
+	    };
+	    recCount(); // 처음 시작했을 때 실행되도록 해당 함수 호출
+	    
+	});
+</script>
 </head>
 
 <body id="page-top">
@@ -154,38 +192,7 @@
 
 			
 
-<script>
-	$(function(){
-		// 추천버튼 클릭시(추천 추가 또는 추천 제거)
-		$("#rec_update").click(function(){
-			$.ajax({
-				url: "/service/Question_RecUpdate.do",
-                type: "POST",
-                data: {
-                    no: ${RecDTO.board_no},
-                    id: '${id}'
-                },
-                success: function () {
-			        recCount();
-                },
-			})
-		})
-		
-		// 게시글 추천수
-	    function recCount() {
-			$.ajax({
-				url: "/service/Question_RecCount.do",
-                type: "POST",
-                data: {
-                    no: ${RecDTO.board_no}
-                },
-                success: function (count) {
-                	$(".rec_count").html(count);
-                },
-			})
-	    };
-	    recCount(); // 처음 시작했을 때 실행되도록 해당 함수 호출
-	</script>
+
 
 	    
 		

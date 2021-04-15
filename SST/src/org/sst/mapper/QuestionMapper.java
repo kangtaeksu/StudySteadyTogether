@@ -18,9 +18,8 @@ public interface QuestionMapper {
 	int insertQuestionReply(QuestionReplyVO q_reply);
 	List<QuestionReplyVO> listQuestionReply(String q_num); 
 	
-	int rec_check(RecDTO m);
+	
 	int rec_update(RecDTO m);
-	int rec_delete(RecDTO m);
 	int rec_count(int no);
 	
 	

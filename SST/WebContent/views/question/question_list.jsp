@@ -25,6 +25,7 @@
 <!-- Custom styles for this template-->
 <link href="../css/sb-admin-2.min.css" rel="stylesheet">
 <link href="../css/question.css" rel="stylesheet">
+<link href="../css/studynote.css" rel="stylesheet">
 </head>
 
 <body id="page-top">
@@ -44,7 +45,7 @@
 					<!-- Page Heading -->
 					<div
 						class="d-sm-flex align-items-center justify-content-between mb-4">
-						<h1 class="h3 mb-0 text-gray-800">노트 목록</h1>
+						<h1 class="h3 mb-0 text-gray-800">문제 목록</h1>
 					</div>
 
 					<!-- Content Row -->
@@ -59,19 +60,19 @@
 							<div class="noteTableArea">
 								<table class="noteTable">
 									<tr>
-										<td class="q_num thead">글번호</td>
-										<td class="q_title thead">글제목</td>
+										<td class="sn_num thead">문제번호</td>
+										<td class="sn_title thead">문제명</td>
 		
-										<td class="q_date thead">작성일자</td>
+										<td class="sn_date thead">작성일자</td>
 									</tr>
 									<tr><td></td><td></td><td></td><td></td></tr>
 									<c:forEach var="question" items="${QuestionListVO.list}">
 										<tr class="q_row">
-											<td class="q_num">${question.q_num }</td>
-											<td class="q_title"><a class="noHyper" href="Question_DetailAction.do?q_num=${question.q_num }"> ${question.q_title }</a></td>
-											<td class="gm_num">${question.gm_num }</td>
+											<td class="sn_num">${question.q_num }</td>
+											<td class="sn_title"><a class="noHyper" href="Question_DetailAction.do?q_num=${question.q_num }"> ${question.q_title }</a></td>
+											<td class="sn_num">${question.gm_num }</td>
 <%-- 											<td class="q_date"><fmt:parseDate var="dt"
-													value="${question.q_date}" pattern="yyyy-MM-dd HH:mm:ss" />
+													value="${question.q_date}" pattern="yyyy-MM-dd HH:mm:ss" />s
 												<fmt:formatDate value="${dt}" pattern="yyyy/MM/dd" /></td> --%>
 										</tr>
 									</c:forEach>
@@ -92,23 +93,26 @@
 					<!-- end of row -->
 
 
-					<div class="row">
-						<div class="questionListFooterArea">
+				<div class="row">
+						<div class="noteListFooterArea">
 
-							
+							<form
+								action="StudyNote_ListAction.do" method="post">
+								<input type="checkbox" name="area" value="sn_title">제목 
+								<input type="checkbox" name="area" value="sn_contents">내용
+								<input type="text" class="" name="searchKey" placeholder="검색어를 입력해주세요" size="20"> 
+								<input type="submit" class="btn-primary" value="검색">
 
 
 								<a class="btn btn-secondary btn-icon-split rightBtn"
-									href="Question_InsertFormAction.do"> 
+									href="StudyNote_InsertFormAction.do"> 
 								<span class="icon text-white-50"> 
 									<i class="fas fa-pen"></i>
 								</span> <span class="text">글쓰기</span>
 								</a>
-							
+							</form>
+							<a href="http://192.168.0.189:3000">채팅 참가</a>
 						</div>
-
-
-					</div>
 					<!-- end of row -->
 
 				</div>

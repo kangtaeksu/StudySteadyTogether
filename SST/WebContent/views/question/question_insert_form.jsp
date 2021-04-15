@@ -10,15 +10,17 @@
 	content="width=device-width, initial-scale=1, shrink-to-fit=no">
 <meta name="description" content="">
 <meta name="author" content="">
-<title>SST</title>
+<title>문제 공유</title>
 <!-- Custom fonts for this template-->
-<link href="../vendor/fontawesome-free/css/all.min.css" rel="stylesheet"
-	type="text/css">
+<link href="../vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
 <link href="https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i" rel="stylesheet">
 
 <!-- Custom styles for this template-->
 <link href="../css/sb-admin-2.min.css" rel="stylesheet">
 <link href="../css/question.css" rel="stylesheet">
+<link href="../css/studynote.css" rel="stylesheet">
+
+<link href="../css/studynote_input.css" rel="stylesheet">
 </head>
 
 <body id="page-top">
@@ -50,9 +52,20 @@
 							 	<div class="q_insert">
 							 제목 : <input type="text" name="q_title"><br></div>
 							 내용 <br>
-							<textarea rows="15" cols="50" name="q_contents"></textarea><br>
+							<div class="input_contents_wrap">
+								<div class="input_contents" contenteditable="true"></div>
+							</div><br>
 							답 : <input type="text" name="q_answer">
-							<input type="submit" value="제출"><br>
+							
+							
+							<div class="formBtnWrap">
+							
+								<a id="submit" href="/SST/Question/Question_ListAction.do" 
+									class="btn btn-primary btn-icon-split btn-sm">
+                                    <span class="icon text-white-50">
+                                        <i class="fas fa-check"></i>
+                                    </span>
+                                    <span class="text">제출</span>
 							 
 						
 						</form>

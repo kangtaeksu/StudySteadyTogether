@@ -18,10 +18,9 @@ public class Question_RecCountAction implements Action {
 		response.setContentType("text/html;charset=utf-8");
 		
 		request.setAttribute("RecDTO",q);
-		
-		forward.setPath("/views/question/question_detail.jsp");
 		forward.setRedirect(false);
-		
+		forward.setPath("/views/question/question_detail.jsp");
+		System.out.println(q);
 		return forward;
 	}
 
