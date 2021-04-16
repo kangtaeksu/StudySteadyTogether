@@ -3,6 +3,7 @@ package org.sst.mapper;
 import java.util.List;
 
 import org.apache.ibatis.session.RowBounds;
+import org.sst.domain.RecDTO;
 import org.sst.domain.StudyNoteSearchVO;
 import org.sst.domain.StudyNoteVO;
 
@@ -18,5 +19,5 @@ public interface StudyNoteMapper {
 
 	int countStudyNote(StudyNoteSearchVO search);
 	int deleteStudyNote(String sn_num);
-//
+
 }

@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" 
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+
+<mapper namespace="org.sst.mapper.QuestionMapper"> <!-- 동일한 이름의 인터페이스를 만들어야한다 -->
+	<cache />
+	
+	<!-- 컨트롤 스페이스 해도 resultType 안나옴 -->
+	<insert id="insertQuestion" parameterType="QuestionVO"><!-- id와 동일한 메서드를 만들어야한다 -->
+
+		INSERT INTO question(
+			q_num, q_title, q_contents,q_answer, q_date, g_num, gm_num
+		)
+		VALUES(
+			Q_SEQ.NEXTVAL, #{q_title}, #{q_contents},#{q_answer}, SYSDATE, 1, 1
+		)
+		
+	</insert>
+	
+		<select id="listQuestion" resultType="QuestionVO" >
+		SELECT * FROM question
+		
+
+	</select>
+
+	<select id="detailQuestion" parameterType="String" resultType="QuestionVO">
+		select * from question where q_num = #{q_num}
+	</select>
+
+	<insert id="insertQuestionReply" parameterType="QuestionReplyVO">
+		insert into questionreply
+			values(q_reply.nextval, #{c_contents}, sysdate, #{q_num},1, 1, #{c_like} )
+	</insert>
+	
+	<select id="listQuestionReply" parameterType="int" resultType="QuestionReplyVO">
+		select * from questionreply where q_num = #{q_num}
+	</select>
+
+
+	
+
+	<insert id="rec_update" parameterType="QuestionReplyVO">
+	update questionreply set  c_like =#{c_like}
+			where c_num = #{c_num}
+		<!-- insert into questionrec values(#{board_no}, #{rec_id}) -->
+	</insert>
+	
+	
+	
+	<select id="rec_count" parameterType="int" resultType="int">
+	
+		select count(*) from questionreply where c_like = #{c_like}
+	</select>
+</mapper>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
