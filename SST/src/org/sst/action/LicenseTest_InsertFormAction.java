@@ -13,7 +13,7 @@ public class LicenseTest_InsertFormAction implements Action {
 		ReportCardService service = ReportCardService.getInstance();
 		request.setAttribute("rc_num", request.getParameter("rc_num"));
 		forward.setRedirect(false);
-		forward.setPath("/view/StudyContents/insertLicenseTest.jsp");
+		forward.setPath("/views/StudyContents/insertLicenseTest.jsp");
 		return forward;
 	}
 

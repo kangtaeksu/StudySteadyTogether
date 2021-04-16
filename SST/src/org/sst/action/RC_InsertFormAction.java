@@ -10,7 +10,7 @@ public class RC_InsertFormAction implements Action {
 	public ActionForward execute(HttpServletRequest request, HttpServletResponse response) throws Exception {
 		ActionForward forward = new ActionForward();
 		forward.setRedirect(false);
-		forward.setPath("/view/StudyContents/insertReportCard.jsp");
+		forward.setPath("/views/StudyContents/insertReportCard.jsp");
 		return forward;
 	}
 
