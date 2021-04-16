@@ -96,9 +96,9 @@ public class QuestionController extends HttpServlet {
     			
     	// 추천추가
 		else if (command.equals("Question_RecUpdateAction.do")) {
+			action = new Question_RecUpdateAction();
 			try {
-				action = new Question_RecUpdateAction();
-				action.execute(request, response);
+				forward = action.execute(request, response);
 			} catch (Exception e) {
 				e.printStackTrace();
 			}
@@ -114,14 +114,14 @@ public class QuestionController extends HttpServlet {
     			}*/
 		// 추천세기
 		else if (command.equals("Question_RecCountAction.do")) {
+			action = new Question_RecCountAction();
 			try {
-				action = new Question_RecCountAction();
-				action.execute(request, response);
+				forward = action.execute(request, response);
 			} catch (Exception e) {
 				e.printStackTrace();
 			}
 		}
-    	//이미지 첨부 저장 컨트롤
+    	//이미지 첨부 저장 컨트롤 =>대ㅣ기
     	
     	
     	if(forward != null) {

@@ -17,7 +17,7 @@ public class Question_RecUpdateAction implements Action {
 		
 		
 		forward.setRedirect(true);
-		forward.setPath("Question_DetailAction.do");
+		forward.setPath("Question_RecCountAction.do");
 		
 		return forward;
 		

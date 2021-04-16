@@ -115,9 +115,14 @@ public class QuestionServiceImpl {
 		HttpSession session = request.getSession();
 		
 		PrintWriter out = response.getWriter();
+		QuestionReplyVO q = new QuestionReplyVO();
 		int no = Integer.parseInt(request.getParameter("no"));
 		
 		QuestionDAO dao = QuestionDAO.getInstance();
+		response.setContentType("text/html;charset=utf-8");
+		
+		 request.setAttribute("QuestionReplyVO", q);
+		 
 		int count = dao.recCount(no);
 	
 		

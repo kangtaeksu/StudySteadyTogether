@@ -13,14 +13,11 @@ public class Question_RecCountAction implements Action {
 		ActionForward forward = new ActionForward();
 		QuestionServiceImpl service = QuestionServiceImpl.getInstance();
 		
+		service.recCountService(request, response);
 		
-		QuestionListVO q = service.questionListService(request);
-		response.setContentType("text/html;charset=utf-8");
-		
-		request.setAttribute("QuestionReplyVO",q);
 		forward.setRedirect(false);
 		forward.setPath("/views/question/question_detail.jsp");
-		System.out.println(q);
+
 		return forward;
 	}
 

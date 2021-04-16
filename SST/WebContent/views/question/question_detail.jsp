@@ -37,15 +37,14 @@
 				url: "/SST/Question/Question_RecUpdateAction.do",
                 type: "POST",
                 data: {
-                    no: ${RecDTO.board_no},
-                    id: '${id}'
+                    c_like: ${QuestionReplyVO.c_like }
+                    
                 },
                 success: function () {
 			        recCount();
                 },
 			});
 			
-			alert('fuck');
 		});
 		
 		// 게시글 추천수
@@ -54,7 +53,7 @@
 				url: "/SST/Question/Question_RecCountAction.do",
                 type: "POST",
                 data: {
-                    no: <%=request.getParameter("RecDTO") %>
+                    no: <%=request.getParameter("QuestionReplyVO") %>
                 },
                 success: function (count) {
                 	$(".rec_count").html(count);
@@ -105,7 +104,7 @@
 	<tr><td align = "center" width="190">
 	<input type ="hidden" value="${dto.num }" name = "num"/>
 	<a href="${imagePath }/${dto.saveFileName }">
-		<img alt"" src= "${imagePath}/${dto.saveFileName }" width = "190"	height = "190"><br>
+		<img alt= "" src= "${imagePath}/${dto.saveFileName }" width = "190"	height = "190"><br>
 		${dto.subject }
 	</a>
 	
