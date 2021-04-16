@@ -5,7 +5,7 @@ import java.util.List;
 public class StudyNoteListVO {
 	private List<StudyNoteVO> list;
 	private int requestPage; 
-	private int totalPageCount; //총페이지수 ( 노트페이지수)
+	private int totalPageCount; //총페이지수 ( 노트페이지수)//
 	private int startPage; 
 	private int endPage;
 	
