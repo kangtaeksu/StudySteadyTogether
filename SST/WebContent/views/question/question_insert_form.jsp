@@ -50,7 +50,7 @@
 					<div class="row">
 
 						
-						<form action="Question_InsertAction.do" method="post"enctype="multipart/form-data" >
+						<form action="Question_InsertAction.do" method="post" enctype="multipart/form-data">
 	
 							작성자 : <input type="text" name="gm_num" ><br>
 							 	<div class="q_insert">

@@ -2,6 +2,7 @@ package org.sst.domain;
 
 import java.io.Serializable;
 
+@SuppressWarnings("serial")
 public class QuestionReplyVO implements Serializable {
 
 	private String c_num;

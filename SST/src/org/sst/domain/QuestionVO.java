@@ -2,6 +2,7 @@
 
 import java.io.Serializable;
 
+@SuppressWarnings("serial")
 public class QuestionVO implements Serializable{
 	private String q_num; //문제번
 	private String q_title;
