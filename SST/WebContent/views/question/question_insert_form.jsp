@@ -57,14 +57,14 @@
 							 제목 : <input type="text" name="q_title"><br></div>
 					
 							 <br><br>
-							 내용 <br><input type="text" name="q_contents">
+							 내용 <br><textarea rows="6" cols="70" name="contents"></textarea>
 						
 							답 : <input type="text" name="q_answer">
 							
 					
 							
 								
-                                    <span class="text">제출</span>
+                                    <span class="text"></span>
 							
 						</div>
 							<input type="submit" value="제출">
