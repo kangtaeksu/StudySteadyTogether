@@ -1,6 +1,6 @@
 var result = "";
 $.ajax({
-	url : '/Study/ReportCard/averageALLLicenseRCAction.do',
+	url : '/SST/ReportCard/averageALLLicenseRCAction.do',
 	type : 'GET',
 	dataType : 'text',
 	async : false,
@@ -14,6 +14,7 @@ $.ajax({
 });
 $("#chart-change").change(
 		function() {
+			alert('안된다고?');
 			if ($("#chart-change").val() == "전체시험") {
 				$('#curve_chart').empty();
 				google.charts.load('current', {
