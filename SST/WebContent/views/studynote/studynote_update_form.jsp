@@ -10,7 +10,7 @@
 	content="width=device-width, initial-scale=1, shrink-to-fit=no">
 <meta name="description" content="">
 <meta name="author" content="">
-<title>SST</title>
+<title>필기 수정</title>
 <!-- Custom fonts for this template-->
 <link href="../vendor/fontawesome-free/css/all.min.css" rel="stylesheet"
 	type="text/css">
@@ -20,6 +20,48 @@
 
 <!-- Custom styles for this template-->
 <link href="../css/sb-admin-2.min.css" rel="stylesheet">
+<link href="../css/studynote_input.css" rel="stylesheet">
+<script src="https://code.jquery.com/jquery-1.12.4.min.js"></script>
+<script type="text/javascript">
+	window.onload = function(){
+		
+		document.execCommand('styleWithCSS', false, true);
+		document.execCommand('insertBrOnReturn', false, true);
+		
+		$("#fontSize").change(function(){
+		    document.execCommand('fontSize', false, $(this).val());
+		 });
+	}
+	
+	$(function(){
+		$("#submit").click(function(){
+			
+			sendRegData();
+			
+		});
+		
+		$('select').change(function(){
+	        document.execCommand($(this).attr('id'), false, $(this).val());
+	      });
+	    $('.button').click(function(){
+	        document.execCommand($(this).attr('id'), false, true);
+	      });
+	});
+	
+	function sendRegData(){
+		$.ajax({
+			type: "POST",
+			url: "/SST/StudyNote/StudyNote_UpdateAction.do",
+			data: {sn_contents:$(".input_contents").html(),sn_title:$(".input_title").val(),sn_num:$("#sn_num").val()},
+			async:"true",
+			success: function(){
+				console.log("asdfawef");
+			}
+		});
+	}
+
+</script>
+
 
 </head>
 
@@ -40,23 +82,122 @@
 					<!-- Page Heading -->
 					<div
 						class="d-sm-flex align-items-center justify-content-between mb-4">
-						<h1 class="h3 mb-0 text-gray-800">노트 수정</h1>
+						
 					</div>
 					<!-- Content Row -->
 					<div class="row">
 
+						<div class="studyNoteFormWrap">
+							<form action="StudyNote_UpdateAction.do" method="post">
+							<input id="sn_num" type="hidden" name="sn_num" value="${studynote.sn_num }">
+							<!-- 작성자 : <input type="text" name="gm_num"> --><br> 
+							<!-- <input class="input_title" type="text" placeholder="제목을 입력하세요" name="sn_title"> -->
+							<div class="input_title_wrap">
+								<textarea class="input_title" placeholder="제목을 입력하세요" name="sn_title">${studynote.sn_title }</textarea>
+							</div>
+							
+							<div class="input_tools_wrap">
+							
+								<a id="Undo" class="button btn btn-light btn-icon-split btn-sm">
+								<span class="icon text-white-100">
+                                       <i class="fas fa-undo"></i>
+                           		</span>							
+								</a>
+								
+								<a id="Redo" class="button btn btn-light btn-icon-split btn-sm">
+								<span class="icon text-white-100">
+                                       <i class="fas fa-redo"></i>
+                           		</span>							
+								</a>
+								
+								<a id="bold" class="button btn btn-light btn-icon-split btn-sm">
+								<span class="icon text-white-100">
+                                       <i class="fas fa-bold"></i>
+                           		</span>							
+								</a>
+								
+								<a id="italic" class="button btn btn-light btn-icon-split btn-sm">
+								<span class="icon text-white-100">
+                                       <i class="fas fa-italic"></i>
+                           		</span>							
+								</a>
+								
+								<a id="underLine" class="button btn btn-light btn-icon-split btn-sm">
+								<span class="icon text-white-100">
+                                       <i class="fas fa-underline"></i>
+                           		</span>							
+								</a>
+								
+								<a id="justifyLeft" class="button btn btn-light btn-icon-split btn-sm">
+								<span class="icon text-white-100">
+                                       <i class="fas fa-align-left"></i>
+                           		</span>							
+								</a>
+								
+								<a id="justifyCenter" class="button btn btn-light btn-icon-split btn-sm">
+								<span class="icon text-white-100">
+                                       <i class="fas fa-align-center"></i>
+                           		</span>							
+								</a>
+								
+								<a id="justifyRight" class="button btn btn-light btn-icon-split btn-sm">
+								<span class="icon text-white-100">
+                                       <i class="fas fa-align-right"></i>
+                           		</span>							
+								</a>
+								
+								<a id="insertunorderedList" class="button btn btn-light btn-icon-split btn-sm">
+								<span class="icon text-white-100">
+                                       <i class="fas fa-list-ul"></i>
+                           		</span>							
+								</a>
+								
+								<a id="insertorderedList" class="button btn btn-light btn-icon-split btn-sm">
+								<span class="icon text-white-100">
+                                      <i class="fas fa-list-ol"></i>
+                           		</span>							
+								</a>
+							
+								<select id="fontSize">
+									<option value="">글자 크기</option>
+									<option value="3">10px</option>
+									<option value="4">12px</option>
+									<option value="5">16px</option>
+									<option value="6">20px</option>
+									<option value="7">30px</option>
+								</select>
+								
+								<select id="foreColor">
+								    <option value="">글자 색깔</option>
+								    <option value="#f00">빨강</option>
+								    <option value="#00f">파랑</option>
+								    <option value="#0f0">초록</option>
+								    <option value="#ffff00">노랑</option>
+								    <option value="#000">검정</option>
+								</select>
+							
+							
+							</div>
+							
+							<div class="input_contents_wrap">
+								<div class="input_contents" contenteditable="true">${studynote.sn_contents}</div>
+							</div>
+							
+							<div class="formBtnWrap">
+								<a id="submit" href="/SST/StudyNote/StudyNote_ListAction.do" 
+									class="btn btn-primary btn-icon-split btn-sm">
+                                    <span class="icon text-white-50">
+                                        <i class="fas fa-check"></i>
+                                    </span>
+                                    <span class="text">수정하기</span>
+                            	</a>
+							</div>
 						
-					<form action="StudyNote_UpdateAction.do" method="post">
-		<input type="hidden" name="sn_num" value="${studynote.sn_num }">
-		작성자 : <input type="text" name="gm_num" value="${studynote.sn_num }"><br>
-
-		제목 : <input type="text" name="sn_title" value="${studynote.sn_title}"><br>
-
-		내용 <br>
-		<textarea rows="30" cols="100" name="sn_contents">${studynote.sn_contents  }</textarea>
-		<br>
-	<input type="submit" value="수정완료">
-	</form>
+							
+						</form>
+						
+						</div>
+						<!-- end of studyNoteFormWrap -->
 
 					</div>
 				</div>

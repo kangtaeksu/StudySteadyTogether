@@ -3,17 +3,19 @@ package org.sst.domain;
 import java.io.Serializable;
 import java.util.Date;
 
-public class Todo implements Serializable {
+public class CalendarTodoVO implements Serializable {
 	private String t_num;
 	private String t_category;
 	private String t_title;
 	private String t_contents;
 	private Date t_startdate;
 	private Date t_enddate;
+	private int t_todocheck;
 	
-	public Todo() {}
+	public CalendarTodoVO() {}
 
-	public Todo(String t_num, String t_category, String t_title, String t_contents, Date t_startdate, Date t_enddate) {
+	public CalendarTodoVO(String t_num, String t_category, String t_title, String t_contents, Date t_startdate,
+			Date t_enddate, int t_todocheck) {
 		super();
 		this.t_num = t_num;
 		this.t_category = t_category;
@@ -21,6 +23,7 @@ public class Todo implements Serializable {
 		this.t_contents = t_contents;
 		this.t_startdate = t_startdate;
 		this.t_enddate = t_enddate;
+		this.t_todocheck = t_todocheck;
 	}
 
 	public String getT_num() {
@@ -71,11 +74,12 @@ public class Todo implements Serializable {
 		this.t_enddate = t_enddate;
 	}
 
-	@Override
-	public String toString() {
-		return "Todo [t_num=" + t_num + ", t_category=" + t_category + ", t_title=" + t_title + ", t_contents="
-				+ t_contents + ", t_startdate=" + t_startdate + ", t_enddate=" + t_enddate + "]";
+	public int getT_todocheck() {
+		return t_todocheck;
 	}
-	
+
+	public void setT_todocheck(int t_todocheck) {
+		this.t_todocheck = t_todocheck;
+	}
 	
 }

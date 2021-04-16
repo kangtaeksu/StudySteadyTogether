@@ -3,13 +3,20 @@ package org.sst.action;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-public class insertTodoForm implements Action {
+import org.sst.service.CalendarService;
+
+public class Calendar_insertTodoAction implements Action {
 
 	@Override
 	public ActionForward execute(HttpServletRequest request, HttpServletResponse response) throws Exception {
 		ActionForward forward = new ActionForward();
-		forward.setRedirect(false);
-		forward.setPath("/views/fullcalendar-5.6.0/Calendar/insert_todo_form.jsp");
+		CalendarService service = CalendarService.getInstance();
+		
+		service.insertTodoService(request);
+		
+		forward.setRedirect(true);
+		forward.setPath("/SST/fullcalendar-5.6.0/Calendar2/CalendarForm.do");
+		
 		return forward;
 	}
 

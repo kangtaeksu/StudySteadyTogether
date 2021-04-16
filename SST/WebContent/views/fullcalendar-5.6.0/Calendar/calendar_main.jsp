@@ -1,11 +1,10 @@
 <%@page import="java.util.Date"%>
 <%@page import="java.text.SimpleDateFormat"%>
-<%@page import="org.sst.domain.Todo"%>
+<%@page import="org.sst.domain.CalendarTodoVO"%>
 <%@page import="java.util.List"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
-<%@taglib prefix="c" uri = "http://java.sun.com/jsp/jstl/core"  %>
 <%@taglib prefix = "fmt" uri = "http://java.sun.com/jsp/jstl/fmt" %>
 <%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions" %>
 <!DOCTYPE html>
@@ -30,7 +29,7 @@
     <!-- Custom styles for this template-->
     <link href="../../css/sb-admin-2.min.css" rel="stylesheet">
 <script>
-<%List<Todo> toDoList = (List<Todo>)request.getAttribute("toDoList");%>
+<%List<CalendarTodoVO> toDoList = (List<CalendarTodoVO>)request.getAttribute("toDoList");%>
 
 
   document.addEventListener('DOMContentLoaded', function() {
@@ -57,7 +56,7 @@
       dayMaxEvents: true,
       events: [
     	  
-     	<% for(int i = 0;i<toDoList.size();i++ ){%>
+     	 <% for(int i = 0;i<toDoList.size();i++ ){%>
     	 {
              title: '<%=toDoList.get(i).getT_title()%>',
              <%Date sdate = toDoList.get(i).getT_startdate();
@@ -72,8 +71,6 @@
 
 				String endate = entransFormat.format(edate);%>
              end : '<%=endate%>',
-             constraint: 'availableForMeeting', // defined below
-             color: '#257e4a'
            },
     	<%}%>
         
@@ -153,10 +150,29 @@
 
     calendar.render();
   });
+</script>
+<script type="text/javascript">
+$(function(){
+	$(".toDos").click(function(e){
+	e.preventDefault();  
+	$(this).parent().parent().prev().find("li").addClass('doneto');
+	  alert($(this).parent().parent().prev().find("li").html())
+		});
+	$(".nontoDos").click(function(e){
+		e.preventDefault();  
+		$(this).parent().parent().prev().find("li").removeClass('doneto');
+		  alert($(this).parent().parent().prev().find("li").html())
+			});
+	$(".toDoList .1").addClass('doneto');
+	});
+
 
 </script>
 <style>
-
+  .doneto{
+  	text-decoration: line-through;
+  	color: green;
+  }
 /*   body {
     margin: 40px 10px;
     padding: 0;
@@ -165,10 +181,16 @@
   } */
 
   #calendar {
-    max-width: 600px;
+    max-width: 900px;
     margin: 0 auto;
   }
-
+	.toDoListHeader{
+	margin-top: 40px;
+	}
+	.toDoList{
+	padding-inline-start:0px;
+	margin-left: 20px;
+	}
 </style>
 </head>
 
@@ -188,16 +210,40 @@
                 <div class="container-fluid">
                     <!-- Page Heading -->
                     <div class="d-sm-flex align-items-center justify-content-between mb-4">
-                        <h1 class="h3 mb-0 text-gray-800">페이지헤더</h1>
+                        <h1 class="h3 mb-0 text-gray-800">캘린더</h1>
                     </div>
                     <!-- Content Row -->
                     <div class="row">
+						<div class="col-md-9">
+							<div id='calendar'></div>
+						</div>
+						<div class = "col-md-3">
+							<div class="row">
+								<button><a href = "/SST/fullcalendar-5.6.0/Calendar2/insertTodoForm.do">Todo작성</a></button>
+							</div>
 
-                        <h1>활용면적</h1>
-                          <div id='calendar'></div>
-  							<button><a href = "/PrivateSteudy/fullcalendar-5.6.0/Calendar2/insertTodoForm.do">Todo작성</a></button>
-					<div id='calendar'></div>
-                    <button><a href = "/PrivateSteudy/fullcalendar-5.6.0/Calendar2/insertTodoForm.do">Todo작성</a></button> 
+							<div class="row">
+								<h5 class = "toDoListHeader">이번달 일정</h5>
+							</div>
+							<div class="row">
+								
+								
+									<c:forEach var ="CalendarTodoVO" items = "${toDoList}">
+									<div class = "col-md-4">
+										<ul class = "toDoList">
+											<li class = "${CalendarTodoVO.t_todocheck}">${CalendarTodoVO.t_title}</li>
+										</ul>
+									</div>
+									<div class = "col-md-8">
+										<button><a class = "toDos" href = "/SST/fullcalendar-5.6.0/Calendar2/CheckTodo.do?t_num=${CalendarTodoVO.t_num }">완료</a></button>
+										<button><a class = "nontoDos" href = "/SST/fullcalendar-5.6.0/Calendar2/NonCheckTodo.do?t_num=${CalendarTodoVO.t_num }">미완료</a></button>
+										<button><a href = "/SST/fullcalendar-5.6.0/Calendar2/DeleteTodo.do?t_num=${CalendarTodoVO.t_num }">삭제</a></button>
+									</div>							
+									</c:forEach>
+								
+								
+							</div>
+						</div>
                     </div>
                 </div>
                 <!-- /.container-fluid -->
