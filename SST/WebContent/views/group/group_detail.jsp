@@ -60,7 +60,7 @@
 						    <a class="nav-link" href="#">menu2</a>
 						  </li>
 						  <li class="nav-item">
-						    <a class="nav-link" href="#">menu3</a>
+						    <a class="nav-link" href="#">menu4</a>
 						  </li>
 						  <li class="nav-item">
 						    <a class="nav-link" href="#">그룹 설정</a>
