@@ -8,14 +8,13 @@
 		<insert id="insertStudyGroup" parameterType="StudyGroupVO"
 		useGeneratedKeys="true" keyColumn="g_num" keyProperty="g_num">
 			insert into studygroup(G_NUM, G_NAME, G_CONTENT, G_SECREAT, G_PASSWD, G_CATEGORY, G_MEMNUM)
-			values('gn'||to_char(
-.nextval), #{g_name}, #{g_contents}, #{g_secreat}, #{g_passwd},
+			values(1, #{g_name}, #{g_contents}, #{g_secreat}, #{g_passwd},
 			#{g_category}, #{g_memnum})
 		</insert>
 		<!-- 스터디 그룹 생성하자마자 그룹 멤버에 추가하기 -->
 		<insert id="insertGroupMember" parameterType="GroupMemberVO">
 			insert into groupmember(GM_NUM, G_NUM, GM_INDEX, P_GRANT, M_ID)
-			values('gm'||to_char(groupmem_num_seq.nextval), #{g_num}, GROUP_MEM_SEQ.NEXTVAL, #{p_grant}, #{m_id})
+			values(1, 1, GROUP_MEM_SEQ.NEXTVAL, #{p_grant}, #{m_id})
 		</insert>
 		<!-- 스터디 그룹 목록 불러오기 -->
 		<select id="selectStudyGroup" parameterType="String" resultType="StudyGroupVO">
