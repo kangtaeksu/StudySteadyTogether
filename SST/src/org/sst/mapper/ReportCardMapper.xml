@@ -168,7 +168,7 @@
 
 	<select id="selectRCLicenseTestSubject" parameterType="String"
 		resultType="String">
-		select distinct ls_name from licensescore,licensetest,reportcard where
+		select distinct ls_name FROM licensescore,licensetest,reportcard where
 		licensescore.lt_num = licensetest.lt_num and 
 		reportcard.rc_num = licensetest.rc_num and reportcard.rc_num=#{rc_num}
 	</select>
