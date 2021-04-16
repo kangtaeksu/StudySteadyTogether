@@ -1,7 +1,9 @@
 package org.sst.service;
 
 import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpSession;
 
+import org.sst.domain.MemberSessionVO;
 import org.sst.domain.MemberVO;
 import org.sst.repository.MemberDAO;
 
@@ -43,6 +45,31 @@ public class MemberServiceImpl implements MemberService {
 			return member;
 		}
 	}
-	
+	// selectMemberInfoService : 회원 조회
+	@Override
+	public MemberVO selectMemberInfoService(HttpServletRequest request) throws Exception {
+		HttpSession se = request.getSession();
+		MemberSessionVO vo = (MemberSessionVO) se.getAttribute("loginsession");
+		if(vo!=null) {
+			//request.setAttribute("infomem", o);
+			return memdao.selectMemberInfo(vo.getId());
+		} else {
+			return null;
+		}
+	}
 
+	// updateMemberService : 회원 정보 수정
+	@Override
+	public int updateMemberService(HttpServletRequest request) throws Exception {
+		MemberVO vo = new MemberVO();
+		request.setCharacterEncoding("utf-8");
+		HttpSession se = request.getSession();
+		MemberSessionVO mem = (MemberSessionVO)se.getAttribute("loginsession");
+		vo.setM_id(mem.getId());
+		vo.setM_name(request.getParameter("memname"));
+		vo.setM_phone(request.getParameter("memphone"));
+		vo.setM_birth(request.getParameter("membirth"));
+		vo.setM_email(request.getParameter("mememail"));
+		return memdao.updateMember(vo);
+	}
 }

@@ -19,6 +19,8 @@ import org.sst.action.Member_LoginAction;
 import org.sst.action.Member_LoginForwardAction;
 import org.sst.action.Member_LogoutAction;
 import org.sst.action.Member_SignupFwdAction;
+import org.sst.action.Member_UpdateAction;
+import org.sst.action.Member_UpdateDoAction;
 
 
 @WebServlet("/member/*")
@@ -49,7 +51,7 @@ public class MemberController extends HttpServlet {
 			} catch (Exception e) {
 				e.printStackTrace();
 			}
-		} else if(command.equals("memberForward.do")) {
+		} else if(command.equals("memberForward.do" )) {
 			// signUp.jsp 이동
 			action = new Member_SignupFwdAction();
 			try {
@@ -106,7 +108,23 @@ public class MemberController extends HttpServlet {
 			} catch(Exception e) {
 				e.printStackTrace();
 			}
-		}
+		} else if(command.equals("mypage.do")) {
+			// 회원정보 수정 페이지로 이동
+			action = new Member_UpdateAction();
+			try {
+				forward = action.execute(request, response);
+			} catch(Exception e) {
+				e.printStackTrace();
+			}
+		} else if(command.equals("updateinfo.do")) {
+			// 회원정보 수정
+			action = new Member_UpdateDoAction();
+			try {
+				forward = action.execute(request, response);
+			} catch (Exception e) {
+				e.printStackTrace();
+			}
+		} 
 		
 		if(forward != null) {
 			if(forward.isRedirect()) {
