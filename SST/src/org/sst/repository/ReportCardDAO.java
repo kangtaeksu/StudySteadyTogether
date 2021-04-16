@@ -269,6 +269,7 @@ public class ReportCardDAO {
 	public String insertLicenseTest(LicenseTestVO lt) {
 		int re=-1;
 		String lt_num="";
+		System.out.println(lt.toString()+"dao");
 		SqlSession sqlSession = getSqlSessionFactory().openSession();
 		try {
 			re = sqlSession.getMapper(ReportCardMapper.class).insertLicenseTest(lt);
