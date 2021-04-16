@@ -40,8 +40,8 @@ public class QuestionServiceImpl {
 		q.setQ_contents(request.getParameter("q_contents"));
 		q.setQ_answer(request.getParameter("q_answer"));
 		q.setQ_date(request.getParameter("q_date"));
-		q.setG_num(request.getParameter("g_num"));
-		q.setGm_num(request.getParameter("gm_num"));
+		q.setG_num(request.getParameter("gm_num"));
+		q.setGm_num(request.getParameter("g_num"));
 		System.out.println(q);
 		return dao.insertQuestion(q);
 	}
