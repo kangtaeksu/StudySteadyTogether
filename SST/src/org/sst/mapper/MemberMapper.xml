@@ -7,7 +7,7 @@
 		<!-- 회원가입 -->
 		<insert id="insertMember" parameterType="MemberVO">
 			insert into member(M_ID, M_PW, M_NAME, M_PHONE, M_BIRTH, M_EMAIL)
-			values(#{m_id}, #{m_pw}, #{m_name}, #{m_phone}, SYSDATE , #{m_email})
+			values(#{m_id}, #{m_pw}, #{m_name}, #{m_phone}, #{m_birth} , #{m_email})
 		</insert>
 		<!-- 로그인 성공시 로그인 정보 가져옴 : 실패시 예외처리 필요 -->
 		<select id="selectLoginMember" parameterType="MemberVO" resultType="MemberVO">

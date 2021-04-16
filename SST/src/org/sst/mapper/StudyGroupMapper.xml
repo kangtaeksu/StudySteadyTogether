@@ -8,7 +8,8 @@
 		<insert id="insertStudyGroup" parameterType="StudyGroupVO"
 		useGeneratedKeys="true" keyColumn="g_num" keyProperty="g_num">
 			insert into studygroup(G_NUM, G_NAME, G_CONTENT, G_SECREAT, G_PASSWD, G_CATEGORY, G_MEMNUM)
-			values('gn'||to_char(group_num_seq.nextval), #{g_name}, #{g_contents}, #{g_secreat}, #{g_passwd},
+			values('gn'||to_char(
+.nextval), #{g_name}, #{g_contents}, #{g_secreat}, #{g_passwd},
 			#{g_category}, #{g_memnum})
 		</insert>
 		<!-- 스터디 그룹 생성하자마자 그룹 멤버에 추가하기 -->
