@@ -63,7 +63,7 @@
 										</select>
 									</div>
 									
-									<div id="curve_chart" style="width: 100%; height: 500px;">
+									<div id="curve_chart" style="width: 100%; height: 800px;">
 									<canvas id="myChart"></canvas>
 									</div>
 								</div>
