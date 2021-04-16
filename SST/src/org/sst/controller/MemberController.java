@@ -44,7 +44,7 @@ public class MemberController extends HttpServlet {
 		
 		
 		if(command.equals("main.do")) {
-			// main.jsp 이동
+			// main.jsp 이동ㅇㄹ
 			action = new Main_ForwardAction();
 			try {
 				forward = action.execute(request, response);
