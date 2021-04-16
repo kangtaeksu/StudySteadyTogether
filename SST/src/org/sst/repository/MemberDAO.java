@@ -63,4 +63,40 @@ public class MemberDAO {
 		}
 		return selmem;
 	}
+	
+	public MemberVO selectMemberInfo(String id) {
+		SqlSession sqlSession = getSqlSessionFactory().openSession();
+		MemberVO selmem = null;
+		try {
+			selmem = sqlSession.getMapper(MemberMapper.class).selectInfoMember(id);
+		} catch (Exception e) {
+			e.printStackTrace();
+		} finally {
+			if(sqlSession != null) {
+				sqlSession.close();
+			}
+		}
+		return selmem;
+	}
+	
+	public int updateMember(MemberVO mem) {
+		SqlSession sqlSession = getSqlSessionFactory().openSession();
+		int re = -1;
+		try {
+			re = sqlSession.getMapper(MemberMapper.class).updateMember(mem);
+			if(re>0) {
+				sqlSession.commit();// 커밋을 해야 insert, update가 반영된다. 
+			} else {
+				sqlSession.rollback();
+			}
+		} catch (Exception e) {
+			e.printStackTrace();
+		} finally {
+			if(sqlSession != null) {
+				sqlSession.close();
+			}
+		}
+		// System.out.println("커밋 성공? " + re);
+		return re;
+	}
 }

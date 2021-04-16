@@ -14,6 +14,8 @@ import org.sst.action.ActionForward;
 import org.sst.action.Group_EndAction;
 import org.sst.action.Group_ForwardAction;
 import org.sst.action.Group_InsertAction;
+import org.sst.action.Group_MainForwardAction;
+import org.sst.action.Group_detailAction;
 
 @WebServlet("/StudyGroup/*")
 public class StudyGroupController extends HttpServlet {
@@ -56,7 +58,21 @@ public class StudyGroupController extends HttpServlet {
 			} catch (Exception e) {
 				e.printStackTrace();
 			}
-    	}
+    	} else if(command.equals("groupmain.do")) {
+			action = new Group_MainForwardAction();
+			try {
+				forward = action.execute(request, response);
+			} catch (Exception e) {
+				e.printStackTrace();
+			}
+		} else if(command.equals("groupdetail.do")) {
+			action = new Group_detailAction();
+			try {
+				forward = action.execute(request, response);
+			} catch (Exception e) {
+				e.printStackTrace();
+			}
+		}
     	
     	if(forward != null) {
 			if(forward.isRedirect()) {

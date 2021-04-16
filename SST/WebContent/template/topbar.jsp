@@ -170,7 +170,7 @@
                             <!-- Dropdown - User Information -->
                             <div id="topbars" class="dropdown-menu dropdown-menu-right shadow animated--grow-in"
                                 aria-labelledby="userDropdown">
-                                <a class="ml-4 collapse-item" href="#">
+                                <a class="ml-4 collapse-item" href="/SST/member/mypage.do">
                                     <i class="fas fa-user fa-sm fa-fw mr-2 text-gray-400"></i>
                                     마이페이지
                                 </a><br>
@@ -183,7 +183,7 @@
                                     Activity Log
                                 </a><br>
                                 <div class="ml-4 dropdown-divider"></div>
-                                <a class="ml-4 collapse-item" href="logout.do">
+                                <a class="ml-4 collapse-item" href="/SST/member/logout.do">
                                     <i class="fas fa-sign-out-alt fa-sm fa-fw mr-2 text-gray-400"></i>
                                     로그아웃
                                 </a>

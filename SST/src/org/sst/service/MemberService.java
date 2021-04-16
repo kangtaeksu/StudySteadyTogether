@@ -9,4 +9,8 @@ public interface MemberService {
 	public int insertMemberService(HttpServletRequest request) throws Exception;
 	// 로그인
 	public MemberVO loginMemberService(HttpServletRequest request) throws Exception;
+	// 회원정보조회
+	public MemberVO selectMemberInfoService(HttpServletRequest request) throws Exception;
+	// 회원정보수정
+	public int updateMemberService(HttpServletRequest request) throws Exception;
 }
