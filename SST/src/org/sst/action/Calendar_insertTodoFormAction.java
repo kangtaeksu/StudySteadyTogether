@@ -3,7 +3,7 @@ package org.sst.action;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-public class Calendar_insertTodoForm implements Action {
+public class Calendar_insertTodoFormAction implements Action {
 
 	@Override
 	public ActionForward execute(HttpServletRequest request, HttpServletResponse response) throws Exception {

@@ -6,14 +6,14 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import org.sst.domain.CalendarTodoVO;
-import org.sst.service.CalendarService;
+import org.sst.service.CalendarServiceImpl;
 
 public class Calendar_MainAction implements Action {
 
 	@Override
 	public ActionForward execute(HttpServletRequest request, HttpServletResponse response) throws Exception {
 		ActionForward forward = new ActionForward();
-		CalendarService service = CalendarService.getInstance();
+		CalendarServiceImpl service = CalendarServiceImpl.getInstance();
 		
 		List<CalendarTodoVO> toDoList = service.listTodo();
 		request.setAttribute("toDoList", toDoList);

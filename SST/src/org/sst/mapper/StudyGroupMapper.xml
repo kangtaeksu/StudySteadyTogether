@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" 
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="org.sst.mapper.StudyGroupMapper">
+	<cache/>
+		<!-- 스터디 그룹 생성 -->
+		<insert id="insertStudyGroup" parameterType="StudyGroupVO">
+			insert into studygroup(G_NUM, G_NAME, G_CONTENT, G_SECREAT, G_PASSWD, G_CATEGORY)
+			values('groupnum'||to_char(group_num_seq.nextval), #{g_name}, #{g_contents}, #{g_secreat}, #{g_passwd},
+			#{g_category})
+		</insert>
+		
+		<!-- 스터디 그룹 생성과 동시에 생성한 사람을 스터디 그룹 멤버로 추가한다 -->
+		
+</mapper>

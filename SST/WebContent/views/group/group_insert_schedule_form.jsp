@@ -8,6 +8,7 @@
 <%@taglib prefix = "fmt" uri = "http://java.sun.com/jsp/jstl/fmt" %>
 <%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions" %>
 <!DOCTYPE html>
+
 <html lang="en">
 <head>
 <script src="http://code.jquery.com/jquery-1.10.2.js"></script>
@@ -28,19 +29,34 @@
 
     <!-- Custom styles for this template-->
     <link href="../../css/sb-admin-2.min.css" rel="stylesheet">
+<script>
+    functionGetdays(){
+        var obj = $("[name=day]");
+        var chkArray = new Array(); // 배열 선언
+ 
+        $('input:checkbox[name=day]:checked').each(function() { // 체크된 체크박스의 value 값을 가지고 온다.
+            chkArray.push(this.value);
+        });
+        $('#hiddenValue').val(chkArray);
+        
+        alert($('#hiddenValue').val()); // 아래 체크박스가 모두 체크되어 있다면 1,2,3,4 가 출력 된다.
+        
+    }
+ 
+</script>
 <style>
 .insertTodoButton{
 	background-color: #2c3e50;
 	border-radius: 3px;
 	color : white;
 }
-.inputTodoText{
+.inputTodoText,.repeatDay{
  float: left;
 color : #1a252f;
 font-size:  15px;
 font-weight: bold;
 }
-.inputTodoText_content{
+.inputTodoText_content,.repeatDayCheck{
 color : #1a252f;
 font-size:  15px;
 font-weight: bold;
@@ -64,13 +80,13 @@ font-weight: bold;
                 <div class="container-fluid">
                     <!-- Page Heading -->
                     <div class="d-sm-flex align-items-center justify-content-between mb-4">
-                        <h1 class="h3 mb-0 text-gray-800">TodoList 작성</h1>
+                        <h1 class="h3 mb-0 text-gray-800">Group Schedule 등록</h1>
                     </div>
                     <!-- Content Row -->
                     <div class="row">
 							<!--<h3>Todo항목추가</h3>  -->
 							</div>
-							<form action="insertTodo.do" method="post">
+							<form action="" method="post">
 								<div class = "inputTodoText">제목 : </div><input type="text" name="t_title"><br>
 								<div class = "inputTodoText">종류 : </div><input type="text" name="t_category"><br>
 								<div class = "inputTodoText_content">내용 </div>
@@ -78,8 +94,16 @@ font-weight: bold;
 							<br>
 							<div class = "inputTodoText">시작날짜 : </div><input type = "text" name = "t_startdate"><br>
 							<div class = "inputTodoText">마감날짜 : </div><input type = "text" name = "t_enddate"><br>
-	
-							<input type="submit" value="등록" class = 'insertTodoButton'>
+							<div class = "repeatDay">반복 날짜</div><br>
+							<label class = "repeatDayCheck"><input type="checkbox" name="day" value="1">월</label>
+							<label class = "repeatDayCheck"><input type="checkbox" name="day" value="2">화</label>
+							<label class = "repeatDayCheck"><input type="checkbox" name="day" value="3">수</label>
+							<label class = "repeatDayCheck"><input type="checkbox" name="day" value="4">목</label>
+							<label class = "repeatDayCheck"><input type="checkbox" name="day" value="5">금</label>
+							<label class = "repeatDayCheck"><input type="checkbox" name="day" value="6">토</label>
+							<label class = "repeatDayCheck"><input type="checkbox" name="day" value="7">일</label>
+							<input type="hidden" name="hiddenValue" id="hiddenValue"/>
+							<input type="submit" value="등록" class = 'insertTodoButton' onclick="Getdays();">
 							</form>
                 	</div>
                 <!-- /.container-fluid -->

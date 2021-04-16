@@ -39,7 +39,7 @@
 
 
 	
-	<!-- 게시글 추천 
+	 게시글 추천 
 	<insert id="rec_update" parameterType="RecDTO">
 		insert into questionrec values(#{board_no}, #{rec_id})
 	</insert>
@@ -49,7 +49,7 @@
 	게시글 추천수 
 	<select id="rec_count" parameterType="int" resultType="int">
 		select count(*) from questionrec where board_no = #{board_no}
-	</select>-->
+	</select>
 </mapper>
 
 

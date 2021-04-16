@@ -3,19 +3,19 @@ package org.sst.action;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import org.sst.service.CalendarServiceImpl;
+import org.sst.service.PersonalStudyServiceImpl;
 
-public class Calendar_insertTodoAction implements Action {
+public class PersonalStudy_insertTimeAction implements Action {
 
 	@Override
 	public ActionForward execute(HttpServletRequest request, HttpServletResponse response) throws Exception {
 		ActionForward forward = new ActionForward();
-		CalendarServiceImpl service = CalendarServiceImpl.getInstance();
+		PersonalStudyServiceImpl service = PersonalStudyServiceImpl.getInstance();
 		
-		service.insertTodoService(request);
+		service.insertStudyTimeService(request);
 		
 		forward.setRedirect(true);
-		forward.setPath("/SST/fullcalendar-5.6.0/Calendar2/CalendarForm.do");
+		forward.setPath("insertStudyTimeForm.do");
 		
 		return forward;
 	}
