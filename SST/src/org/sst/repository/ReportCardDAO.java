@@ -488,6 +488,7 @@ public class ReportCardDAO {
 	public List<HashMap> allLicenseSubjectAverage(HashMap map){
 		List<HashMap> result=null;
 		SqlSession sqlSession = getSqlSessionFactory().openSession();
+		System.out.println("뭐가 문제야 존나시발");
 		try {
 			result = sqlSession.getMapper(ReportCardMapper.class).allLicenseSubjectAverage(map);
 		} catch (Exception e) {

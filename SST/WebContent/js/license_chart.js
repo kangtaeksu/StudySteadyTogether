@@ -1,6 +1,6 @@
 var result = "";
 $.ajax({
-	url : '/Study/ReportCard/averageALLLicenseRCAction.do',
+	url : '/SST/ReportCard/averageALLLicenseRCAction.do',
 	type : 'GET',
 	dataType : 'text',
 	async : false,
