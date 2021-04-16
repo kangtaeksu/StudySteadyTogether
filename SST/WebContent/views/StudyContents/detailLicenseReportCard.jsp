@@ -63,7 +63,7 @@
 										</select>
 									</div>
 									
-									<div id="curve_chart" style="width: 100%; height: 800px;">
+									<div id="curve_chart" style="width: 100%; height: 600px;">
 									<canvas id="myChart"></canvas>
 									</div>
 								</div>
@@ -172,7 +172,7 @@
 	<script src="../vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
 	<!-- Page level plugins -->
     <script src="../vendor/chart.js/Chart.min.js"></script>
-    <script src="../js/license_chart.js?ver=1"></script>
+    <script src="../js/license_chart.js?ver=4"></script>
 	<!-- Core plugin JavaScript-->
 	<script src="../vendor/jquery-easing/jquery.easing.min.js"></script>
 
