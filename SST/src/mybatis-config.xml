@@ -18,6 +18,12 @@
 
 		<typeAlias type="org.sst.domain.GroupMemberVO" alias="GroupMemberVO"/>
 		<typeAlias type="org.sst.domain.StudyGroupVO" alias="StudyGroupVO"/>
+		
+		<typeAlias type="org.sst.domain.ReportCardVO" alias="ReportCardVO"/>
+		<typeAlias type="org.sst.domain.SchoolScoreVO" alias="SchoolScoreVO"/>
+		<typeAlias type="org.sst.domain.SchoolTestVO" alias="SchoolTestVO"/>
+		<typeAlias type="org.sst.domain.LicenseScoreVO" alias="LicenseScoreVO"/>
+		<typeAlias type="org.sst.domain.LicenseTestVO" alias="LicenseTestVO"/>
 
 		<!-- kosta.bean.Board라고 써주는게 정석이다. alias를쓰면 Board라는 이름으로 간단하게 부를수 있어짐-->
 
@@ -46,6 +52,8 @@
 
 
 		<mapper resource="org/sst/mapper/StudyGroupMapper.xml"/>
+		
+		<mapper resource="org/sst/mapper/ReportCardMapper.xml"/>
 
 		<!-- <mapper resource="kosta/mapper/Order.xml"/> 이런식으로 여러개 포함할수도 있다.
 			(Mapper파일을 여러개 포함한다.)
