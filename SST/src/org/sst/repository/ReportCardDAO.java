@@ -100,6 +100,7 @@ public class ReportCardDAO {
 	public String insertSchoolTest(SchoolTestVO st) {
 		int re=-1;
 		String st_num="";
+		System.out.println(st.toString());
 		SqlSession sqlSession = getSqlSessionFactory().openSession();
 		try {
 			re = sqlSession.getMapper(ReportCardMapper.class).insertSchoolTest(st);
