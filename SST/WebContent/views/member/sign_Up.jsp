@@ -34,7 +34,7 @@
                             <div class="text-center">
                                 <h1 class="h4 text-gray-900 mb-4">회원가입</h1>
                             </div>
-                            <form class="user" action="memberInsert.do" method="post"> 
+                            <form class="user" action="/SST/member/memberInsert.do" method="post"> 
                                 <div class="form-group row">
                                     <div class="col-sm-9 mb-3 mb-sm-0">
                                         <input name="id" type="text" class="form-control form-control-user"
