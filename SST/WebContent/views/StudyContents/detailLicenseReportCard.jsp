@@ -172,7 +172,7 @@
 	<script src="../vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
 	<!-- Page level plugins -->
     <script src="../vendor/chart.js/Chart.min.js"></script>
-    <script src="../js/license_chart.js"></script>
+    <script src="../js/license_chart.js?ver=1"></script>
 	<!-- Core plugin JavaScript-->
 	<script src="../vendor/jquery-easing/jquery.easing.min.js"></script>
 

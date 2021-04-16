@@ -14,6 +14,7 @@ $.ajax({
 });
 $("#chart-change").change(
 		function() {
+			alert('안된다고?');
 			if ($("#chart-change").val() == "전체시험") {
 				$('#curve_chart').empty();
 				google.charts.load('current', {
