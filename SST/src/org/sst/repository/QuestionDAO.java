@@ -139,7 +139,7 @@ public class QuestionDAO {
 	// 추천체크 public int insertQuestionReply(QuestionReplyVO q_reply) {
 
 	// 추천클릭 public int insertQuestionReply(QuestionReplyVO q_reply) {
-	public int recUpdate(RecDTO m){
+	public int recUpdate(QuestionReplyVO m){
 		
 		int re=-1;
 		SqlSession sqlSession = getSqlSessionFactory().openSession();

@@ -17,7 +17,7 @@ public class Question_RecCountAction implements Action {
 		QuestionListVO q = service.questionListService(request);
 		response.setContentType("text/html;charset=utf-8");
 		
-		request.setAttribute("RecDTO",q);
+		request.setAttribute("QuestionReplyVO",q);
 		forward.setRedirect(false);
 		forward.setPath("/views/question/question_detail.jsp");
 		System.out.println(q);

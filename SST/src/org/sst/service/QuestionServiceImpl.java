@@ -70,6 +70,8 @@ public class QuestionServiceImpl {
 		q_reply.setQ_num(request.getParameter("q_num"));
 		q_reply.setGm_num(request.getParameter("gm_num"));
 		q_reply.setG_num(request.getParameter("g_num"));
+		q_reply.setC_like(Integer.parseInt(request.getParameter("c_like")));
+		
 		return dao.insertQuestionReply(q_reply);
 	}
 	
@@ -86,9 +88,8 @@ public class QuestionServiceImpl {
 	public int recUpdateService(HttpServletRequest request) throws Exception {
 		request.setCharacterEncoding("utf-8");
 		QuestionDAO dao = QuestionDAO.getInstance();
-		RecDTO q = new RecDTO();
-		q.setBoard_no(Integer.parseInt(request.getParameter("board_no")));
-		q.setRec_id(request.getParameter("rec_id"));
+		QuestionReplyVO q = new QuestionReplyVO();
+		q.setC_like(Integer.parseInt(request.getParameter("c_like")));
 			
 		return dao.recUpdate(q);
 
@@ -116,8 +117,8 @@ public class QuestionServiceImpl {
 		PrintWriter out = response.getWriter();
 		int no = Integer.parseInt(request.getParameter("no"));
 		
-		QuestionDAO manager = QuestionDAO.getInstance();
-		int count = manager.recCount(no);
+		QuestionDAO dao = QuestionDAO.getInstance();
+		int count = dao.recCount(no);
 	
 		
 		return count;
