@@ -10,7 +10,7 @@
 	<insert id="insertQuestion" parameterType="QuestionVO"><!-- id와 동일한 메서드를 만들어야한다 -->
 
 		INSERT INTO question(
-			q_num, q_title, q_contents,q_answer, q_date, g_num, gm_num
+			q_num, q_title, q_contents,q_answer, q_date, gm_num, g_num
 		)
 		VALUES(
 			Q_SEQ.NEXTVAL, #{q_title}, #{q_contents},#{q_answer}, SYSDATE, 1, 1

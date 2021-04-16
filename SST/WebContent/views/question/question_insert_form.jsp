@@ -50,25 +50,22 @@
 					<div class="row">
 
 						
-						<form action="Question_InsertAction.do" method="post">
+						<form action="Question_InsertAction.do" method="post" enctype="multipart/form-data">
 	
 							작성자 : <input type="text" name="gm_num" ><br>
 							 	<div class="q_insert">
 							 제목 : <input type="text" name="q_title"><br></div>
 					
 							 <br><br>
-							 내용 <br><textarea rows="6" cols="70" name="contents"></textarea>
+							 내용 <br><textarea rows="6" cols="70" name="q_contents"></textarea>
 						
 							답 : <input type="text" name="q_answer">
-							
-					
-							
-								
-                                    <span class="text"></span>
-							
-						</div>
+						
+							<br>
+						
 							<input type="submit" value="제출">
-						</form>
+						</form></div>
+						
 						</div>
 					</div>
 				</div>
@@ -80,7 +77,7 @@
 			<!-- Footer -->
 			<%@include file="/template/footer.jsp"%>
 			<!-- End of Footer -->
-		</div>
+		
 		<!-- End of Content Wrapper -->
 
 

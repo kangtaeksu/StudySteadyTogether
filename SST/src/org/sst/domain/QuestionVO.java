@@ -1,17 +1,17 @@
-package org.sst.domain;
+ package org.sst.domain;
 
 import java.io.Serializable;
 
+@SuppressWarnings("serial")
 public class QuestionVO implements Serializable{
-	private String q_num; //문제번호
-
+	private String q_num; //문제번
 	private String q_title;
 	private String q_contents;
 	private String q_answer;
 	private String q_date;
-	private String g_num;
 	private String gm_num;
-
+	private String g_num;
+	
 	
 	public QuestionVO() {}
 

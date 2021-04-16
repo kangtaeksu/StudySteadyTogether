@@ -14,7 +14,7 @@
 		<!-- 스터디 그룹 생성하자마자 그룹 멤버에 추가하기 -->
 		<insert id="insertGroupMember" parameterType="GroupMemberVO">
 			insert into groupmember(GM_NUM, G_NUM, GM_INDEX, P_GRANT, M_ID)
-			values('gm'||to_char(groupmem_num_seq.nextval), #{g_num}, GROUP_MEM_SEQ.NEXTVAL, #{p_grant}, #{m_id})
+			values(1, 1, GROUP_MEM_SEQ.NEXTVAL, #{p_grant}, #{m_id})
 		</insert>
 		<!-- 스터디 그룹 목록 불러오기 -->
 		<select id="selectStudyGroup" parameterType="String" resultType="StudyGroupVO">
