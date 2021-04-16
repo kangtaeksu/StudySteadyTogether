@@ -5,7 +5,7 @@ public class QuestionVO {
 	private String q_contents; //문제 내용
 	private String q_writer; //문제 작성자
 	private String gm_num; // 그룹원의 고유 번호
-	private String g_num; // 그룹고유번호  (어떤그룹인지)
+	private String g_num; // 그룹고유번호  (어떤그룹인지)///
 	
 	public QuestionVO() {}
 
