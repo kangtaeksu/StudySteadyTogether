@@ -21,7 +21,7 @@ public class RC_ListAction implements Action {
 		}else {
 			forward.setRedirect(false);
 			request.setAttribute("rclist", list);
-			forward.setPath("/view/StudyContents/listReportCard.jsp");
+			forward.setPath("/views/StudyContents/listReportCard.jsp");
 		}
 		
 		return forward;

@@ -15,7 +15,7 @@ public class SchoolTest_UpdateForm implements Action {
 		SchoolTestVO st = service.selectSchoolTest(request);
 		request.setAttribute("st", st);
 		forward.setRedirect(false);
-		forward.setPath("/view/StudyContents/updateSchoolTest.jsp");
+		forward.setPath("/views/StudyContents/updateSchoolTest.jsp");
 		return forward;
 	}
 

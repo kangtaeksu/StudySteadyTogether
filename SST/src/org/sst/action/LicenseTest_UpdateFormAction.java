@@ -14,7 +14,7 @@ public class LicenseTest_UpdateFormAction implements Action {
 		ReportCardService service = ReportCardService.getInstance();
 		LicenseTestVO lt = service.selectLicenseTest(request);
 		request.setAttribute("test", lt);
-		forward.setPath("/view/StudyContents/updateLicenseTest.jsp");
+		forward.setPath("/views/StudyContents/updateLicenseTest.jsp");
 		return forward;
 	}
 

@@ -10,7 +10,7 @@ public class SchoolTest_InsertFormAction implements Action {
 		ActionForward forward = new ActionForward();
 		forward.setRedirect(false);
 		request.setAttribute("rc_num", request.getParameter("rc_num"));
-		forward.setPath("/view/StudyContents/insertSchoolTest.jsp");
+		forward.setPath("/views/StudyContents/insertSchoolTest.jsp");
 		return forward;
 	}
 

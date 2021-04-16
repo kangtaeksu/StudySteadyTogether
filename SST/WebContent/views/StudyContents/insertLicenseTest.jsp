@@ -53,7 +53,7 @@
 									<h5 class="m-0 font-weight-bold text-color-sst">시험 정보 입력하기</h5>
 								</div>
 								<div class="card-body">
-									<form action="/SST/ReportCard/insertLicenseTestAction.do" method="post"
+									<form action="/SST/ReportCard/listReportCardAction.do" method="post"
 										class="centerform">
 										<input type="hidden" name="rc_num" value="${rc_num}">
 										시험명: <input type="text" name="lt_test" placeholder="시험명을 입력해주세요." class="form-control" required><br>

@@ -2,15 +2,12 @@ $(function() {
 	$("#rc_typeDirect").hide();
 	$("#rc_type").change(function() {
 		//직접입력을 누를 때 나타남
-		if ($("#rc_type").val() == "etc" || "License" || "Language") {
-			alert('아닌데..');
+		if ($("#rc_type").val() == "etc" || $("#rc_type").val() == "License" || $("#rc_type").val() == "Language") {
 			$("#rc_typeDirect").show();
 			$("#rc_typeDirect").attr('required', true);
 
 		} else {
-
 			$("#rc_typeDirect").hide();
-
 		}
 	})
 	

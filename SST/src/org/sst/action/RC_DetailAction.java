@@ -24,19 +24,19 @@ public class RC_DetailAction implements Action {
 			List<SchoolTestVO> list2 = service.listSchoolTest(request);
 			forward.setRedirect(false);
 			if(list.size() == 0) {
-				forward.setPath("/view/StudyContents/insertSchoolTest.jsp");
+				forward.setPath("/views/StudyContents/insertSchoolTest.jsp");
 			}else {
 				request.setAttribute("stlist", list);
 				request.setAttribute("stlist2", list2);
-				forward.setPath("/view/StudyContents/detailReportCard.jsp");
+				forward.setPath("/views/StudyContents/detailReportCard.jsp");
 			}
 		}else { //자격증 성적
 			List<LicenseTestVO> list = service.listLicenseTest(request);
 			if(list.size() == 0) {
-				forward.setPath("/view/StudyContents/insertLicenseTest.jsp");
+				forward.setPath("/views/StudyContents/insertLicenseTest.jsp");
 			}else {
 				request.setAttribute("ltlist", list);
-				forward.setPath("/view/StudyContents/detailLicenseReportCard.jsp");
+				forward.setPath("/views/StudyContents/detailLicenseReportCard.jsp");
 			}
 			
 		}

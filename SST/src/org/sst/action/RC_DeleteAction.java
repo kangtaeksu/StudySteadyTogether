@@ -20,7 +20,7 @@ public class RC_DeleteAction implements Action {
 		request.setAttribute("rclist", list);
 		
 		forward.setRedirect(false);
-		forward.setPath("/view/StudyContents/listReportCard.jsp");
+		forward.setPath("/views/StudyContents/listReportCard.jsp");
 		return forward;
 	}
 
