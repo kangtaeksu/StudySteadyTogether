@@ -63,7 +63,7 @@
                                         placeholder="핸드폰 번호를 입력하세요 ex) 010-1111-1111">
                                 </div>
                                 <div class="form-group">
-                                    <input name="email" type="text" class="form-control form-control-user"
+                                    <input name="birth" type="text" class="form-control form-control-user"
                                         placeholder="생년월일을 입력하세요 ex) 991225">
                                 </div>
                                 <input type="submit" class="btn btn-primary btn-user btn-block" value="회원가입">
