@@ -1,0 +1,35 @@
+"from sklearn.preprocessing import MinMaxScaler\n",
+    "\n",
+    "scaler = MinMaxScaler()\n",
+    "scaler.fit(x_train[['NOX', 'RM']])\n",
+    "x_test = x_test.copy()\n",
+    "\n",
+    "x_train[['NOX','RM']]= scaler.transform(x_train[['NOX','RM']])\n",
+    "x_valid[['NOX','RM']]= scaler.transform(x_valid[['NOX','RM']])\n",
+    "x_test[['NOX', 'RM']]= scaler.transform(x_test[['NOX','RM']])"
+
+
+===
+
+"target = x_test['CHAS']==1\n",
+    "x_chas1 =x_test[target]\n",
+    "y_chas1 = y_test[target]\n",
+    "\n",
+    "maes_chas = {}\n",
+    "maes_chas['lr'] = mean_absolute_error(y_chas1, lr.predict(x_chas1))\n",
+    "maes_chas['ridge'] = mean_absolute_error(y_chas1, ridge.predict(x_chas1))\n",
+    "maes_chas['lasso'] = mean_absolute_error(y_chas1, lasso.predict(x_chas1))\n",
+    "maes_chas['elastic'] = mean_absolute_error(y_chas1, elastic.predict(x_chas1))\n",
+    "\n",
+    "print(maes_chas)"
+    
+    
+    
+       "from sklearn.preprocessing import StandardScaler\n",
+    "\n",
+    "scaler = StandardScaler()\n",
+    "scaler.fit(x_train[['RAD','B']])\n",
+    "\n",
+    "x_train[['RAD','B']]= scaler.transform(x_train[['RAD','B']])\n",
+    "x_valid[['RAD','B']]= scaler.transform(x_valid[['RAD','B']])\n",
+    "x_test[['RAD','B']]= scaler.transform(x_test[['RAD','B']])"
